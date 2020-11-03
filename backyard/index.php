@@ -45,7 +45,7 @@
                                 <div class="row align-items-center">
 								 <div class="col-md-6">
                                         <div class="xs-d-none">
-                                             <img src="img/core-img/logo.png" alt="" style="background:#000">
+                                             <img src="img/core-img/logo.png" alt="" >
                                         </div>
                                     </div>
                                     <div class="col-md-6">
