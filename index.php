@@ -331,22 +331,36 @@
 					<h2 class="h1">Our Recent Picks</h2>
 					<div class="h-decor"></div>
 				</div>
+                
 				<div class="single-service-carousel js-single-service-carousel">
+                    <?php
+                               $picks=$link->rawQuery("select * from picks");
+                            if($picks)
+                                                {
+                                                    foreach($picks as $pick)
+                                                    {
+                            ?>
 					<div class="single-service">
 						<div class="row">
+                            
 							<div class="col-md">
 								<div class="text-right pl-0 pl-md-3 pl-lg-6">
-									<h3>PRPO</h3>
-									<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book</p>
-									<div class="btn-wrap"><a href="#" class="btn btn-hover-fill"><span>Read more</span></i></a></div>
+									<h3><?php echo $pick['picks_name']; ?></h3>
+									<p><?php echo $pick['picks_description']; ?></p>
+									<div class="btn-wrap"><a href="<?php $pick['picks_website']; ?>" class="btn btn-hover-fill"><span>Read more</span></i></a>
+                                    </div>
 								</div>
 							</div>
 							<div class="col-md col-img">
-								<img src="assets/images/1.png" alt="" class="img-fluid">
+								<img src="backyard/images/picks_image/<?php echo $pick['picks_image']; ?>" alt="<?php echo $pick['picks_name'];?>" class="img-fluid">
 							</div>
 						</div>
 					</div>
-					<div class="single-service">
+                    <?php
+                        }
+                    }
+                    ?>
+					<!--<div class="single-service">
 						<div class="row">
 							<div class="col-md col-img text-right">
 								<img src="assets/images/1.png" alt="" class="img-fluid">
@@ -386,7 +400,7 @@
 									<div class="btn-wrap"><a href="#" class="btn btn-hover-fill"><span>Read more</span></a></div>
 								</div>
 							</div>
-						</div>
+						</div>-->
 					</div>
 				</div>
 			</div>
@@ -744,10 +758,10 @@
         <!-- Contact -->
         <section id="contact" class="section-7 odd form featured">
             <div class="container">
-                <form action="#" id="leverage-form" class="multi-step-form">
+                <form method="post" action="insert_letstalk.php" id="formsubmit" class="multi-step-form">
                     <input type="hidden" name="section" value="leverage_form">
 
-                    <input type="hidden" name="reCAPTCHA">
+                    <!--<input type="hidden" name="reCAPTCHA">-->
                     <!-- Remove this field if you want to disable recaptcha -->
 
                     <div class="row">
@@ -788,23 +802,25 @@
                                     <fieldset class="step-group">
                                         <div class="row">
                                             <div class="col-12 input-group p-0">
-                                                <input type="email" name="email" data-minlength="3" class="form-control field-email" placeholder="Email">
+                                                <input type="email" name="lets_talk_email" id="lets_talk_email" data-minlength="3" class="form-control field-email" placeholder="Email">
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-12 input-group p-0">
-                                                <input type="text" name="name" data-minlength="3" class="form-control field-name" placeholder="Name">
+                                                <input type="text" name="lets_talk_name" id="lets_talk_name" data-minlength="3" class="form-control field-name" placeholder="Name">
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-12 input-group p-0">
-                                                <input type="text" name="phone" data-minlength="3" class="form-control field-phone" placeholder="Phone">
+                                                <input type="text" name="lets_talk_phono" id="lets_talk_phono" data-minlength="3" class="form-control field-phone" placeholder="Phone">
                                             </div>
                                         </div>
                                         <div class="col-12 input-group p-0">
-                                            <a class="step-next btn primary-button">NEXT<i class="icon-arrow-right-circle left"></i></a>
+                                            <button type="submit" id="reg" class="step-next btn primary-button">NEXT<i class="icon-arrow-right-circle left"></i></button>
+                                            
                                         </div>
                                     </fieldset>
+                                    
 
                                 </div>
                             </div>
@@ -869,6 +885,57 @@
         <!-- ==============================================
         Vendor Scripts
         =============================================== -->
+        <script>
+        //Form Validation
+        $( document ).ready( function () {
+            $( "#formsubmit" ).validate( {
+                rules: {
+                    
+                    lets_talk_email: "required",
+                    lets_talk_name: "required",
+                    lets_talk_phono: "required",
+                    
+                    
+                },
+                messages: {
+                    
+                    lets_talk_email: 
+                    {
+                      required: "Please Enter E-mail *",
+                      email: "Please Enter Valid E-mail *"
+                    },
+                    lets_talk_name: "Please enter Product name",
+                    lets_talk_phono:
+                    {
+                      required: "Please Enter Phone No. *",
+                      digits: "Please Enter Only Digits *",
+                      minlength: "Please Enter Only 10 Digits *",
+                      maxlength: "Please Enter Only 10 Digits *"
+                    },
+                    
+                    
+                },
+                errorElement: "em",
+                errorPlacement: function ( error, element ) {
+                    // Add the `invalid-feedback` class to the error element
+                    error.addClass( "invalid-feedback" );
+
+                    if ( element.prop( "type" ) === "checkbox" ) {
+                        error.insertAfter( element.next( "label" ) );
+                    } else {
+                        error.insertAfter( element );
+                    }
+                },
+                highlight: function ( element, errorClass, validClass ) {
+                    $( element ).addClass( "is-invalid" ).removeClass( "is-valid" );
+                },
+                unhighlight: function (element, errorClass, validClass) {
+                    $( element ).addClass( "is-valid" ).removeClass( "is-invalid" );
+                }
+            } );
+
+        } );
+    </script>
         <script src="assets/js/vendor/jquery.min.js"></script>
         <script src="assets/js/vendor/jquery.easing.min.js"></script>
         <script src="assets/js/vendor/jquery.inview.min.js"></script>
