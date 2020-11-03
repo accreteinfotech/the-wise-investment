@@ -5,7 +5,7 @@
 	
 	ini_set('POST_MAX_SIZE','64M');
 	ini_set('UPLOAD_MAX_FILESIZE','64M');
-	$project_name="Miva";
+	$project_name="The Wise Investing";
 	
 	
 	//$site_url="http://localhost:8088/miva-fashion/";
