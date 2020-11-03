@@ -18,8 +18,6 @@
 							<a href="javascript:void(0)"><i class="zmdi zmdi-account-box-phone"></i> <span>SEO</span> <i class="fa fa-angle-right"></i></a>
 							<ul class="treeview-menu">
 								<li><a href="../seo/View-Seo">- Page SEO</a></li>
-								<li><a href="../seo/View-Product">- Product SEO</a></li>
-								<li><a href="../seo/View-Category">- Category SEO</a></li>
 								<li><a href="../seo/Google-Analytics">- Google Analytics</a></li>
 								<li><a href="../seo/Facebook-Pixel">- Facebook Pixel</a></li>
 								<li><a href="../seo/Tag-Manager">- Tag Manager</a></li>
