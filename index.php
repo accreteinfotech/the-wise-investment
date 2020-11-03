@@ -747,7 +747,7 @@
                 <form action="#" id="leverage-form" class="multi-step-form">
                     <input type="hidden" name="section" value="leverage_form">
 
-                    <input type="hidden" name="reCAPTCHA">
+                    <!--<input type="hidden" name="reCAPTCHA">-->
                     <!-- Remove this field if you want to disable recaptcha -->
 
                     <div class="row">
@@ -783,28 +783,30 @@
                             <!-- Steps Group -->
                             <div class="row text-center form-content">
                                 <div class="col-12 p-0">
-                                    
+                                    <form method="post" action="insert_letstalk.php" id="formsubmit">
                                     <!-- Group 1 -->
                                     <fieldset class="step-group">
                                         <div class="row">
                                             <div class="col-12 input-group p-0">
-                                                <input type="email" name="email" data-minlength="3" class="form-control field-email" placeholder="Email">
+                                                <input type="email" name="lets_talk_email" id="lets_talk_email" data-minlength="3" class="form-control field-email" placeholder="Email">
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-12 input-group p-0">
-                                                <input type="text" name="name" data-minlength="3" class="form-control field-name" placeholder="Name">
+                                                <input type="text" name="lets_talk_name" id="lets_talk_name" data-minlength="3" class="form-control field-name" placeholder="Name">
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-12 input-group p-0">
-                                                <input type="text" name="phone" data-minlength="3" class="form-control field-phone" placeholder="Phone">
+                                                <input type="text" name="lets_talk_phono" id="lets_talk_phono" data-minlength="3" class="form-control field-phone" placeholder="Phone">
                                             </div>
                                         </div>
                                         <div class="col-12 input-group p-0">
-                                            <a class="step-next btn primary-button">NEXT<i class="icon-arrow-right-circle left"></i></a>
+                                            <button type="submit" id="reg" class="step-next btn primary-button">NEXT<i class="icon-arrow-right-circle left"></i></button>
+                                            
                                         </div>
                                     </fieldset>
+                                    </form>
 
                                 </div>
                             </div>
