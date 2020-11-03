@@ -17,10 +17,12 @@
 	$control=$link->rawQueryOne("select * from inventory_control");
 	$warning=$control['inventory_control_warning'];
 	$danger=$control['inventory_control_danger'];
-	$page_name= basename($_SERVER['PHP_SELF']);
+	
 	$per_page =30;*/
 	//define how many products for a page
 	
+	//Page Name
+	$page_name= basename($_SERVER['PHP_SELF']);
 	//Email Config
 	$host_name="";
 	$port="";
