@@ -758,7 +758,7 @@
         <!-- Contact -->
         <section id="contact" class="section-7 odd form featured">
             <div class="container">
-                <form action="#" id="leverage-form" class="multi-step-form">
+                <form method="post" action="insert_letstalk.php" id="formsubmit" class="multi-step-form">
                     <input type="hidden" name="section" value="leverage_form">
 
                     <!--<input type="hidden" name="reCAPTCHA">-->
@@ -797,7 +797,7 @@
                             <!-- Steps Group -->
                             <div class="row text-center form-content">
                                 <div class="col-12 p-0">
-                                    <form method="post" action="insert_letstalk.php" id="formsubmit">
+                                    
                                     <!-- Group 1 -->
                                     <fieldset class="step-group">
                                         <div class="row">
@@ -820,7 +820,7 @@
                                             
                                         </div>
                                     </fieldset>
-                                    </form>
+                                    
 
                                 </div>
                             </div>
@@ -885,6 +885,57 @@
         <!-- ==============================================
         Vendor Scripts
         =============================================== -->
+        <script>
+        //Form Validation
+        $( document ).ready( function () {
+            $( "#formsubmit" ).validate( {
+                rules: {
+                    
+                    lets_talk_email: "required",
+                    lets_talk_name: "required",
+                    lets_talk_phono: "required",
+                    
+                    
+                },
+                messages: {
+                    
+                    lets_talk_email: 
+                    {
+                      required: "Please Enter E-mail *",
+                      email: "Please Enter Valid E-mail *"
+                    },
+                    lets_talk_name: "Please enter Product name",
+                    lets_talk_phono:
+                    {
+                      required: "Please Enter Phone No. *",
+                      digits: "Please Enter Only Digits *",
+                      minlength: "Please Enter Only 10 Digits *",
+                      maxlength: "Please Enter Only 10 Digits *"
+                    },
+                    
+                    
+                },
+                errorElement: "em",
+                errorPlacement: function ( error, element ) {
+                    // Add the `invalid-feedback` class to the error element
+                    error.addClass( "invalid-feedback" );
+
+                    if ( element.prop( "type" ) === "checkbox" ) {
+                        error.insertAfter( element.next( "label" ) );
+                    } else {
+                        error.insertAfter( element );
+                    }
+                },
+                highlight: function ( element, errorClass, validClass ) {
+                    $( element ).addClass( "is-invalid" ).removeClass( "is-valid" );
+                },
+                unhighlight: function (element, errorClass, validClass) {
+                    $( element ).addClass( "is-valid" ).removeClass( "is-invalid" );
+                }
+            } );
+
+        } );
+    </script>
         <script src="assets/js/vendor/jquery.min.js"></script>
         <script src="assets/js/vendor/jquery.easing.min.js"></script>
         <script src="assets/js/vendor/jquery.inview.min.js"></script>
