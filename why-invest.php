@@ -394,25 +394,25 @@ input::-moz-focus-outer {
                 <div class="row justify-content-center text-center items">
                     <div class="col-12 col-md-12 col-lg-12 item">
                         <h5 style="text-align:left;padding-left: 22px;">Initial Value</h5>
-                       <div class="range-slider" style="margin-top:30px;">
-  <input class="range-slider__range" type="range" value="100" min="0" max="500">
-  <span class="range-slider__value">0</span>
-</div>
- <h5 style="text-align:left;padding-left: 22px;">How many years ?</h5>
-<div class="range-slider" style="margin-top:30px;">
-  <input class="range-slider__range" type="range" value="20" min="0" max="20" step="50">
-  <span class="range-slider__value">0</span>
-</div>
- <h5 style="text-align:left;padding-left: 22px;">Every Month Contribution ?</h5>
-<div class="range-slider" style="margin-top:30px;">
-  <input class="range-slider__range" type="range" value="250" min="0" max="5000" step="50">
-  <span class="range-slider__value">0</span>
-</div>
- <h5 style="text-align:left;padding-left: 22px;">Average Return ?</h5>
-<div class="range-slider" style="margin-top:30px;">
-  <input class="range-slider__range" type="range" value="18" min="5" max="25" step="50">
-  <span class="range-slider__value">0</span>
-</div>
+							<div class="range-slider" id="range-slider1"  style="margin-top:30px;">
+							  <input class="range-slider__range" type="range" value="100" min="0" max="5000">
+							  <span class="range-slider__value" id="initial_value">0</span>
+							</div>
+						<h5 style="text-align:left;padding-left: 22px;">How many years ?</h5>
+							<div class="range-slider" id="range-slider2" style="margin-top:30px;">
+							  <input class="range-slider__range" type="range" value="1" min="0" max="20" step="1">
+							  <span class="range-slider__value" id="years">0</span>
+							</div>
+						<h5 style="text-align:left;padding-left: 22px;">Every Month Contribution ?</h5>
+							<div class="range-slider" id="range-slider3" style="margin-top:30px;">
+							  <input class="range-slider__range" type="range" value="250" min="0" max="5000" step="50">
+							  <span class="range-slider__value" id="month" >0</span>
+							</div>
+						<h5 style="text-align:left;padding-left: 22px;">Average Return ?</h5>
+							<div class="range-slider" id="range-slider4" style="margin-top:30px;">
+							  <input class="range-slider__range" type="range" value="18" min="5" max="25" step="1">
+							  <span class="range-slider__value" id="return">0</span>
+							</div>
  
                     </div>
                 </div>
@@ -511,15 +511,47 @@ input::-moz-focus-outer {
     value.each(function(){
       var value = $(this).prev().attr('value');
       $(this).html(value);
-    });
+	  //alert("value");
+	 });
 
     range.on('input', function(){
       $(this).next(value).html(this.value);
+	
     });
   });
 };
+$( "#range-slider1" ).change(function() {
+	 var ini= $("#initial_value").html();
+	 var years= $("#years").html();
+	 var month= $("#month").html();
+	 var ret= $("#return").html();
+	 /* alert(ini);
+	  alert(years);
+	  alert(month);
+	  alert(ret);*/
+	var amt=(month*((1+ret)**years-1))+(ini*(1+ret)**years);
+	alert(amt);
+});
+$( "#range-slider2" ).change(function() {
+	 var ini= $("#years").html();
+	  alert(ini);
+ 
+});
+$( "#range-slider3" ).change(function() {
+	 var ini= $("#month").html();
+	  alert(ini);
+  
+});
+$( "#range-slider4" ).change(function() {
+	 var ini= $("#return").html();
+	  alert(ini);
+  
+});
+$( document ).ready(function(){
+	rangeSlider();
+});
+	
 
-rangeSlider();
 		</script>
 
         <!-- #endregion Global ========================= -->
