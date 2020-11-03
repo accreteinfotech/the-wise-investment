@@ -30,6 +30,14 @@
                             </li>
                            
 							 <li class="active"><a href="../change_password/Change-Password"><i class="zmdi zmdi-key"></i> <span>Change Password</span></a></li>
+
+                             <li class="treeview">
+                                <a href="javascript:void(0)"><i class="zmdi zmdi-account-box-phone"></i> <span>Picks</span> <i class="fa fa-angle-right"></i></a>
+                                <ul class="treeview-menu">
+                                    <li><a href="../picks/Add-Picks">- Add Picks</a></li>
+                                    <li><a href="../picks/View-Picks">- View Picks</a></li>
+                                </ul>
+                            </li>
                            
                         </ul>
                     </nav>

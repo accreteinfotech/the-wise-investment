@@ -162,6 +162,14 @@ RewriteRule ^backyard/blogs/View-Blogs/?$ backyard/blogs/view_blogs.php
 RewriteRule ^backyard/blogs/Edit-Blog/([a-zA-Z0-9]+)$ backyard/blogs/edit_blogs.php?cid=$1
 RewriteRule ^backyard/blogs/Delete-Blog/([a-zA-Z0-9]+)$ backyard/blogs/delete_blogs.php?cid=$1
 
+#Picks Links
+RewriteRule ^backyard/picks/Add-Picks/?$ backyard/picks/add_picks.php
+RewriteRule ^backyard/picks/Insert-Picks/?$ backyard/picks/insert_picks.php
+RewriteRule ^backyard/picks/Update-Picks/?$ backyard/picks/update_picks.php
+RewriteRule ^backyard/picks/View-Picks/?$ backyard/picks/view_picks.php
+RewriteRule ^backyard/picks/Edit-Picks/([a-zA-Z0-9]+)$ backyard/picks/edit_picks.php?cid=$1
+RewriteRule ^backyard/picks/Delete-Picks/([a-zA-Z0-9]+)$ backyard/picks/delete_picks.php?cid=$1
+
 #Color Links
 RewriteRule ^backyard/color/Add-Color/?$ backyard/color/add_color.php
 RewriteRule ^backyard/color/Insert-Color/?$ backyard/color/insert_color.php

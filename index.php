@@ -331,22 +331,36 @@
 					<h2 class="h1">Our Recent Picks</h2>
 					<div class="h-decor"></div>
 				</div>
+                
 				<div class="single-service-carousel js-single-service-carousel">
+                    <?php
+                               $picks=$link->rawQuery("select * from picks");
+                            if($picks)
+                                                {
+                                                    foreach($picks as $pick)
+                                                    {
+                            ?>
 					<div class="single-service">
 						<div class="row">
+                            
 							<div class="col-md">
 								<div class="text-right pl-0 pl-md-3 pl-lg-6">
-									<h3>PRPO</h3>
-									<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book</p>
-									<div class="btn-wrap"><a href="#" class="btn btn-hover-fill"><span>Read more</span></i></a></div>
+									<h3><?php echo $pick['picks_name']; ?></h3>
+									<p><?php echo $pick['picks_description']; ?></p>
+									<div class="btn-wrap"><a href="<?php $pick['picks_website']; ?>" class="btn btn-hover-fill"><span>Read more</span></i></a>
+                                    </div>
 								</div>
 							</div>
 							<div class="col-md col-img">
-								<img src="assets/images/1.png" alt="" class="img-fluid">
+								<img src="backyard/images/picks_image/<?php echo $pick['picks_image']; ?>" alt="<?php echo $pick['picks_name'];?>" class="img-fluid">
 							</div>
 						</div>
 					</div>
-					<div class="single-service">
+                    <?php
+                        }
+                    }
+                    ?>
+					<!--<div class="single-service">
 						<div class="row">
 							<div class="col-md col-img text-right">
 								<img src="assets/images/1.png" alt="" class="img-fluid">
@@ -386,7 +400,7 @@
 									<div class="btn-wrap"><a href="#" class="btn btn-hover-fill"><span>Read more</span></a></div>
 								</div>
 							</div>
-						</div>
+						</div>-->
 					</div>
 				</div>
 			</div>
