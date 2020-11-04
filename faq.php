@@ -206,7 +206,7 @@ color: #98c23d;
                                 <h1 data-aos="zoom-out-up" data-aos-delay="400" class="title effect-static-text" style="font-size:50px;">FAQs</h1>
                                 <nav data-aos="zoom-out-up" data-aos-delay="800" aria-label="breadcrumb">
                                     <ol class="breadcrumb">
-                                        <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+                                        <li class="breadcrumb-item"><a href="Home">Home</a></li>
                                         <li class="breadcrumb-item active" aria-current="page">FAQs</li>
                                     </ol>
                                 </nav>

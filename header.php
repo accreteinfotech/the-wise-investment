@@ -5,7 +5,7 @@
                 <div class="container header">
 
                     <!-- Navbar Brand-->
-                    <a class="navbar-brand" href="index.php">
+                    <a class="navbar-brand" href="Home">
                             <img src="assets/images/logo-1.png" alt="The Wise Investing">
                     </a>
 
@@ -91,31 +91,31 @@
                         </li> -->
                        
                         <li class="nav-item">
-                            <a href="index.php" class="nav-link">Home</a>
+                            <a href="Home" class="nav-link">Home</a>
                         </li>
 						
 						<li class="nav-item">
-                            <a href="about.php" class="nav-link">About Us</a>
+                            <a href="About" class="nav-link">About Us</a>
                         </li>
 						
 						<li class="nav-item">
-                            <a href="why-invest.php" class="nav-link">Why Invest</a>
+                            <a href="Why-Invest" class="nav-link">Why Invest</a>
                         </li>
 						
 						<li class="nav-item">
-                            <a href="subscription.php" class="nav-link">Subscription</a>
+                            <a href="Subscription" class="nav-link">Subscription</a>
                         </li>
 						
 						<li class="nav-item">
-                            <a href="blog.php" class="nav-link">Blogs</a>
+                            <a href="Blog" class="nav-link">Blogs</a>
                         </li>
 						
 						<li class="nav-item">
-                            <a href="faq.php" class="nav-link">FAQs</a>
+                            <a href="Faq" class="nav-link">FAQs</a>
                         </li>
 						
 						<li class="nav-item">
-                            <a href="contact.php" class="nav-link">Contact Us</a>
+                            <a href="Contact-us" class="nav-link">Contact Us</a>
                         </li>
                        
                     </ul>

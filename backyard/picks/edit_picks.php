@@ -240,7 +240,7 @@ function myfunn1()
 			
 		}
 	//Form Validation
-		$( document ).ready( function () {
+		/*$( document ).ready( function () {
 			$( "#formsubmit" ).validate( {
 				rules: {
 					
@@ -281,7 +281,7 @@ function myfunn1()
 				}
 			} );
 
-		} );
+		} );*/
 	</script>
 	 <script>
 

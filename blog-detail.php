@@ -97,6 +97,12 @@
             
                 --footer-bg-color: #191919;
             }
+            p{
+                color: #8e8e8e !important;
+            }
+            span{
+                color: #8e8e8e !important;
+            }
         </style>
         
     </head>
@@ -123,7 +129,7 @@
                                 <h1 data-aos="zoom-out-up" data-aos-delay="400" class="title effect-static-text" style="font-size:50px;"><?php echo $blog['blog_title']; ?></h1>
                                 <nav data-aos="zoom-out-up" data-aos-delay="800" aria-label="breadcrumb">
                                     <ol class="breadcrumb">
-                                        <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+                                        <li class="breadcrumb-item"><a href="Home">Home</a></li>
                                         <li class="breadcrumb-item active" aria-current="page">Blog Details</li>
                                     </ol>
                                 </nav>
@@ -165,7 +171,7 @@
                                     <li>Consectetur adipiscing elit.</li>
                                     <li>Integer molestie lorem at massa.</li>
                                 </ul>-->
-                                <p style="color: white !important;"><?php echo $blog['blog_description']; ?></p>
+                                <p><?php echo $blog['blog_description']; ?></p>
                                 <!--<p><?php //echo $blog['blog_short_desc']; ?></p>-->
 
                                 <!-- Post Holder -->

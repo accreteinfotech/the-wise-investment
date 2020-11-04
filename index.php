@@ -333,12 +333,15 @@
 				</div>
                 
 				<div class="single-service-carousel js-single-service-carousel">
+
                     <?php
-                               $picks=$link->rawQuery("select * from picks");
+                            $i=0;
+                            $picks=$link->rawQuery("select * from picks");
                             if($picks)
                                                 {
                                                     foreach($picks as $pick)
                                                     {
+                                                        if($i%2==0){
                             ?>
 					<div class="single-service">
 						<div class="row">
@@ -347,7 +350,7 @@
 								<div class="text-right pl-0 pl-md-3 pl-lg-6">
 									<h3><?php echo $pick['picks_name']; ?></h3>
 									<p><?php echo $pick['picks_description']; ?></p>
-									<div class="btn-wrap"><a href="<?php $pick['picks_website']; ?>" class="btn btn-hover-fill"><span>Read more</span></i></a>
+									<div class="btn-wrap"><a href="<?php echo $pick['picks_website']; ?>" class="btn btn-hover-fill"><span>Read more</span></i></a>
                                     </div>
 								</div>
 							</div>
@@ -358,23 +361,29 @@
 					</div>
                     <?php
                         }
-                    }
+                        else{
                     ?>
-					<!--<div class="single-service">
+					<div class="single-service">
 						<div class="row">
 							<div class="col-md col-img text-right">
 								<img src="assets/images/1.png" alt="" class="img-fluid">
 							</div>
 							<div class="col-md">
 								<div class="text-left pr-0 pr-md-3 pr-lg-6">
-									<h3>PRPO</h3>
-									<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book</p>
-									<div class="btn-wrap"><a href="#" class="btn btn-hover-fill"></i><span>Read more</span></a></div>
+									<h3><?php echo $pick['picks_name']; ?></h3>
+									<p><?php echo $pick['picks_description']; ?></p>
+									<div class="btn-wrap"><a href="<?php echo $pick['picks_website']; ?>" class="btn btn-hover-fill"></i><span>Read more</span></a></div>
 								</div>
 							</div>
 						</div>
 					</div>
-					<div class="single-service">
+                    <?php
+                        }
+                        $i++;
+                    }
+                    }
+                    ?>
+					<!--<div class="single-service">
 						<div class="row">
 							<div class="col-md">
 								<div class="text-right pl-0 pl-md-3 pl-lg-6">
@@ -451,11 +460,14 @@
                             <p>Every week we publish exclusive content on various topics.</p>
                         </div>
                         <div class="col-12 col-md-3 align-self-end">
-                            <a href="#" class="btn mx-auto mr-md-0 ml-md-auto primary-button"><i class="icon-grid"></i>VIEW ALL</a>
+                            <a href="Blog" class="btn mx-auto mr-md-0 ml-md-auto primary-button"><i class="icon-grid"></i>VIEW ALL</a>
                         </div>
                     </div>
+
+
                      
-                    <div class="swiper-container mid-slider items">
+                   <div class="swiper-container mid-slider items">
+                       <div class="swiper-wrapper">
                         <?php
                             $sql=$link->rawQuery("select * from blog where is_active=1");
                                 if($sql)
@@ -463,9 +475,7 @@
                                         foreach($sql as $cat)
                                         {
                             ?>
-                        <div class="swiper-wrapper">
-                           
-                            <div class="swiper-slide slide-center item">
+                             <div class="swiper-slide slide-center item">
                                 <div class="row card p-0 text-center">
                                     <div class="image-over">
                                         <img src="backyard/images/blog_thumb_image/<?php echo $cat['blog_thumb_image']; ?>" alt="<?php echo $cat['blog_name']; ?>">
@@ -483,56 +493,61 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <?php
+                            <?php
                         }
                         }
                     ?>
+                                <!--<div class="swiper-slide slide-center item">
+                               <div class="row card p-0 text-center">
+                                 <div class="image-over">
+                                   <img src="assets/images/news-1-h.jpg" alt="Lorem ipsum">
+                                </div>
+                                <div class="card-caption col-12 p-0">
+                                  <div class="card-body">
+                                    <a href="#">
+                                      <h4 class="m-0">Tips for having a good relationship at work.</h4>
+                                    </a>
+                                   </div>
+                                <div class="card-footer d-lg-flex align-items-center justify-content-center">
+                                  <a href="#" class="d-lg-flex align-items-center">
+                                    <i class="icon-user"></i>John Doe</a>
+                                  <a href="#" class="d-lg-flex align-items-center">
+                                    <i class="icon-clock"></i>3 Days Ago</a>
+                                </div>
+                                </div>
+                                </div>
+                                </div>
+
+                                <div class="swiper-slide slide-center item">
+                               <div class="row card p-0 text-center">
+                                 <div class="image-over">
+                                   <img src="assets/images/news-1-h.jpg" alt="Lorem ipsum">
+                                </div>
+                                <div class="card-caption col-12 p-0">
+                                  <div class="card-body">
+                                    <a href="#">
+                                      <h4 class="m-0">Tips for having a good relationship at work.</h4>
+                                    </a>
+                                   </div>
+                                <div class="card-footer d-lg-flex align-items-center justify-content-center">
+                                  <a href="#" class="d-lg-flex align-items-center">
+                                    <i class="icon-user"></i>John Doe</a>
+                                  <a href="#" class="d-lg-flex align-items-center">
+                                    <i class="icon-clock"></i>3 Days Ago</a>
+                                </div>
+                                </div>
+                                </div>
+                                </div>-->
+                        
                         <div class="swiper-pagination"></div>
                     </div>
                      
                 </div>
             </div>
-        </section>
-
-
-	 <section id="partner" class="section-4 odd logos" style="padding:75px;">
-            <div class="overflow-holder">
-                <div class="container">
-				
-                    <div class="swiper-container min-slider">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide slide-center item">
-                                <img src="assets/images/logo-1.png" class="fit-image w-85" alt="Fit Image">
-                            </div>
-                            <div class="swiper-slide slide-center item">
-                                <img src="assets/images/logo-2.png" class="fit-image w-85" alt="Fit Image">
-                            </div>
-                            <div class="swiper-slide slide-center item">
-                                <img src="assets/images/logo-3.png" class="fit-image w-85" alt="Fit Image">
-                            </div>
-                            <div class="swiper-slide slide-center item">
-                                <img src="assets/images/logo-4.png" class="fit-image w-85" alt="Fit Image">
-                            </div>
-                            <div class="swiper-slide slide-center item">
-                                <img src="assets/images/logo-5.png" class="fit-image w-85" alt="Fit Image">
-                            </div>
-                            <div class="swiper-slide slide-center item">
-                                <img src="assets/images/logo-6.png" class="fit-image w-85" alt="Fit Image">
-                            </div>
-                            <div class="swiper-slide slide-center item">
-                                <img src="assets/images/logo-7.png" class="fit-image w-85" alt="Fit Image">
-                            </div>
-                            <div class="swiper-slide slide-center item">
-                                <img src="assets/images/logo-8.png" class="fit-image w-85" alt="Fit Image">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        </div>
         </section>
 		
-		  <!-- Testimonials -->
+		   <!-- Testimonials -->
         <section id="testimonials" class="section-4 odd carousel featured all" style="padding-top:50px;">
             <div class="overflow-holder">
                 <div class="container">
@@ -545,7 +560,7 @@
                     <div class="swiper-container mid-slider items">
                         <div class="swiper-wrapper">
                             <?php
-                            $sql=$link->rawQuery("select * from testimonial");
+                            $sql=$link->rawQuery("select * from testimonial where testimonial_delete=0");
                                 if($sql)
                                     {
                                         foreach($sql as $cat)
@@ -554,7 +569,7 @@
                             <div class="swiper-slide slide-center text-center item">
                                 <div class="row card">
                                     <div class="col-12">
-                                        <img src="backyard/images/testimonial_img/<?php echo $cat['testimonial_img']; ?>" alt="<?php echo $cat['client_name']; ?>" class="person" style="max-width:100px;border-radius:100%;">
+                                        <img src="backyard/images/client_image/<?php echo $cat['client_image']; ?>" alt="<?php echo $cat['client_name']; ?>" class="person" style="max-width:100px;border-radius:100%;">
                                         <h4><?php echo $cat['client_name'];?></h4>
                                         <p><?php echo $cat['testimonial_msg']; ?></p>
                                         <ul class="navbar-nav social share-list ml-auto">
@@ -604,12 +619,33 @@
                                     </div>
                                 </div>
                             </div>-->
+							<?php
+								$r=$link->rawQuery("select * from review");
+								if($link->count > 0)
+								{
+									foreach($r as $review)
+									{
+										?>
+										<div class="swiper-slide slide-center text-center item">
+											<div class="row card">
+												<div class="col-12">
+													<img src="backyard/images/review_image/<?php echo $review['review_image']; ?>" alt="<?php echo $review['review_name']; ?>" class="person" style="max-width:100px;border-radius:100%;">
+													<h4><?php echo $review['review_name']; ?></h4>
+													<p><?php echo $review['review_description']; ?>.</p>
+												</div>
+											</div>
+										</div>
+										<?php
+									}
+								}
+							?>
                         </div>
                         <div class="swiper-pagination"></div>
                     </div>
                 </div>
             </div>
         </section>
+
 
 
         <!-- Contact -->
