@@ -97,7 +97,8 @@
             }
 		
         </style>
-        
+        <script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
+		<script src="https://js.stripe.com/v3/"></script>
     </head>
 
     <body>
@@ -171,7 +172,7 @@
                                 </li>
 								
                             </ul>
-                            <a href="#" class="smooth-anchor btn mx-auto primary-button"><i class="icon-arrow-right-circle"></i>CHOSE PLAN</a>
+                            <a href="#" id="checkout-button" class="smooth-anchor btn mx-auto primary-button"><i class="icon-arrow-right-circle"></i>CHOSE PLAN</a>
                         </div>
                     </div>
                     <div class="col-12 col-md-6 col-lg-6 align-self-center text-center item">
@@ -202,7 +203,7 @@
                                 </li>
 								
                             </ul>
-                            <a href="#" class="smooth-anchor btn mx-auto primary-button"><i class="icon-arrow-right-circle"></i>CHOSE PLAN</a>
+                            <a href="#" id="checkout-button2" class="smooth-anchor btn mx-auto primary-button"><i class="icon-arrow-right-circle"></i>CHOSE PLAN</a>
                         </div>
                     </div>
                 </div>
@@ -279,6 +280,60 @@
         Vendor Scripts
         =============================================== -->
         <script src="assets/js/vendor/jquery.min.js"></script>
+		 <script type="text/javascript">
+		// Create an instance of the Stripe object with your publishable API key
+		var stripe = Stripe("pk_live_51HKUuPBJHkDxSTq4xGWohVwBOTDtiNGfIP5hls0dKxUPftxkVVPYYb3CPwWNggQ89ajrKUiyv7rMxVCu7VnlCamG00eJAtqVmj");
+		var checkoutButton = document.getElementById("checkout-button");
+		checkoutButton.addEventListener("click", function () {
+		  fetch("<?php echo $site_url; ?>/create-session.php", {
+			method: "POST",
+		  })
+			.then(function (response) {
+			  return response.json();
+			})
+			.then(function (session) {
+			  return stripe.redirectToCheckout({ sessionId: session.id });
+			})
+			.then(function (result) {
+			  // If redirectToCheckout fails due to a browser or network
+			  // error, you should display the localized error message to your
+			  // customer using error.message.
+			  if (result.error) {
+				alert(result.error.message);
+			  }
+			})
+			.catch(function (error) {
+			  console.error("Error:", error);
+			});
+		});
+	  </script>
+	  <script type="text/javascript">
+		// Create an instance of the Stripe object with your publishable API key
+		var stripe = Stripe("pk_live_51HKUuPBJHkDxSTq4xGWohVwBOTDtiNGfIP5hls0dKxUPftxkVVPYYb3CPwWNggQ89ajrKUiyv7rMxVCu7VnlCamG00eJAtqVmj");
+		var checkoutButton = document.getElementById("checkout-button2");
+		checkoutButton.addEventListener("click", function () {
+		  fetch("<?php echo $site_url; ?>/create-session2.php", {
+			method: "POST",
+		  })
+			.then(function (response) {
+			  return response.json();
+			})
+			.then(function (session) {
+			  return stripe.redirectToCheckout({ sessionId: session.id });
+			})
+			.then(function (result) {
+			  // If redirectToCheckout fails due to a browser or network
+			  // error, you should display the localized error message to your
+			  // customer using error.message.
+			  if (result.error) {
+				alert(result.error.message);
+			  }
+			})
+			.catch(function (error) {
+			  console.error("Error:", error);
+			});
+		});
+	  </script>
         <script src="assets/js/vendor/jquery.easing.min.js"></script>
         <script src="assets/js/vendor/jquery.inview.min.js"></script>
         <script src="assets/js/vendor/popper.min.js"></script>

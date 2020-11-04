@@ -231,7 +231,17 @@ input::-moz-focus-inner,
 input::-moz-focus-outer { 
   border: 0; 
 }
+#chartdiv {
+  width: 100%;
+  height: 400px;
+}
 		</style>
+		<!-- Resources -->
+<script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/themes/dark.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
+
     </head>
 
     <body>
@@ -365,25 +375,13 @@ input::-moz-focus-outer {
                 <div class="swiper-pagination"></div>
             </div>
         </section>
-        <!-- About [video] -->
-       <section id="pricing" class="section-3 odd plans featured" style="padding-top:30px;">
+		<section id="services" class="section-2 odd offers featured custom">
             <div class="container">
-                <div class="row text-center intro">
+				<div class="row text-center intro">
                     <div class="col-12">
                         <h2>“If you don’t find a way to make money while you sleep, you will work until you die” – Warren Buffet</h2>
                     </div>
                 </div>
-                <div class="row justify-content-center text-center items">
-                    <div class="col-12 col-md-12 col-lg-12 align-self-center text-center item">
-					<p style="font-size:22px;">Here’s a chart comparing Investing and Saving, to help you make your choice better.</p>
-                        <img src="assets/images/Initial-investment_-5000.jpg" />
-                    </div>
-                </div>
-            </div>
-        </section>
-	  
-	  <section id="services" class="section-2 odd offers featured custom">
-            <div class="container">
                 <div class="row intro">
                     <div class="col-12 col-md-12 align-self-center text-center text-md-left">
                         <h2 class="super effect-static-text">Calculate your investment!</h2>
@@ -395,17 +393,17 @@ input::-moz-focus-outer {
                     <div class="col-12 col-md-12 col-lg-12 item">
                         <h5 style="text-align:left;padding-left: 22px;">Initial Value</h5>
 							<div class="range-slider" id="range-slider1"  style="margin-top:30px;">
-							  <input class="range-slider__range" type="range" value="100" min="0" max="5000">
+							  <input class="range-slider__range" type="range" value="100" min="1" max="5000">
 							  <span class="range-slider__value" id="initial_value">0</span>
 							</div>
 						<h5 style="text-align:left;padding-left: 22px;">How many years ?</h5>
 							<div class="range-slider" id="range-slider2" style="margin-top:30px;">
-							  <input class="range-slider__range" type="range" value="1" min="0" max="20" step="1">
+							  <input class="range-slider__range" type="range" value="1" min="1" max="20" step="1">
 							  <span class="range-slider__value" id="years">0</span>
 							</div>
-						<h5 style="text-align:left;padding-left: 22px;">Every Month Contribution ?</h5>
+						<h5 style="text-align:left;padding-left: 22px;">Every Years Contribution ?</h5>
 							<div class="range-slider" id="range-slider3" style="margin-top:30px;">
-							  <input class="range-slider__range" type="range" value="250" min="0" max="5000" step="50">
+							  <input class="range-slider__range" type="range" value="250" min="1" max="5000" step="50">
 							  <span class="range-slider__value" id="month" >0</span>
 							</div>
 						<h5 style="text-align:left;padding-left: 22px;">Average Return ?</h5>
@@ -418,16 +416,27 @@ input::-moz-focus-outer {
                 </div>
 				 <div class="row intro">
                     <div class="col-12 col-md-12 align-self-center text-center text-md-left">
-                      <p style="font-size:32px;">Your Estimated Portfolio Value: $1411855</p>
+                      <p style="font-size:32px;" id="total">Your Estimated Portfolio Value: $1411855</p>
                     </div>
                     
                 </div>
 				
             </div>
         </section>
-  
-  
-		<section id="contact" class="section-6 form" style="padding-bottom:75px;">
+        <!-- About [video] -->
+       <section id="pricing" class="section-3 odd plans featured" style="padding-top:70px;">
+            <div class="container">
+                <div class="row justify-content-center text-center items">
+                    <div class="col-12 col-md-12 col-lg-12 align-self-center text-center item">
+					<p style="font-size:22px;">Here’s a chart comparing Investing and Saving, to help you make your choice better.</p>
+                       <!-- HTML -->
+					<div id="chartdiv"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+	  
+	  <section id="contact" class="section-6 form" style="padding-bottom:75px;">
             <div class="container smaller">
                 <div class="row text-center intro">
                     <div class="col-12">
@@ -521,49 +530,42 @@ input::-moz-focus-outer {
   });
 };
 $( "#range-slider1" ).change(function() {
+	 calculation();
+});
+$( "#range-slider2" ).change(function() {
+	calculation();
+});
+$( "#range-slider3" ).change(function() {
+	calculation();
+});
+$( "#range-slider4" ).change(function() {
+	calculation();
+});
+$( document ).ready(function(){
+	rangeSlider();
+	calculation();
+});
+function calculation()
+{
 	 var ini= $("#initial_value").html();
 	 var years= $("#years").html();
 	 var month= $("#month").html();
 	 var ret= $("#return").html();
-	 /* alert(ini);
-	  alert(years);
-	  alert(month);
-	  alert(ret);*/
-	  var a=ini*(1+0.18)**years;
-	  alert(a);
-	  var b=month/0.18;
-	  alert(b);
-	  var c=((1+0.18)**years)-1;
-	  alert(c);
-	  var d=c*b;
-//Final	 
-	 var e=d+a;
-	  alert(e);
+	 var ret_int=ret/100;
 	 
-	var amt=(ini*(1+ret)**years)+((month/ret)*((1+ret)**years-1));
+	  var a=ini*(1+ret_int)**years;
+	  var b=month/ret_int;
+	  var c=((1+ret_int)**years)-1;
+	  var d=c*b;
+	//Final	 
+	 var e=d+a;
+	  //alert(e);
+	 var amt=parseFloat(e).toFixed(2) ;
+	 //var amt=(ini*(1+ret)**years)+((month/ret)*((1+ret)**years-1));
 	//alert(amt);
-});
-$( "#range-slider2" ).change(function() {
-	 var ini= $("#years").html();
-	  alert(ini);
- 
-});
-$( "#range-slider3" ).change(function() {
-	 var ini= $("#month").html();
-	  alert(ini);
-  
-});
-$( "#range-slider4" ).change(function() {
-	 var ini= $("#return").html();
-	  alert(ini);
-  
-});
-$( document ).ready(function(){
-	rangeSlider();
-});
-	
-
-		</script>
+	$("#total").html("Your Estimated Portfolio Value: $"+amt);
+}
+</script>
 
         <!-- #endregion Global ========================= -->
 
