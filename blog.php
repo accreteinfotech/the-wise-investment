@@ -134,23 +134,34 @@
                 <div class="row content blog-grid masonry">
                     <main class="col-12 p-0">
                         <div class="bricklayer items columns-3">
+                            <?php
+                            $sql=$link->rawQuery("select * from blog where is_active=1");
+                                if($sql)
+                                    {
+                                        foreach($sql as $cat)
+                                        {
+                            ?>
                             <div class="card p-0 text-center item">
                                 <div class="image-over">
-                                    <img src="assets/images/news-1-h.jpg" alt="Lorem ipsum">
+                                    <img src="backyard/images/blog_thumb_image/<?php echo $cat['blog_thumb_image']; ?>" alt="<?php echo $cat['blog_name']; ?>">
                                 </div>
                                 <div class="card-caption col-12 p-0">
                                     <div class="card-body">
-                                        <a href="blog-detail.php">
-                                            <h4>Tips for having a good relationship at work.</h4>
+                                        <a href="Blog/<?php echo $cat['blog_alias']; ?>">
+                                            <h4><?php echo $cat['blog_title']; ?></h4>
                                         </a>
                                     </div>
                                     <div class="card-footer d-lg-flex align-items-center justify-content-center">
-                                        <a href="blog-detail.php" class="d-lg-flex align-items-center"><i class="icon-user"></i>John Doe</a>
-                                        <a href="blog-detail.php" class="d-lg-flex align-items-center"><i class="icon-clock"></i>3 Days Ago</a>
+                                        <a href="Blog/<?php echo $cat['blog_alias']; ?>" class="d-lg-flex align-items-center"><i class="icon-user"></i><?php echo $cat['blog_writer']; ?></a>
+                                        <a href="Blog/<?php echo $cat['blog_alias']; ?>" class="d-lg-flex align-items-center"><i class="icon-clock"></i><?php echo $cat['blog_date']; ?></a>
                                     </div>
                                 </div>
                             </div>
-                            <div class="card p-0 text-center item">
+                            <?php
+                                }
+                            }
+                            ?>
+                            <!--<div class="card p-0 text-center item">
                                 <div class="image-over">
                                     <img src="assets/images/news-2-h.jpg" alt="Lorem ipsum">
                                 </div>
@@ -165,119 +176,7 @@
                                         <a href="blog-detail.php" class="d-lg-flex align-items-center"><i class="icon-clock"></i>3 Days Ago</a>
                                     </div>
                                 </div>
-                            </div> 
-                            <div class="card p-0 text-center item">
-                                <div class="image-over">
-                                    <img src="assets/images/news-3-h.jpg" alt="Lorem ipsum">
-                                </div>
-                                <div class="card-caption col-12 p-0">
-                                    <div class="card-body">
-                                        <a href="blog-detail.php">
-                                            <h4>Successful creations using virtual reality.</h4>
-                                        </a>
-                                    </div>
-                                    <div class="card-footer d-lg-flex align-items-center justify-content-center">
-                                        <a href="blog-detail.php" class="d-lg-flex align-items-center"><i class="icon-user"></i>John Doe</a>
-                                        <a href="blog-detail.php" class="d-lg-flex align-items-center"><i class="icon-clock"></i>3 Days Ago</a>
-                                    </div>
-                                </div>
-                            </div> 
-                            <div class="card p-0 text-center item">
-                                <div class="image-over">
-                                    <img src="assets/images/news-4-h.jpg" alt="Lorem ipsum">
-                                </div>
-                                <div class="card-caption col-12 p-0">
-                                    <div class="card-body">
-                                        <a href="blog-detail.php">
-                                            <h4>Is the trend these days working from home?</h4>
-                                        </a>
-                                    </div>
-                                    <div class="card-footer d-lg-flex align-items-center justify-content-center">
-                                        <a href="blog-detail.php" class="d-lg-flex align-items-center"><i class="icon-user"></i>John Doe</a>
-                                        <a href="blog-detail.php" class="d-lg-flex align-items-center"><i class="icon-clock"></i>3 Days Ago</a>
-                                    </div>
-                                </div>
-                            </div> 
-                            <div class="card p-0 text-center item">
-                                <div class="image-over">
-                                    <img src="assets/images/news-5-h.jpg" alt="Lorem ipsum">
-                                </div>
-                                <div class="card-caption col-12 p-0">
-                                    <div class="card-body">
-                                        <a href="blog-detail.php">
-                                            <h4>How digital transformation has changed the world.</h4>
-                                        </a>
-                                    </div>
-                                    <div class="card-footer d-lg-flex align-items-center justify-content-center">
-                                        <a href="blog-detail.php" class="d-lg-flex align-items-center"><i class="icon-user"></i>John Doe</a>
-                                        <a href="blog-detail.php" class="d-lg-flex align-items-center"><i class="icon-clock"></i>3 Days Ago</a>
-                                    </div>
-                                </div>
-                            </div> 
-                            <div class="card p-0 text-center item">
-                                <div class="image-over">
-                                    <img src="assets/images/news-6-h.jpg" alt="Lorem ipsum">
-                                </div>
-                                <div class="card-caption col-12 p-0">
-                                    <div class="card-body">
-                                        <a href="blog-detail.php">
-                                            <h4>Why project management increases performance.</h4>
-                                        </a>
-                                    </div>
-                                    <div class="card-footer d-lg-flex align-items-center justify-content-center">
-                                        <a href="blog-detail.php" class="d-lg-flex align-items-center"><i class="icon-user"></i>John Doe</a>
-                                        <a href="blog-detail.php" class="d-lg-flex align-items-center"><i class="icon-clock"></i>3 Days Ago</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card p-0 text-center item">
-                                <div class="image-over">
-                                    <img src="assets/images/news-1-h.jpg" alt="Lorem ipsum">
-                                </div>
-                                <div class="card-caption col-12 p-0">
-                                    <div class="card-body">
-                                        <a href="blog-detail.php">
-                                            <h4>Tips for having a good relationship at work.</h4>
-                                        </a>
-                                    </div>
-                                    <div class="card-footer d-lg-flex align-items-center justify-content-center">
-                                        <a href="blog-detail.php" class="d-lg-flex align-items-center"><i class="icon-user"></i>John Doe</a>
-                                        <a href="blog-detail.php" class="d-lg-flex align-items-center"><i class="icon-clock"></i>3 Days Ago</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card p-0 text-center item">
-                                <div class="image-over">
-                                    <img src="assets/images/news-2-h.jpg" alt="Lorem ipsum">
-                                </div>
-                                <div class="card-caption col-12 p-0">
-                                    <div class="card-body">
-                                        <a href="blog-detail.php">
-                                            <h4>Data scientists are a booming profession.</h4>
-                                        </a>
-                                    </div>
-                                    <div class="card-footer d-lg-flex align-items-center justify-content-center">
-                                        <a href="blog-detail.php" class="d-lg-flex align-items-center"><i class="icon-user"></i>John Doe</a>
-                                        <a href="blog-detail.php" class="d-lg-flex align-items-center"><i class="icon-clock"></i>3 Days Ago</a>
-                                    </div>
-                                </div>
-                            </div> 
-                            <div class="card p-0 text-center item">
-                                <div class="image-over">
-                                    <img src="assets/images/news-3-h.jpg" alt="Lorem ipsum">
-                                </div>
-                                <div class="card-caption col-12 p-0">
-                                    <div class="card-body">
-                                        <a href="blog-detail.php">
-                                            <h4>Successful creations using virtual reality.</h4>
-                                        </a>
-                                    </div>
-                                    <div class="card-footer d-lg-flex align-items-center justify-content-center">
-                                        <a href="blog-detail.php" class="d-lg-flex align-items-center"><i class="icon-user"></i>John Doe</a>
-                                        <a href="blog-detail.php" class="d-lg-flex align-items-center"><i class="icon-clock"></i>3 Days Ago</a>
-                                    </div>
-                                </div>
-                            </div> 
+                            </div>-->  
                         </div>
                     </main>
                 </div>

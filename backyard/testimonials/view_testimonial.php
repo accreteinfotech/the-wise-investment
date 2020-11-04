@@ -13,7 +13,7 @@
 	include '../include/connect.php';
 ?>
 <head>
-	<base href="<?php echo $site_url ?>backyard/testimonials/">
+	<base href="<?php echo $site_url; ?>backyard/testimonials/">
     <meta charset="UTF-8">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,7 +21,7 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title -->
-    <title><?php echo $project_name; ?> | View Testimonials</title>
+    <title>View Testimonial</title>
 
     <!-- Favicon -->
     <link rel="icon" href="../img/core-img/favicon.png">
@@ -72,15 +72,14 @@ function confirmationDelete(anchor)
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="card-title mb-2">View Testimonials</h4>
+                                    <h4 class="card-title mb-2">View Testimonial</h4>
 									<div class="table-responsive"> 
                                     <table id="basic-datatable" class="table dt-responsive nowrap w-100">
                                         <thead>
                                             <tr>
-												<th>Testimonial Image</th>
-												<th>Testimonial Name</th>
-												<th>Testimonial Place</th>
-												 <th>Testimonial Description</th>
+												<th>Client Name</th>
+												<th>Message</th>
+                                                <th>Image</th>
 												 <th>Edit</th>
 												<th>Remove</th>
                                             </tr>
@@ -89,21 +88,19 @@ function confirmationDelete(anchor)
 
                                         <tbody>
 										<?php
-											$sql=$link->rawQuery("select * from review ");
+											$sql=$link->rawQuery("select * from testimonial where testimonial_delete=0");
 											if($sql)
 											{
 												foreach($sql as $cat)
 												{
 													?>
 													<tr>
-														<td><img style="width:100px;height:70px;" src="../images/review_image/<?php echo $cat['review_image']; ?>"></td>
-														<td><?php echo $cat['review_name']; ?></td>
-														<td><?php echo $cat['review_location']; ?></td>
-														<td><?php  echo substr( $cat['review_description'],0); ?></td>
-													
+														<td><?php echo $cat['client_name']; ?></td>
+														<td><?php echo $cat['testimonial_msg']; ?></td>
+														<td><img style="width:100px;height:70px;" src="../images/testimonial_img/<?php echo $cat['testimonial_img']; ?>"></td>
 														
-													<td><a href="Edit-Testimonials/<?php echo $cat['review_id']; ?>"><img style="height: 30px;width: 30px;"  src="../img/edit.png"></a></td>
-														<td><a onClick='javascript:confirmationDelete($(this));return false;' href="Delete-Testimonials/<?php echo $cat['review_id'];?>"><img style="height: 30px;width: 30px;"  src="../img/delete.png"></a></td>
+													<td><a href="Edit-Testimonial/<?php echo $cat['testimonial_id']; ?>"><img style="height: 30px;width: 30px;"  src="../img/edit.png"></a></td>
+													<td><a onClick='javascript:confirmationDelete($(this));return false;' href="Delete-Testimonial/<?php echo $cat['testimonial_id'];?>"><img style="height: 30px;width: 30px;"  src="../img/delete.png"></a></td>
 														
 													</tr>
 													<?php

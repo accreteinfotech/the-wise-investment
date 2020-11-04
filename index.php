@@ -413,6 +413,7 @@
             <div class="overflow-holder">
                 <div class="container">
                     <div class="row text-center intro">
+                        
                         <div class="col-12">
                             <h2 class="super effect-static-text">Our Picks Have Been Featured</h2>
                            
@@ -421,30 +422,20 @@
 				
                     <div class="swiper-container min-slider">
                         <div class="swiper-wrapper">
+                            <?php
+                               $picks=$link->rawQuery("select * from featured");
+                            if($picks)
+                                                {
+                                                    foreach($picks as $featured)
+                                                    {
+                            ?>
                             <div class="swiper-slide slide-center item">
-                                <img src="assets/images/logo-1.png" class="fit-image w-85" alt="Fit Image">
+                                <img src="backyard/images/featured_logo/<?php echo $featured['featured_logo']; ?>" class="fit-image w-85" alt="Fit Image">
                             </div>
-                            <div class="swiper-slide slide-center item">
-                                <img src="assets/images/logo-2.png" class="fit-image w-85" alt="Fit Image">
-                            </div>
-                            <div class="swiper-slide slide-center item">
-                                <img src="assets/images/logo-3.png" class="fit-image w-85" alt="Fit Image">
-                            </div>
-                            <div class="swiper-slide slide-center item">
-                                <img src="assets/images/logo-4.png" class="fit-image w-85" alt="Fit Image">
-                            </div>
-                            <div class="swiper-slide slide-center item">
-                                <img src="assets/images/logo-5.png" class="fit-image w-85" alt="Fit Image">
-                            </div>
-                            <div class="swiper-slide slide-center item">
-                                <img src="assets/images/logo-6.png" class="fit-image w-85" alt="Fit Image">
-                            </div>
-                            <div class="swiper-slide slide-center item">
-                                <img src="assets/images/logo-7.png" class="fit-image w-85" alt="Fit Image">
-                            </div>
-                            <div class="swiper-slide slide-center item">
-                                <img src="assets/images/logo-8.png" class="fit-image w-85" alt="Fit Image">
-                            </div>
+                             <?php
+                    }
+                }
+                ?>
                         </div>
                     </div>
                 </div>
@@ -463,119 +454,43 @@
                             <a href="#" class="btn mx-auto mr-md-0 ml-md-auto primary-button"><i class="icon-grid"></i>VIEW ALL</a>
                         </div>
                     </div>
+                     
                     <div class="swiper-container mid-slider items">
+                        <?php
+                            $sql=$link->rawQuery("select * from blog where is_active=1");
+                                if($sql)
+                                    {
+                                        foreach($sql as $cat)
+                                        {
+                            ?>
                         <div class="swiper-wrapper">
+                           
                             <div class="swiper-slide slide-center item">
                                 <div class="row card p-0 text-center">
                                     <div class="image-over">
-                                        <img src="assets/images/news-1-h.jpg" alt="Lorem ipsum">
+                                        <img src="backyard/images/blog_thumb_image/<?php echo $cat['blog_thumb_image']; ?>" alt="<?php echo $cat['blog_name']; ?>">
                                     </div>
                                     <div class="card-caption col-12 p-0">
                                         <div class="card-body">
-                                            <a href="#">
-                                                <h4 class="m-0">Tips for having a good relationship at work.</h4>
+                                            <a href="Blog/<?php echo $cat['blog_alias']; ?>">
+                                                <h4 class="m-0"><?php echo $cat['blog_title']; ?></h4>
                                             </a>
                                         </div>
                                         <div class="card-footer d-lg-flex align-items-center justify-content-center">
-                                            <a href="#" class="d-lg-flex align-items-center"><i class="icon-user"></i>John Doe</a>
-                                            <a href="#" class="d-lg-flex align-items-center"><i class="icon-clock"></i>3 Days Ago</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide slide-center item">
-                                <div class="row card p-0 text-center">
-                                    <div class="image-over">
-                                        <img src="assets/images/news-2-h.jpg" alt="Lorem ipsum">
-                                    </div>
-                                    <div class="card-caption col-12 p-0">
-                                        <div class="card-body">
-                                            <a href="#">
-                                                <h4 class="m-0">Data scientists are a booming profession.</h4>
-                                            </a>
-                                        </div>
-                                        <div class="card-footer d-lg-flex align-items-center justify-content-center">
-                                            <a href="#" class="d-lg-flex align-items-center"><i class="icon-user"></i>John Doe</a>
-                                            <a href="#" class="d-lg-flex align-items-center"><i class="icon-clock"></i>3 Days Ago</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide slide-center item">
-                                <div class="row card p-0 text-center">
-                                    <div class="image-over">
-                                        <img src="assets/images/news-3-h.jpg" alt="Lorem ipsum">
-                                    </div>
-                                    <div class="card-caption col-12 p-0">
-                                        <div class="card-body">
-                                            <a href="#">
-                                                <h4 class="m-0">Successful creations using virtual reality.</h4>
-                                            </a>
-                                        </div>
-                                        <div class="card-footer d-lg-flex align-items-center justify-content-center">
-                                            <a href="#" class="d-lg-flex align-items-center"><i class="icon-user"></i>John Doe</a>
-                                            <a href="#" class="d-lg-flex align-items-center"><i class="icon-clock"></i>3 Days Ago</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide slide-center item">
-                                <div class="row card p-0 text-center">
-                                    <div class="image-over">
-                                        <img src="assets/images/news-4-h.jpg" alt="Lorem ipsum">
-                                    </div>
-                                    <div class="card-caption col-12 p-0">
-                                        <div class="card-body">
-                                            <a href="#">
-                                                <h4 class="m-0">Is the trend these days working from home?</h4>
-                                            </a>
-                                        </div>
-                                        <div class="card-footer d-lg-flex align-items-center justify-content-center">
-                                            <a href="#" class="d-lg-flex align-items-center"><i class="icon-user"></i>John Doe</a>
-                                            <a href="#" class="d-lg-flex align-items-center"><i class="icon-clock"></i>3 Days Ago</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide slide-center item">
-                                <div class="row card p-0 text-center">
-                                    <div class="image-over">
-                                        <img src="assets/images/news-5-h.jpg" alt="Lorem ipsum">
-                                    </div>
-                                    <div class="card-caption col-12 p-0">
-                                        <div class="card-body">
-                                            <a href="#">
-                                                <h4 class="m-0">How digital transformation has changed the world.</h4>
-                                            </a>
-                                        </div>
-                                        <div class="card-footer d-lg-flex align-items-center justify-content-center">
-                                            <a href="#" class="d-lg-flex align-items-center"><i class="icon-user"></i>John Doe</a>
-                                            <a href="#" class="d-lg-flex align-items-center"><i class="icon-clock"></i>3 Days Ago</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide slide-center item">
-                                <div class="row card p-0 text-center">
-                                    <div class="image-over">
-                                        <img src="assets/images/news-6-h.jpg" alt="Lorem ipsum">
-                                    </div>
-                                    <div class="card-caption col-12 p-0">
-                                        <div class="card-body">
-                                            <a href="#">
-                                                <h4 class="m-0">Why project management increases performance.</h4>
-                                            </a>
-                                        </div>
-                                        <div class="card-footer d-lg-flex align-items-center justify-content-center">
-                                            <a href="#" class="d-lg-flex align-items-center"><i class="icon-user"></i>John Doe</a>
-                                            <a href="#" class="d-lg-flex align-items-center"><i class="icon-clock"></i>3 Days Ago</a>
+                                            <a href="Blog/<?php echo $cat['blog_alias']; ?>" class="d-lg-flex align-items-center"><i class="icon-user"></i><?php echo $cat['blog_writer']; ?></a>
+                                            <a href="Blog/<?php echo $cat['blog_alias']; ?>" class="d-lg-flex align-items-center"><i class="icon-clock"></i><?php echo $cat['blog_date']; ?></a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <?php
+                        }
+                        }
+                    ?>
                         <div class="swiper-pagination"></div>
                     </div>
+                     
                 </div>
             </div>
         </section>
@@ -629,12 +544,19 @@
                     </div>
                     <div class="swiper-container mid-slider items">
                         <div class="swiper-wrapper">
+                            <?php
+                            $sql=$link->rawQuery("select * from testimonial");
+                                if($sql)
+                                    {
+                                        foreach($sql as $cat)
+                                        {
+                            ?>
                             <div class="swiper-slide slide-center text-center item">
                                 <div class="row card">
                                     <div class="col-12">
-                                        <img src="assets/images/team-1.jpg" alt="Adams Baker" class="person" style="max-width:100px;border-radius:100%;">
-                                        <h4>Adams Baker</h4>
-                                        <p>My website looks amazing with the Leverage Theme.</p>
+                                        <img src="backyard/images/testimonial_img/<?php echo $cat['testimonial_img']; ?>" alt="<?php echo $cat['client_name']; ?>" class="person" style="max-width:100px;border-radius:100%;">
+                                        <h4><?php echo $cat['client_name'];?></h4>
+                                        <p><?php echo $cat['testimonial_msg']; ?></p>
                                         <ul class="navbar-nav social share-list ml-auto">
                                             <li class="nav-item">
                                                 <a href="#" class="nav-link"><i class="icon-star ml-2 mr-2"></i></a>
@@ -655,7 +577,11 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="swiper-slide slide-center text-center item">
+                            <?php
+                                }
+                            }
+                            ?>
+                            <!--<div class="swiper-slide slide-center text-center item">
                                 <div class="row card">
                                     <div class="col-12">
                                         <img src="assets/images/team-2.jpg" alt="Mary Evans" class="person" style="max-width:100px;border-radius:100%;">
@@ -677,76 +603,7 @@
                                         </ul>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="swiper-slide slide-center text-center item">
-                                <div class="row card">
-                                    <div class="col-12">
-                                        <img src="assets/images/team-3.jpg" alt="Sarah Lopez" class="person" style="max-width:100px;border-radius:100%;">
-                                        <h4>Sarah Lopez</h4>
-                                        <p>I'm loving the partnership. The support deserves 5 stars.</p>
-                                        <ul class="navbar-nav social share-list ml-auto">
-                                            <li class="nav-item">
-                                                <a href="#" class="nav-link"><i class="icon-star ml-2 mr-2"></i></a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a href="#" class="nav-link"><i class="icon-star ml-2 mr-2"></i></a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a href="#" class="nav-link"><i class="icon-star ml-2 mr-2"></i></a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a href="#" class="nav-link"><i class="icon-star ml-2 mr-2"></i></a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a href="#" class="nav-link"><i class="icon-star ml-2 mr-2"></i></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide slide-center text-center item">
-                                <div class="row card">
-                                    <div class="col-12">
-                                        <img src="assets/images/team-4.jpg" alt="Joseph Hills" class="person" style="max-width:100px;border-radius:100%;">
-                                        <h4>Joseph Hills</h4>
-                                        <p>My app was perfect. I will request more services soon.</p>
-                                        <ul class="navbar-nav social share-list ml-auto">
-                                            <li class="nav-item">
-                                                <a href="#" class="nav-link"><i class="icon-star ml-2 mr-2"></i></a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a href="#" class="nav-link"><i class="icon-star ml-2 mr-2"></i></a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a href="#" class="nav-link"><i class="icon-star ml-2 mr-2"></i></a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a href="#" class="nav-link"><i class="icon-star ml-2 mr-2"></i></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide slide-center text-center item">
-                                <div class="row card">
-                                    <div class="col-12">
-                                        <img src="assets/images/team-5.jpg" alt="Karen Usman" class="person" style="max-width:100px;border-radius:100%;">
-                                        <h4>Karen Usman</h4>
-                                        <p>I had small problems with the payment, but it was resolved.</p>
-                                        <ul class="navbar-nav social share-list ml-auto">
-                                            <li class="nav-item">
-                                                <a href="#" class="nav-link"><i class="icon-star ml-2 mr-2"></i></a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a href="#" class="nav-link"><i class="icon-star ml-2 mr-2"></i></a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a href="#" class="nav-link"><i class="icon-star ml-2 mr-2"></i></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
+                            </div>-->
                         </div>
                         <div class="swiper-pagination"></div>
                     </div>

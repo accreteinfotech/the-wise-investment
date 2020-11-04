@@ -16,6 +16,8 @@
         $page_seo_og_description=$seo['page_seo_og_description'];
         $page_seo_og_url=$seo['page_seo_og_url'];
     }
+     $bid = $_GET['bid'];
+    $blog=$link->rawQueryOne("select * from blog where blog_alias=?",array($bid));
     
 ?>
 <!DOCTYPE html>
@@ -118,7 +120,7 @@
                         
                          <div class="slide-content row text-center">
                             <div class="col-12 mx-auto inner">
-                                <h1 data-aos="zoom-out-up" data-aos-delay="400" class="title effect-static-text" style="font-size:50px;">Blog Title</h1>
+                                <h1 data-aos="zoom-out-up" data-aos-delay="400" class="title effect-static-text" style="font-size:50px;"><?php echo $blog['blog_title']; ?></h1>
                                 <nav data-aos="zoom-out-up" data-aos-delay="800" aria-label="breadcrumb">
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="index.php">Home</a></li>
@@ -142,34 +144,34 @@
                         <div class="row">
                             <div class="col-12 align-self-center">
                                 <h2 class="featured mt-0 ml-0">Content</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum velit tortor, interdum sed cursus eu, sagittis ut nunc. Sed vitae tellus et arcu aliquet faucibus fermentum non lacus.</p>
-                                <p>Praesent fringilla quis massa et placerat. Mauris eu dui eget urna pellentesque gravida vitae quis nibh. Ut at augue tortor. Pellentesque quis suscipit magna.</p>
+                                <!--<p><?php //echo $blog['blog_name']; ?></p>-->
                                 <p>
-                                    <blockquote>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quam tortor, ultrices accumsan mauris eget, pulvinar tincidunt erat. Sed nisi nisi, rutrum sit amet elit.</blockquote>
+                                    <blockquote><?php echo $blog['blog_name']; ?></blockquote>
                                 </p>
-                                <p>Sed mauris nulla, tempor eu est vel, dapibus hendrerit mauris curabitur dictum pharetra.</p>
+                                <!--<p><?php //echo $blog['blog_short_desc']; ?></p>-->
 
                                 <!-- Image -->
                                 <div>
                                   
-                                        <img src="assets/images/bg-1.jpg" class="w-100">
+                                  <img src="backyard/images/blog_big_image/<?php echo $blog['blog_big_image']; ?>" class="w-100">
+                                        
                                     
                                 </div>
 
-                                <p>Etiam mollis sem sed bibendum blandit. Aenean quis luctus ligula, vitae suscipit dui. Nunc diam orci, tincidunt eget consectetur sit amet, vulputate.</p>
-                                <h4>Lorem ipsum dolor</h4>
-                                <ul>
+                                <!--<p><?php //echo $blog['blog_short_desc']; ?></p>-->
+                                <h4><?php echo $blog['blog_writer']; ?></h4>
+                                <!--<ul>
                                     <li>Lorem ipsum dolor sit amet.</li>
                                     <li>Consectetur adipiscing elit.</li>
                                     <li>Integer molestie lorem at massa.</li>
-                                </ul>
-                                <p>Sed mauris nulla, tempor eu est vel, dapibus hendrerit mauris curabitur dictum pharetra.</p>
-                                <p>Etiam mollis sem sed bibendum blandit. Aenean quis luctus ligula, vitae suscipit dui. Nunc diam orci, tincidunt eget consectetur sit amet, vulputate.</p>
+                                </ul>-->
+                                <p style="color: white !important;"><?php echo $blog['blog_description']; ?></p>
+                                <!--<p><?php //echo $blog['blog_short_desc']; ?></p>-->
 
                                 <!-- Post Holder -->
                                 <ul class="mb-5 post-holder">
                                     <li class="post-meta-item">
-                                        <time class="date"><span class="posted-on">Posted on <a href="#" rel="bookmark"><time class="entry-date published updated" datetime="2018-11-01T06:18:46+00:00">November 12, 2019</time></a></span></time>
+                                        <time class="date"><span class="posted-on">Posted on <a rel="bookmark"><time class="entry-date published updated" datetime="2018-11-01T06:18:46+00:00"><?php echo $blog['blog_date']; ?></time></a></span></time>
                                     </li>
                                 </ul>
 

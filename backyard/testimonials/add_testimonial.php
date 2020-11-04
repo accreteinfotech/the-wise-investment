@@ -12,12 +12,13 @@
 	include '../include/connect.php';
 ?>
 <head>
-	<base href="<?php echo $site_url; ?>backyard/Testimonial/">
+	<base href="<?php echo $site_url; ?>backyard/testimonials/">
     <meta charset="UTF-8">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
 
     <!-- Title -->
     <title>Add Testimonial</title>
@@ -33,6 +34,7 @@
     <link rel="stylesheet" href="../css/default-assets/daterange-picker.css">
     <link rel="stylesheet" href="../css/default-assets/form-picker.css">
     <link rel="stylesheet" href="../css/default-assets/select2.min.css">
+
 
 
     <!-- Master Stylesheet [If you remove this CSS file, your file will be broken undoubtedly.] -->
@@ -78,11 +80,15 @@
 											<div><span id="s1" style="color:red;"></span></div>
 									    </div>
 										 <div class="form-group">
-                                            <label for="exampleInputName1">Message</label>
-                                            <input type="text" onkeyup="aliascheck(this.value);" class="form-control" id="testimonial_msg" name="testimonial_msg" placeholder="Message">
-											<span id="rerror" style="width: 100%;margin-top: .25rem;font-size: 80%;color: #dc3545;"></span>
+                                            <label>Testimonial Description</label>
+                                            <textarea class="ckeditor" rows="10" id="ckeExample" name="testimonial_msg"></textarea>
+                                            <div><span id="s5" style="color:red;"></span></div>
 										</div>
-                                       
+                                       <div class="form-group">
+                                            <label>Testimonial Image</label>
+                                            <input type="file" class="form-control" name="testimonial_img" id="testimonial_img" >
+                                            <div><span id="s3" style="color:red;"></span></div>
+                                        </div>
                                         <button type="submit" class="btn btn-primary mr-2">Submit</button>
                                         <button type="reset" class="btn btn-light">Cancel</button>
                                     </form>
@@ -108,6 +114,39 @@
     <script src="../js/jquery.min.js"></script>
     <script src="../js/jquery.validate.js"></script>
     <script src="../js/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor/4.3.2/ckeditor.js" ></script>
+    <script>
+    
+/*CKEDITOR.replace( 'ckeExample', {
+    filebrowserUploadUrl: "../include/upload.php" 
+} );*/
+    var ckEditorID;
+
+    ckEditorID = 'ckeExample';
+
+    CKEDITOR.config.forcePasteAsPlainText = true;
+    CKEDITOR.replace( ckEditorID,
+        {
+            toolbar :
+            [
+             { name: 'document', items: [ 'Source', '-', 'Save', 'NewPage', 'Preview', 'Print', '-', 'Templates' ] },
+            { name: 'clipboard', items: [ 'Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo' ] },
+            { name: 'editing', items: [ 'Find', 'Replace', '-', 'SelectAll', '-', 'Scayt' ] },
+            { name: 'forms', items: [ 'Form', 'Checkbox', 'Radio', 'TextField', 'Textarea', 'Select', 'Button', 'ImageButton', 'HiddenField' ] },
+            '/',
+            { name: 'basicstyles', items: [ 'Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'CopyFormatting', 'RemoveFormat' ] },
+            { name: 'paragraph', items: [ 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', 'CreateDiv', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 'BidiLtr', 'BidiRtl', 'Language' ] },
+            { name: 'links', items: [ 'Link', 'Unlink', 'Anchor' ] },
+            { name: 'insert', items: [ 'Image', 'Flash', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar', 'PageBreak', 'Iframe' ] },
+            '/',
+            { name: 'styles', items: [ 'Styles', 'Format', 'Font', 'FontSize' ] },
+            { name: 'colors', items: [ 'TextColor', 'BGColor' ] },
+            { name: 'tools', items: [ 'Maximize', 'ShowBlocks' ] },
+            { name: 'about', items: [ 'About' ] }
+            ]
+          
+        })
+    </script>
     <script>
 	function aliascheck(val)
 		{

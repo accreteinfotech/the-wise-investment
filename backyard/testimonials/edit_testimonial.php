@@ -12,7 +12,7 @@
 	include '../include/connect.php';
 ?>
 <head>
-	<base href="<?php echo $site_url; ?>backyard/Testimonial/">
+	<base href="<?php echo $site_url; ?>backyard/testimonials/">
     <meta charset="UTF-8">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -96,6 +96,7 @@ function myfunn1()
 												$testimonial_id=$ad['testimonial_id'];
 												$client_name=$ad['client_name'];
 												$testimonial_msg=$ad['testimonial_msg'];
+												$testimonial_img=$ad['testimonial_img'];
 												
 										}
 									?>
@@ -109,9 +110,16 @@ function myfunn1()
 											<div><span id="s1" style="color:red;"></span></div>
 										</div>
 										<div class="form-group">
-                                            <label for="exampleInputName1">Message</label>
-                                            <input type="text" class="form-control" id="testimonial_msg" name="testimonial_msg" value="<?php echo $testimonial_msg;?>" placeholder="testimonial Message">
-											<span id="rerror" style="width: 100%;margin-top: .25rem;font-size: 80%;color: #dc3545;"></span>
+                                            <label>Testimonial Description</label>
+                                            <textarea cols="80" rows="10" id="ckeExample" name="testimonial_msg"><?php echo $testimonial_msg;?></textarea>
+											<div><span id="s5" style="color:red;"></span></div>
+										</div>
+										<div class="form-group">
+                                            <label>Testimonial Image</label>
+                                            <input type="file" class="form-control" name="testimonial_img" id="testimonial_img" onchange="readURL2(this);"  >
+                                        </div>
+										<div class="col-sm-12" style="padding:10px;">
+											<img id="imagePreview3" style="height:180px;width:250px;border-style:dotted;"  src="../images/testimonial_img/<?php echo $testimonial_img;?>" height="260px"> 
 										</div>
                                       
 										
@@ -140,6 +148,38 @@ function myfunn1()
     <script src="../js/jquery.min.js"></script>
 	<script src="../js/jquery.validate.js"></script>
     <script src="../js/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor/4.3.2/ckeditor.js" ></script>
+    <script>
+	
+var ckEditorID;
+
+ckEditorID = 'ckeExample';
+
+CKEDITOR.config.forcePasteAsPlainText = true;
+CKEDITOR.replace( ckEditorID,
+    {
+        toolbar :
+        [
+         { name: 'document', items: [ 'Source', '-', 'Save', 'NewPage', 'Preview', 'Print', '-', 'Templates' ] },
+		{ name: 'clipboard', items: [ 'Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo' ] },
+		{ name: 'editing', items: [ 'Find', 'Replace', '-', 'SelectAll', '-', 'Scayt' ] },
+		{ name: 'forms', items: [ 'Form', 'Checkbox', 'Radio', 'TextField', 'Textarea', 'Select', 'Button', 'ImageButton', 'HiddenField' ] },
+		'/',
+		{ name: 'basicstyles', items: [ 'Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'CopyFormatting', 'RemoveFormat' ] },
+		{ name: 'paragraph', items: [ 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', 'CreateDiv', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 'BidiLtr', 'BidiRtl', 'Language' ] },
+		{ name: 'links', items: [ 'Link', 'Unlink', 'Anchor' ] },
+		{ name: 'insert', items: [ 'Image', 'Flash', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar', 'PageBreak', 'Iframe' ] },
+		'/',
+		{ name: 'styles', items: [ 'Styles', 'Format', 'Font', 'FontSize' ] },
+		{ name: 'colors', items: [ 'TextColor', 'BGColor' ] },
+		{ name: 'tools', items: [ 'Maximize', 'ShowBlocks' ] },
+		{ name: 'about', items: [ 'About' ] }
+        ]
+      
+    })
+  
+    
+</script>
     <script>
 	function aliascheck(val,val2)
 		{
@@ -219,7 +259,7 @@ function myfunn1()
 		}
 	}
 
-	$("#category_image").change(function(){
+	$("#testimonial_img").change(function(){
 		readURL(this);
 	});
 	</script>

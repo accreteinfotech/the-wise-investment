@@ -38,12 +38,26 @@
                                     <li><a href="../picks/View-Picks">- View Picks</a></li>
                                 </ul>
                             </li>
+                            <li class="treeview">
+                                <a href="javascript:void(0)"><i class="zmdi zmdi-account-box-phone"></i> <span>Featured</span> <i class="fa fa-angle-right"></i></a>
+                                <ul class="treeview-menu">
+                                    <li><a href="../featured/Add-Featured">- Add Featured</a></li>
+                                    <li><a href="../featured/View-Featured">- View Featured</a></li>
+                                </ul>
+                            </li>
+                            <li class="treeview">
+                                <a href="javascript:void(0)"><i class="zmdi zmdi-account-box-phone"></i> <span>Blogs</span> <i class="fa fa-angle-right"></i></a>
+                                <ul class="treeview-menu">
+                                    <li><a href="../blogs/Add-Blog">- Add Blogs</a></li>
+                                    <li><a href="../blogs/View-Blogs">- View Blogs</a></li>
+                                </ul>
+                            </li>
 
                             <li class="treeview">
                                 <a href="javascript:void(0)"><i class="zmdi zmdi-account-box-phone"></i> <span>Testimonial</span> <i class="fa fa-angle-right"></i></a>
                                 <ul class="treeview-menu">
-                                    <li><a href="../testimonials/Add-Testimonials">- Add Testimonial</a></li>
-                                    <li><a href="../testimonials/View-Testimonials">- View Testimonial</a></li>
+                                    <li><a href="../testimonials/Add-Testimonial">- Add Testimonial</a></li>
+                                    <li><a href="../testimonials/View-Testimonial">- View Testimonial</a></li>
                                 </ul>
                             </li>
                            

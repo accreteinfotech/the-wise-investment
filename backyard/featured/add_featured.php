@@ -12,7 +12,6 @@
 	include '../include/connect.php';
 ?>
 <head>
-	<base href="<?php echo $site_url; ?>backyard/testimonials/">
     <meta charset="UTF-8">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,7 +19,7 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title -->
-    <title><?php echo $project_name; ?> | Add Testimonials</title>
+    <title><?php echo $project_name; ?> | Add Featured</title>
 
     <!-- Favicon -->
     <link rel="icon" href="../img/core-img/favicon.png">
@@ -33,24 +32,42 @@
     <link rel="stylesheet" href="../css/default-assets/daterange-picker.css">
     <link rel="stylesheet" href="../css/default-assets/form-picker.css">
     <link rel="stylesheet" href="../css/default-assets/select2.min.css">
-
+    <link href="https://cdn.jsdelivr.net/npm/froala-editor@3.1.0/css/froala_editor.pkgd.min.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/froala-editor@3.1.0/js/froala_editor.pkgd.min.js"></script>
+	
 	
     <!-- Master Stylesheet [If you remove this CSS file, your file will be broken undoubtedly.] -->
     <link rel="stylesheet" href="../style.css">
-	<script type="text/javascript">
+	
+	<!--<script type="text/javascript">
 function myfunn1()
 {
 	var s=true;
+	document.getElementById("s1").innerHTML="";
 	document.getElementById("s2").innerHTML="";
+	document.getElementById("s3").innerHTML="";
 	document.getElementById("s4").innerHTML="";
 	document.getElementById("s5").innerHTML="";
+	document.getElementById("s11").innerHTML="";
 	
-	 var n2=document.f1.review_name.value;
-	 var n4=document.f1.review_location.value;
-	 	
+	 var n1=document.f1.blog_title.value;
+	 var n2=document.f1.blog_name.value;
+	 var n4=document.f1.blog_thumb_image.value;
+	 var n3=document.f1.blog_big_image.value;
+	 var n11=document.f1.blog_category_id.value;
+		if(n1==0)
+		{
+			document.getElementById("s1").innerHTML=" <i class='fa fa-exclamation-triangle' style='margin-top:10px'> </i> Please Enter Blog Title *";
+			s=false;
+		}
+		if(n11==0)
+		{
+			document.getElementById("s11").innerHTML=" <i class='fa fa-exclamation-triangle' style='margin-top:10px'> </i> Please Select Blog Category *";
+			s=false;
+		}
 		if(n2==0)
 		{
-			document.getElementById("s2").innerHTML=" <i class='fa fa-exclamation-triangle' style='margin-top:10px'> </i> Please Enter Testimonial Name *";
+			document.getElementById("s2").innerHTML=" <i class='fa fa-exclamation-triangle' style='margin-top:10px'> </i> Please Enter Blog Name *";
 			s=false;
 		}
 	
@@ -58,20 +75,24 @@ function myfunn1()
 	
 		if(jQuery("#cke_1_contents iframe").contents().find("body").text().length == 0)
 		{
-			document.getElementById("s5").innerHTML=" <i class='fa fa-exclamation-triangle' style='margin-top:10px'> </i> Please Enter Testimonial Description *";
+			document.getElementById("s5").innerHTML=" <i class='fa fa-exclamation-triangle' style='margin-top:10px'> </i> Please Enter Blog Description *";
+			s=false;
+		}
+		if(n3==0)
+		{
+			document.getElementById("s3").innerHTML="  <i class='fa fa-exclamation-triangle' style='margin-top:10px'> </i> Please Select Blog Thumb Image *";
 			s=false;
 		}
 		if(n4==0)
 		{
-			document.getElementById("s4").innerHTML="  <i class='fa fa-exclamation-triangle' style='margin-top:10px'> </i> Please Enter Testimonial Place *";
+			document.getElementById("s4").innerHTML="  <i class='fa fa-exclamation-triangle' style='margin-top:10px'> </i> Please Select Blog Large Image *";
 			s=false;
 		}
 		
 		
 	 return s; 
-	 
 }
-</script>
+</script>-->
 
 </head>
 
@@ -104,30 +125,20 @@ function myfunn1()
                        <div class="col-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="card-title">Add Testimonial</h4>
+                                    <h4 class="card-title">Add Featured</h4>
                                    
-                                    <form action="Insert-Testimonials" name="f1" id="formsubmit" method="post" enctype="multipart/form-data">
+                                    <form action="insert_featured.php" id="formsubmit" onsubmit="return myfunn1();" name="f1"  method="post" enctype="multipart/form-data">
                                         <div class="form-group">
-                                            <label for="exampleInputName1">Testimonial Name</label>
-                                            <input type="text" class="form-control" id="review_name" name="review_name" placeholder="Testimonial Name">
+                                            <label for="exampleInputName1">Featured Name</label>
+                                            <input type="text" class="form-control" id="featured_name" name="featured_name" placeholder="Featured Name">
 											<div><span id="s2" style="color:red;"></span></div>
 									    </div>
-										<div class="form-group">
-                                            <label for="exampleInputName1">Testimonial Designation</label>
-                                            <input type="text" class="form-control" id="review_location" name="review_location" placeholder="Testimonial Designation">
-											<div><span id="s4" style="color:red;"></span></div>
-									    </div>
-										<div class="form-group">
-                                            <label>Testimonial Description</label>
-                                            <textarea required cols="80" class="ckeditor" rows="10" id="ckeExample" name="review_description"></textarea>
-											<div><span id="s5" style="color:red;"></span></div>
-                                        </div>
-										 <div class="form-group">
-                                            <label>Testimonial Image</label>
-                                            <input type="file" class="form-control" name="review_image" id="review_image" >
+                                       <div class="form-group">
+                                            <label>Featured Logo ( size: 370 X 200 px )</label>
+                                            <input type="file" class="form-control" name="featured_logo" id="featured_logo" >
 											<div><span id="s3" style="color:red;"></span></div>
                                         </div>
-                                        <button type="submit" class="btn btn-primary mr-2">Submit</button>
+										<input type="submit" id="reg" class="btn btn-primary mr-2" value="submit" >
                                         <button type="reset" class="btn btn-light">Cancel</button>
                                     </form>
                                 </div>
@@ -153,6 +164,32 @@ function myfunn1()
 	  <script src="../js/jquery.validate.js"></script>
     <script src="../js/jquery.validate.min.js"></script>
 	<script>
+		function aliascheck(val)
+		{
+			$.ajax({
+			 type: "POST",
+			   url: "alias_check.php",
+			   data: "alias="+val,
+					
+					// serializes the form's elements.
+			   success: function(data)
+			   {
+					if(data == 'already')
+					{
+						$("#rerror").html("Existing Alias");
+						$("#reg").prop('disabled', true);
+						//mailcheck.preventDefault();
+						//swal("Good job!", "You clicked the button!", "warning");
+					}
+					else
+					{
+						$("#rerror").html("");
+						$("#reg").prop('disabled', false);
+					}
+			   }
+			});
+			
+		}
 	//Form Validation
 		$( document ).ready( function () {
 			$( "#formsubmit" ).validate( {
@@ -162,9 +199,12 @@ function myfunn1()
 						required: true,
 						minlength: 2,
 					},
-					review_name: "required",
-					review_location: "required",
-					review_image: "required",
+					blog_name: "required",
+					blog_title: "required",
+					blog_alias: "required",
+					blog_short_desc: "required",
+					blog_big_image: "required",
+					blog_thumb_image: "required",
 					phoneno: {
 						required: true,
 						 digits: true,
@@ -196,10 +236,10 @@ function myfunn1()
 						required: "Please enter your fullname",
 						minlength: "Please enter alteast 2 charactor",
 					},
-					review_name: "Please enter testimonial name",
-					review_location: "Please enter testimonial designation",
-					review_image: "Please select testimonial image",
-					category_image: "Please select category image",
+					blog_name: "Please enter blog name",
+					blog_short_desc: "Please enter blog small description",
+					blog_big_image: "Please select image",
+					blog_thumb_image: "Please select image",
 					username: {
 						required: "Please enter a username",
 						minlength: "Your username must consist of at least 2 characters"
@@ -248,34 +288,101 @@ function myfunn1()
     <script src="../js/bundle.js"></script>
 	
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor/4.3.2/ckeditor.js" ></script>
+	  
+<script>
+CKEDITOR.replace( 'ckeExample', {
+    filebrowserUploadUrl: "../include/upload.php" 
+} );
+/*var ckEditorID;
+
+ckEditorID = 'ckeExample';
+
+CKEDITOR.config.forcePasteAsPlainText = true;
+CKEDITOR.replace( ckEditorID,
+    {
+        toolbar :
+        [
+         { name: 'document', items: [ 'Source', '-', 'Save', 'NewPage', 'Preview', 'Print', '-', 'Templates' ] },
+		{ name: 'clipboard', items: [ 'Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo' ] },
+		{ name: 'editing', items: [ 'Find', 'Replace', '-', 'SelectAll', '-', 'Scayt' ] },
+		{ name: 'forms', items: [ 'Form', 'Checkbox', 'Radio', 'TextField', 'Textarea', 'Select', 'Button', 'ImageButton', 'HiddenField' ] },
+		'/',
+		{ name: 'basicstyles', items: [ 'Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'CopyFormatting', 'RemoveFormat' ] },
+		{ name: 'paragraph', items: [ 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', 'CreateDiv', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 'BidiLtr', 'BidiRtl', 'Language' ] },
+		{ name: 'links', items: [ 'Link', 'Unlink', 'Anchor' ] },
+		{ name: 'insert', items: [ 'Image', 'Flash', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar', 'PageBreak', 'Iframe' ] },
+		'/',
+		{ name: 'styles', items: [ 'Styles', 'Format', 'Font', 'FontSize' ] },
+		{ name: 'colors', items: [ 'TextColor', 'BGColor' ] },
+		{ name: 'tools', items: [ 'Maximize', 'ShowBlocks' ] },
+		{ name: 'about', items: [ 'About' ] }
+        ]
+      
+    })*/
+
+</script>
 	<script>
-	var ckEditorID;
 
-	ckEditorID = 'ckeExample';
-
-	CKEDITOR.config.forcePasteAsPlainText = true;
-	CKEDITOR.replace( ckEditorID,
+	function getData(val) {
+	
+	$.ajax({
+	type: "POST",
+	url: "check.php",
+	data:'product_name='+val,
+	success: function(data){
+		$("#a1").html(data);
+		if(data != '')
 		{
-			toolbar :
-			[
-			 { name: 'document', items: [ 'Source', '-', 'Save', 'NewPage', 'Preview', 'Print', '-', 'Templates' ] },
-			{ name: 'clipboard', items: [ 'Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo' ] },
-			{ name: 'editing', items: [ 'Find', 'Replace', '-', 'SelectAll', '-', 'Scayt' ] },
-			{ name: 'forms', items: [ 'Form', 'Checkbox', 'Radio', 'TextField', 'Textarea', 'Select', 'Button', 'ImageButton', 'HiddenField' ] },
-			'/',
-			{ name: 'basicstyles', items: [ 'Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'CopyFormatting', 'RemoveFormat' ] },
-			{ name: 'paragraph', items: [ 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', 'CreateDiv', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 'BidiLtr', 'BidiRtl', 'Language' ] },
-			{ name: 'links', items: [ 'Link', 'Unlink', 'Anchor' ] },
-			{ name: 'insert', items: [ 'Image', 'Flash', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar', 'PageBreak', 'Iframe' ] },
-			'/',
-			{ name: 'styles', items: [ 'Styles', 'Format', 'Font', 'FontSize' ] },
-			{ name: 'colors', items: [ 'TextColor', 'BGColor' ] },
-			{ name: 'tools', items: [ 'Maximize', 'ShowBlocks' ] },
-			{ name: 'about', items: [ 'About' ] }
-			]
-		  
-		})
+			$("#a1").css("color","red");
+			
+		}
+	
+	}
+	});
+	
+	//alert(val);
+	}
+	
+	
 	</script>
+	
+	  
+	<!--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor/4.3.2/ckeditor.js" ></script>-->
+<script>
+/*var ckEditorID;
+
+ckEditorID = 'ckeExample';
+
+CKEDITOR.config.forcePasteAsPlainText = true;
+CKEDITOR.replace( ckEditorID,
+    {
+        toolbar :
+        [
+         { name: 'document', items: [ 'Source', '-', 'Save', 'NewPage', 'Preview', 'Print', '-', 'Templates' ] },
+		{ name: 'clipboard', items: [ 'Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo' ] },
+		{ name: 'editing', items: [ 'Find', 'Replace', '-', 'SelectAll', '-', 'Scayt' ] },
+		{ name: 'forms', items: [ 'Form', 'Checkbox', 'Radio', 'TextField', 'Textarea', 'Select', 'Button', 'ImageButton', 'HiddenField' ] },
+		'/',
+		{ name: 'basicstyles', items: [ 'Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'CopyFormatting', 'RemoveFormat' ] },
+		{ name: 'paragraph', items: [ 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', 'CreateDiv', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 'BidiLtr', 'BidiRtl', 'Language' ] },
+		{ name: 'links', items: [ 'Link', 'Unlink', 'Anchor' ] },
+		{ name: 'insert', items: [ 'Image', 'Flash', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar', 'PageBreak', 'Iframe' ] },
+		'/',
+		{ name: 'styles', items: [ 'Styles', 'Format', 'Font', 'FontSize' ] },
+		{ name: 'colors', items: [ 'TextColor', 'BGColor' ] },
+		{ name: 'tools', items: [ 'Maximize', 'ShowBlocks' ] },
+		{ name: 'about', items: [ 'About' ] }
+        ]
+      
+    })
+ */
+</script>
+<script>
+ /*CKEDITOR.replace( 'ckeExample', {
+  height: 300,
+  filebrowserUploadUrl: "upload.php"
+ });*/
+</script>
 
     <!-- Active JS -->
     <script src="../js/default-assets/fullscreen.js"></script>

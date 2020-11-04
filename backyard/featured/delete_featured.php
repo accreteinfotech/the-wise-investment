@@ -5,11 +5,11 @@
 		include '../include/connect.php';
 		
 		$id=$_REQUEST['cid'];
-		$link->where('review_id',$id);
-		$a=$link->delete("review");
+		$link->where('featured_id',$id);
+		$a=$link->delete("featured");
 		if($a)
 		{
-			header('location:../View-Testimonials');
+			header("location:../View-Featured");
 		}
 		
 ?>

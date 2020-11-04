@@ -45,7 +45,7 @@ RewriteRule ^Login/([a-zA-Z0-9-_]+)/([a-zA-Z0-9-_]+)?$ login.php?pid=$1&pgid=$2
 RewriteRule ^Login/([a-zA-Z0-9-_]+)?$ login.php?cid=$1
 RewriteRule ^Product-Detail/([a-zA-Z0-9-_]+)?$ product-details.php?pid=$1
 RewriteRule ^Work-Gallery/([a-zA-Z0-9-_]+)?$ work-gallery.php?wid=$1
-RewriteRule ^Blog/([a-zA-Z0-9-]+)?$ blog-details.php?bid=$1
+RewriteRule ^Blog/([a-zA-Z0-9-]+)?$ blog-detail.php?bid=$1
 RewriteRule ^Remove-Cart/([a-zA-Z0-9]+)?$ remove_cart.php?cid=$1
 RewriteRule ^Insert-Wishlist/?$ insert_wishlist.php
 RewriteRule ^Remove-Wishlist/([a-zA-Z0-9]+)/([a-zA-Z0-9]+)?$ remove_wishlist.php?cid=$1&pid=$2
@@ -162,6 +162,14 @@ RewriteRule ^backyard/blogs/View-Blogs/?$ backyard/blogs/view_blogs.php
 RewriteRule ^backyard/blogs/Edit-Blog/([a-zA-Z0-9]+)$ backyard/blogs/edit_blogs.php?cid=$1
 RewriteRule ^backyard/blogs/Delete-Blog/([a-zA-Z0-9]+)$ backyard/blogs/delete_blogs.php?cid=$1
 
+#Featured Links
+RewriteRule ^backyard/featured/Add-Featured/?$ backyard/featured/add_featured.php
+RewriteRule ^backyard/featured/Insert-Featured/?$ backyard/featured/insert_featured.php
+RewriteRule ^backyard/featured/Update-Featured/?$ backyard/featured/update_featured.php
+RewriteRule ^backyard/featured/View-Featured/?$ backyard/featured/view_featured.php
+RewriteRule ^backyard/featured/Edit-Featured/([a-zA-Z0-9]+)$ backyard/featured/edit_featured.php?cid=$1
+RewriteRule ^backyard/featured/Delete-Featured/([a-zA-Z0-9]+)$ backyard/featured/delete_featured.php?cid=$1
+
 #Picks Links
 RewriteRule ^backyard/picks/Add-Picks/?$ backyard/picks/add_picks.php
 RewriteRule ^backyard/picks/Insert-Picks/?$ backyard/picks/insert_picks.php
@@ -197,12 +205,12 @@ RewriteRule ^backyard/product_color/Edit-Product-Color/([a-zA-Z0-9]+)$ backyard/
 RewriteRule ^backyard/product_color/Delete-Product-Color/([a-zA-Z0-9]+)$ backyard/product_color/delete_product_color.php?cid=$1
 
 #Testimonials Links
-RewriteRule ^backyard/testimonials/Add-Testimonials/?$ backyard/testimonials/add_testimonials.php
-RewriteRule ^backyard/testimonials/View-Testimonials/?$ backyard/testimonials/view_testimonials.php
-RewriteRule ^backyard/testimonials/Insert-Testimonials/?$ backyard/testimonials/insert_testimonials.php
-RewriteRule ^backyard/testimonials/Update-Testimonials/?$ backyard/testimonials/update_testimonials.php
-RewriteRule ^backyard/testimonials/Edit-Testimonials/([a-zA-Z0-9]+)?$ backyard/testimonials/edit_testimonials.php?cid=$1
-RewriteRule ^backyard/testimonials/Delete-Testimonials/([a-zA-Z0-9]+)?$ backyard/testimonials/delete_testimonials.php?cid=$1
+RewriteRule ^backyard/testimonials/Add-Testimonial/?$ backyard/testimonials/add_testimonial.php
+RewriteRule ^backyard/testimonials/View-Testimonial/?$ backyard/testimonials/view_testimonial.php
+RewriteRule ^backyard/testimonials/Insert-Testimonial/?$ backyard/testimonials/insert_testimonial.php
+RewriteRule ^backyard/testimonials/Update-Testimonial/?$ backyard/testimonials/update_testimonial.php
+RewriteRule ^backyard/testimonials/Edit-Testimonial/([a-zA-Z0-9]+)?$ backyard/testimonials/edit_testimonial.php?cid=$1
+RewriteRule ^backyard/testimonials/Delete-Testimonial/([a-zA-Z0-9]+)?$ backyard/testimonials/delete_testimonial.php?cid=$1
 
 #Custommers
 RewriteRule ^backyard/user/Users/?$ backyard/user/view_user.php
