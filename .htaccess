@@ -205,12 +205,21 @@ RewriteRule ^backyard/product_color/Edit-Product-Color/([a-zA-Z0-9]+)$ backyard/
 RewriteRule ^backyard/product_color/Delete-Product-Color/([a-zA-Z0-9]+)$ backyard/product_color/delete_product_color.php?cid=$1
 
 #Testimonials Links
+<<<<<<< HEAD
 RewriteRule ^backyard/testimonials/Add-Testimonial/?$ backyard/testimonials/add_testimonial.php
 RewriteRule ^backyard/testimonials/View-Testimonial/?$ backyard/testimonials/view_testimonial.php
 RewriteRule ^backyard/testimonials/Insert-Testimonial/?$ backyard/testimonials/insert_testimonial.php
 RewriteRule ^backyard/testimonials/Update-Testimonial/?$ backyard/testimonials/update_testimonial.php
 RewriteRule ^backyard/testimonials/Edit-Testimonial/([a-zA-Z0-9]+)?$ backyard/testimonials/edit_testimonial.php?cid=$1
 RewriteRule ^backyard/testimonials/Delete-Testimonial/([a-zA-Z0-9]+)?$ backyard/testimonials/delete_testimonial.php?cid=$1
+=======
+RewriteRule ^backyard/Testimonial/Add-Testimonial/?$ backyard/Testimonial/add_testimonial.php
+RewriteRule ^backyard/Testimonial/View-Testimonial/?$ backyard/Testimonial/view_testimonial.php
+RewriteRule ^backyard/Testimonial/Insert-Testimonial/?$ backyard/Testimonial/insert_testimonial.php
+RewriteRule ^backyard/Testimonial/Update-Testimonial/?$ backyard/Testimonial/update_testimonial.php
+RewriteRule ^backyard/Testimonial/Edit-Testimonial/([a-zA-Z0-9]+)?$ backyard/Testimonial/edit_testimonial.php?cid=$1
+RewriteRule ^backyard/Testimonial/Delete-Testimonial/([a-zA-Z0-9]+)?$ backyard/Testimonial/delete_testimonial.php?cid=$1
+>>>>>>> 34756e2248059b996631e3ae35f4a75ca89fae0c
 
 #Custommers
 RewriteRule ^backyard/user/Users/?$ backyard/user/view_user.php

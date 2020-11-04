@@ -79,6 +79,11 @@
                                             <input type="text" class="form-control" id="client_name" name="client_name" placeholder="Client Name">
 											<div><span id="s1" style="color:red;"></span></div>
 									    </div>
+									    <div class="form-group">
+                                            <label>Client Image</label>
+                                            <input type="file" class="form-control" name="client_image" id="client_image" >
+											<div><span id="s3" style="color:red;"></span></div>
+                                        </div>
 										 <div class="form-group">
                                             <label>Testimonial Description</label>
                                             <textarea class="ckeditor" rows="10" id="ckeExample" name="testimonial_msg"></textarea>

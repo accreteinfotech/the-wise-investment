@@ -56,8 +56,13 @@
                             <li class="treeview">
                                 <a href="javascript:void(0)"><i class="zmdi zmdi-account-box-phone"></i> <span>Testimonial</span> <i class="fa fa-angle-right"></i></a>
                                 <ul class="treeview-menu">
+<<<<<<< HEAD
                                     <li><a href="../testimonials/Add-Testimonial">- Add Testimonial</a></li>
                                     <li><a href="../testimonials/View-Testimonial">- View Testimonial</a></li>
+=======
+                                    <li><a href="../Testimonial/Add-Testimonial">- Add Testimonial</a></li>
+                                    <li><a href="../Testimonial/View-Testimonial">- View Testimonial</a></li>
+>>>>>>> 34756e2248059b996631e3ae35f4a75ca89fae0c
                                 </ul>
                             </li>
                            

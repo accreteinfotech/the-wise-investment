@@ -78,6 +78,7 @@ function confirmationDelete(anchor)
                                         <thead>
                                             <tr>
 												<th>Client Name</th>
+                                                <th>Client Image</th>
 												<th>Message</th>
                                                 <th>Image</th>
 												 <th>Edit</th>
@@ -96,6 +97,7 @@ function confirmationDelete(anchor)
 													?>
 													<tr>
 														<td><?php echo $cat['client_name']; ?></td>
+                                                        <td><img style="width:100px;height:70px;" src="../images/client_image/<?php echo $cat['client_image']; ?>"></td>
 														<td><?php echo $cat['testimonial_msg']; ?></td>
 														<td><img style="width:100px;height:70px;" src="../images/testimonial_img/<?php echo $cat['testimonial_img']; ?>"></td>
 														
