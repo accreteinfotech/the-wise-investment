@@ -709,10 +709,34 @@
         <!-- ==============================================
         Vendor Scripts
         =============================================== -->
-        <script>
+        <script src="assets/js/vendor/jquery.min.js"></script>
+        
+        <script src="assets/js/vendor/jquery.easing.min.js"></script>
+        <script src="assets/js/vendor/jquery.inview.min.js"></script>
+        <script src="assets/js/vendor/popper.min.js"></script>
+        <script src="assets/js/vendor/bootstrap.min.js"></script>
+        <script src="assets/js/vendor/ponyfill.min.js"></script>
+        <script src="assets/js/vendor/slider.min.js"></script>
+        <script src="assets/js/vendor/animation.min.js"></script>
+        <script src="assets/js/vendor/progress-radial.min.js"></script>
+        <script src="assets/js/vendor/bricklayer.min.js"></script>
+        <script src="assets/js/vendor/gallery.min.js"></script>
+        <script src="assets/js/vendor/shuffle.min.js"></script>
+        <script src="assets/js/vendor/particles.min.js"></script>
+        <script src="assets/js/main.js"></script>
+        <script src="assets/js/custom.js"></script>
+        <!-- #endregion Global ========================= -->
+   	<script src="assets/js/vendor/slick.min.js"></script>
+	<!-- Custom Scripts -->
+	<script src="assets/js/vendor/app.js"></script>
+    
+    <script src="assets/js/jquery.validate.min.js"></script>
+    <script src="assets/js/jquery.validate.js"></script>
+<script>
         //Form Validation
         $( document ).ready( function () {
             $( "#formsubmit" ).validate( {
+                //alert("Hello");
                 rules: {
                     
                     lets_talk_email: "required",
@@ -760,29 +784,5 @@
 
         } );
     </script>
-        <script src="assets/js/vendor/jquery.min.js"></script>
-        <script src="assets/js/vendor/jquery.easing.min.js"></script>
-        <script src="assets/js/vendor/jquery.inview.min.js"></script>
-        <script src="assets/js/vendor/popper.min.js"></script>
-        <script src="assets/js/vendor/bootstrap.min.js"></script>
-        <script src="assets/js/vendor/ponyfill.min.js"></script>
-        <script src="assets/js/vendor/slider.min.js"></script>
-        <script src="assets/js/vendor/animation.min.js"></script>
-        <script src="assets/js/vendor/progress-radial.min.js"></script>
-        <script src="assets/js/vendor/bricklayer.min.js"></script>
-        <script src="assets/js/vendor/gallery.min.js"></script>
-        <script src="assets/js/vendor/shuffle.min.js"></script>
-        <script src="assets/js/vendor/particles.min.js"></script>
-        <script src="assets/js/main.js"></script>
-        <script src="assets/js/custom.js"></script>
-    <script src="assets/js/jquery.validate.min.js"></script>
-    <script src="assets/js/jquery.validate.js"></script>
-    
-
-        <!-- #endregion Global ========================= -->
-   	<script src="assets/js/vendor/slick.min.js"></script>
-	<!-- Custom Scripts -->
-	<script src="assets/js/vendor/app.js"></script>
-
     </body>
 </html>
