@@ -579,46 +579,8 @@
                 </div>
             </div>
         </section>
-
-
-	 <section id="partner" class="section-4 odd logos" style="padding:75px;">
-            <div class="overflow-holder">
-                <div class="container">
-				
-                    <div class="swiper-container min-slider">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide slide-center item">
-                                <img src="assets/images/logo-1.png" class="fit-image w-85" alt="Fit Image">
-                            </div>
-                            <div class="swiper-slide slide-center item">
-                                <img src="assets/images/logo-2.png" class="fit-image w-85" alt="Fit Image">
-                            </div>
-                            <div class="swiper-slide slide-center item">
-                                <img src="assets/images/logo-3.png" class="fit-image w-85" alt="Fit Image">
-                            </div>
-                            <div class="swiper-slide slide-center item">
-                                <img src="assets/images/logo-4.png" class="fit-image w-85" alt="Fit Image">
-                            </div>
-                            <div class="swiper-slide slide-center item">
-                                <img src="assets/images/logo-5.png" class="fit-image w-85" alt="Fit Image">
-                            </div>
-                            <div class="swiper-slide slide-center item">
-                                <img src="assets/images/logo-6.png" class="fit-image w-85" alt="Fit Image">
-                            </div>
-                            <div class="swiper-slide slide-center item">
-                                <img src="assets/images/logo-7.png" class="fit-image w-85" alt="Fit Image">
-                            </div>
-                            <div class="swiper-slide slide-center item">
-                                <img src="assets/images/logo-8.png" class="fit-image w-85" alt="Fit Image">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 		
-		  <!-- Testimonials -->
-          <?php $sql=$link->rawQuery("select * from testimonial where testimonial_delete=0"); ?>
+		   <!-- Testimonials -->
         <section id="testimonials" class="section-4 odd carousel featured all" style="padding-top:50px;">
             <div class="overflow-holder">
                 <div class="container">
@@ -630,47 +592,33 @@
                     </div>
                     <div class="swiper-container mid-slider items">
                         <div class="swiper-wrapper">
-                            <?php if($link->count>0)
-                            {
-                                foreach ($sql as $cat ) {
-                                    ?>
-                                        <div class="swiper-slide slide-center text-center item">
-                                <div class="row card">
-                                    <div class="col-12">
-                                        <img src="backyard/images/client_image/<?php echo $cat['client_image']; ?>" alt="Adams Baker" class="person" style="max-width:100px;border-radius:100%;">
-                                        <h4><?php echo $cat['client_name']; ?></h4>
-                                        <p><?php echo $cat['testimonial_msg']; ?></p>
-                                        <ul class="navbar-nav social share-list ml-auto">
-                                            <li class="nav-item">
-                                                <a href="#" class="nav-link"><i class="icon-star ml-2 mr-2"></i></a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a href="#" class="nav-link"><i class="icon-star ml-2 mr-2"></i></a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a href="#" class="nav-link"><i class="icon-star ml-2 mr-2"></i></a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a href="#" class="nav-link"><i class="icon-star ml-2 mr-2"></i></a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a href="#" class="nav-link"><i class="icon-star ml-2 mr-2"></i></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                                    <?php
-                                }
-                            } ?>
-                            
-                            
+							<?php
+								$r=$link->rawQuery("select * from review");
+								if($link->count > 0)
+								{
+									foreach($r as $review)
+									{
+										?>
+										<div class="swiper-slide slide-center text-center item">
+											<div class="row card">
+												<div class="col-12">
+													<img src="backyard/images/review_image/<?php echo $review['review_image']; ?>" alt="<?php echo $review['review_name']; ?>" class="person" style="max-width:100px;border-radius:100%;">
+													<h4><?php echo $review['review_name']; ?></h4>
+													<p><?php echo $review['review_description']; ?>.</p>
+												</div>
+											</div>
+										</div>
+										<?php
+									}
+								}
+							?>
                         </div>
                         <div class="swiper-pagination"></div>
                     </div>
                 </div>
             </div>
         </section>
+
 
 
         <!-- Contact -->

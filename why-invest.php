@@ -529,8 +529,19 @@ $( "#range-slider1" ).change(function() {
 	  alert(years);
 	  alert(month);
 	  alert(ret);*/
-	var amt=(month*((1+ret)**years-1))+(ini*(1+ret)**years);
-	alert(amt);
+	  var a=ini*(1+0.18)**years;
+	  alert(a);
+	  var b=month/0.18;
+	  alert(b);
+	  var c=((1+0.18)**years)-1;
+	  alert(c);
+	  var d=c*b;
+//Final	 
+	 var e=d+a;
+	  alert(e);
+	 
+	var amt=(ini*(1+ret)**years)+((month/ret)*((1+ret)**years-1));
+	//alert(amt);
 });
 $( "#range-slider2" ).change(function() {
 	 var ini= $("#years").html();
