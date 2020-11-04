@@ -12,7 +12,7 @@
 	include '../include/connect.php';
 ?>
 <head>
-	<base href="<?php echo $site_url; ?>backyard/testimonials/">
+	<base href="<?php echo $site_url; ?>backyard/Testimonial/">
     <meta charset="UTF-8">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -73,7 +73,7 @@
                                 <div class="card-body">
                                     <h4 class="card-title">Add Testimonial</h4>
                                    
-                                    <form action="Insert-Testimonial" onsubmit="return myfunn1();" name="f1" id="formsubmit" method="post" enctype="multipart/form-data">
+                                    <form action="Insert-Testimonial" onsubmit="return myfunn1();" name="formsubmit" id="formsubmit" method="post" enctype="multipart/form-data">
                                         <div class="form-group">
                                             <label for="exampleInputName1">Client Name</label>
                                             <input type="text" class="form-control" id="client_name" name="client_name" placeholder="Client Name">
@@ -86,14 +86,14 @@
                                         </div>
 										 <div class="form-group">
                                             <label>Testimonial Description</label>
-                                            <textarea class="ckeditor" rows="10" id="ckeExample" name="testimonial_msg"></textarea>
+                                            <textarea class="ckeditor" rows="10" id="testimonial_msg" name="testimonial_msg"></textarea>
                                             <div><span id="s5" style="color:red;"></span></div>
 										</div>
-                                       <div class="form-group">
+                                       <!--<div class="form-group">
                                             <label>Testimonial Image</label>
                                             <input type="file" class="form-control" name="testimonial_img" id="testimonial_img" >
                                             <div><span id="s3" style="color:red;"></span></div>
-                                        </div>
+                                        </div>-->
                                         <button type="submit" class="btn btn-primary mr-2">Submit</button>
                                         <button type="reset" class="btn btn-light">Cancel</button>
                                     </form>
@@ -116,9 +116,6 @@
     ======================================= -->
 
     <!-- Must needed plugins to the run this Template -->
-    <script src="../js/jquery.min.js"></script>
-    <script src="../js/jquery.validate.js"></script>
-    <script src="../js/jquery.validate.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor/4.3.2/ckeditor.js" ></script>
     <script>
     
@@ -188,17 +185,14 @@
 					
 					client_name: "required",
 					testimonial_msg: "required",
-                    client_image: "required";
-                    testimonial_img: "required";
-
-					
+                    
 				},
 				messages: {
 					
 					client_name: "Please enter client name",
 					testimonial_msg: "Please enter testimonial Message",
-                    client_image: "Please select client image ";
-                    testimonial_img: "Please select testimonial image";
+                    //client_image: "Please select client image ";
+                    
 					
 				},
 				errorElement: "em",
@@ -242,7 +236,9 @@
     <script src="../js/default-assets/form-picker.js"></script>
     <script src="../js/default-assets/select2.js"></script>
     <script src="../js/default-assets/dashboard-chat.js"></script>
-
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/jquery.validate.min.js"></script>
+    <script src="../js/jquery.validate.js"></script>
 </body>
 
 </html>

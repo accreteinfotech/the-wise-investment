@@ -13,7 +13,7 @@
 	include '../include/connect.php';
 ?>
 <head>
-	<base href="<?php echo $site_url; ?>backyard/testimonials/">
+	<base href="<?php echo $site_url; ?>backyard/Testimonial/">
     <meta charset="UTF-8">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -99,6 +99,7 @@ function confirmationDelete(anchor)
 														<td><?php echo $cat['client_name']; ?></td>
                                                         <td><img style="width:100px;height:70px;" src="../images/client_image/<?php echo $cat['client_image']; ?>"></td>
 														<td><?php echo $cat['testimonial_msg']; ?></td>
+														<!--<td><img style="width:100px;height:70px;" src="../images/testimonial_img/<?php //echo $cat['testimonial_img']; ?>"></td>-->
 														
 													<td><a href="Edit-Testimonial/<?php echo $cat['testimonial_id']; ?>"><img style="height: 30px;width: 30px;"  src="../img/edit.png"></a></td>
 													<td><a onClick='javascript:confirmationDelete($(this));return false;' href="Delete-Testimonial/<?php echo $cat['testimonial_id'];?>"><img style="height: 30px;width: 30px;"  src="../img/delete.png"></a></td>

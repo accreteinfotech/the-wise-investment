@@ -12,7 +12,7 @@
 	include '../include/connect.php';
 ?>
 <head>
-	<base href="<?php echo $site_url; ?>backyard/testimonials/">
+	<base href="<?php echo $site_url; ?>backyard/Testimonial/">
     <meta charset="UTF-8">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -96,11 +96,11 @@ function myfunn1()
 												$testimonial_id=$ad['testimonial_id'];
 												$client_name=$ad['client_name'];
 												$testimonial_msg=$ad['testimonial_msg'];
-<<<<<<< HEAD:backyard/testimonials/edit_testimonial.php
-												$testimonial_img=$ad['testimonial_img'];
-=======
+
+												//$testimonial_img=$ad['testimonial_img'];
+
 												$client_image=$ad['client_image'];
->>>>>>> 34756e2248059b996631e3ae35f4a75ca89fae0c:backyard/Testimonial/edit_testimonial.php
+
 												
 										}
 									?>
@@ -114,27 +114,21 @@ function myfunn1()
 											<div><span id="s1" style="color:red;"></span></div>
 										</div>
 										<div class="form-group">
-<<<<<<< HEAD:backyard/testimonials/edit_testimonial.php
                                             <label>Testimonial Description</label>
-                                            <textarea cols="80" rows="10" id="ckeExample" name="testimonial_msg"><?php echo $testimonial_msg;?></textarea>
-											<div><span id="s5" style="color:red;"></span></div>
+                                            <textarea class="ckeditor" rows="10" id="testimonial_msg" name="testimonial_msg" value="<?php echo $testimonial_msg;?>"></textarea>
+                                            <div><span id="s5" style="color:red;"></span></div>
 										</div>
-										<div class="form-group">
+										<!--<div class="form-group">
                                             <label>Testimonial Image</label>
                                             <input type="file" class="form-control" name="testimonial_img" id="testimonial_img" onchange="readURL2(this);"  >
-                                        </div>
+                                        </div>-->
 										<div class="col-sm-12" style="padding:10px;">
-											<img id="imagePreview3" style="height:180px;width:250px;border-style:dotted;"  src="../images/testimonial_img/<?php echo $testimonial_img;?>" height="260px"> 
-=======
+											<img id="imagePreview3" style="height:180px;width:250px;border-style:dotted;"  src="../images/client_image/<?php echo $client_image;?>" height="260px">
+
                                             <label>Client Image</label>
                                             <input type="file" class="form-control" name="client_image" id="client_image" onchange="readURL2(this);" value="<?php echo $client_image; ?>"  >
                                         </div>
-										<div class="form-group">
-                                            <label for="exampleInputName1">Message</label>
-                                            <input type="text" class="form-control" id="testimonial_msg" name="testimonial_msg" value="<?php echo $testimonial_msg;?>" placeholder="testimonial Message">
-											<span id="rerror" style="width: 100%;margin-top: .25rem;font-size: 80%;color: #dc3545;"></span>
->>>>>>> 34756e2248059b996631e3ae35f4a75ca89fae0c:backyard/Testimonial/edit_testimonial.php
-										</div>
+										
                                       
 										
 										<button type="submit" class="btn btn-primary mr-2">Submit</button>
@@ -159,10 +153,6 @@ function myfunn1()
     ======================================= -->
 
     <!-- Must needed plugins to the run this Template -->
-    <script src="../js/jquery.min.js"></script>
-	<script src="../js/jquery.validate.js"></script>
-    <script src="../js/jquery.validate.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor/4.3.2/ckeditor.js" ></script>
     <script>
 	
 var ckEditorID;
@@ -298,6 +288,11 @@ CKEDITOR.replace( ckEditorID,
     <script src="../js/default-assets/form-picker.js"></script>
     <script src="../js/default-assets/select2.js"></script>
     <script src="../js/default-assets/dashboard-chat.js"></script>
+    <script src="../js/jquery.min.js"></script>
+	<script src="../js/jquery.validate.js"></script>
+    <script src="../js/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor/4.3.2/ckeditor.js" ></script>
+    
 
 </body>
 
