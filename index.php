@@ -333,15 +333,12 @@
 				</div>
                 
 				<div class="single-service-carousel js-single-service-carousel">
-
                     <?php
-                            $i=0;
-                            $picks=$link->rawQuery("select * from picks");
+                               $picks=$link->rawQuery("select * from picks");
                             if($picks)
                                                 {
                                                     foreach($picks as $pick)
                                                     {
-                                                        if($i%2==0){
                             ?>
 					<div class="single-service">
 						<div class="row">
@@ -350,7 +347,7 @@
 								<div class="text-right pl-0 pl-md-3 pl-lg-6">
 									<h3><?php echo $pick['picks_name']; ?></h3>
 									<p><?php echo $pick['picks_description']; ?></p>
-									<div class="btn-wrap"><a href="<?php echo $pick['picks_website']; ?>" class="btn btn-hover-fill"><span>Read more</span></i></a>
+									<div class="btn-wrap"><a href="<?php $pick['picks_website']; ?>" class="btn btn-hover-fill"><span>Read more</span></i></a>
                                     </div>
 								</div>
 							</div>
@@ -361,29 +358,23 @@
 					</div>
                     <?php
                         }
-                        else{
+                    }
                     ?>
-					<div class="single-service">
+					<!--<div class="single-service">
 						<div class="row">
 							<div class="col-md col-img text-right">
 								<img src="assets/images/1.png" alt="" class="img-fluid">
 							</div>
 							<div class="col-md">
 								<div class="text-left pr-0 pr-md-3 pr-lg-6">
-									<h3><?php echo $pick['picks_name']; ?></h3>
-									<p><?php echo $pick['picks_description']; ?></p>
-									<div class="btn-wrap"><a href="<?php echo $pick['picks_website']; ?>" class="btn btn-hover-fill"></i><span>Read more</span></a></div>
+									<h3>PRPO</h3>
+									<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book</p>
+									<div class="btn-wrap"><a href="#" class="btn btn-hover-fill"></i><span>Read more</span></a></div>
 								</div>
 							</div>
 						</div>
 					</div>
-                    <?php
-                        }
-                        $i++;
-                    }
-                    }
-                    ?>
-					<!--<div class="single-service">
+					<div class="single-service">
 						<div class="row">
 							<div class="col-md">
 								<div class="text-right pl-0 pl-md-3 pl-lg-6">
@@ -460,14 +451,11 @@
                             <p>Every week we publish exclusive content on various topics.</p>
                         </div>
                         <div class="col-12 col-md-3 align-self-end">
-                            <a href="Blog" class="btn mx-auto mr-md-0 ml-md-auto primary-button"><i class="icon-grid"></i>VIEW ALL</a>
+                            <a href="#" class="btn mx-auto mr-md-0 ml-md-auto primary-button"><i class="icon-grid"></i>VIEW ALL</a>
                         </div>
                     </div>
-
-
                      
-                   <div class="swiper-container mid-slider items">
-                       <div class="swiper-wrapper">
+                    <div class="swiper-container mid-slider items">
                         <?php
                             $sql=$link->rawQuery("select * from blog where is_active=1");
                                 if($sql)
@@ -475,7 +463,9 @@
                                         foreach($sql as $cat)
                                         {
                             ?>
-                             <div class="swiper-slide slide-center item">
+                        <div class="swiper-wrapper">
+                           
+                            <div class="swiper-slide slide-center item">
                                 <div class="row card p-0 text-center">
                                     <div class="image-over">
                                         <img src="backyard/images/blog_thumb_image/<?php echo $cat['blog_thumb_image']; ?>" alt="<?php echo $cat['blog_name']; ?>">
@@ -493,58 +483,16 @@
                                     </div>
                                 </div>
                             </div>
-                            <?php
+                        </div>
+                        <?php
                         }
                         }
                     ?>
-                                <!--<div class="swiper-slide slide-center item">
-                               <div class="row card p-0 text-center">
-                                 <div class="image-over">
-                                   <img src="assets/images/news-1-h.jpg" alt="Lorem ipsum">
-                                </div>
-                                <div class="card-caption col-12 p-0">
-                                  <div class="card-body">
-                                    <a href="#">
-                                      <h4 class="m-0">Tips for having a good relationship at work.</h4>
-                                    </a>
-                                   </div>
-                                <div class="card-footer d-lg-flex align-items-center justify-content-center">
-                                  <a href="#" class="d-lg-flex align-items-center">
-                                    <i class="icon-user"></i>John Doe</a>
-                                  <a href="#" class="d-lg-flex align-items-center">
-                                    <i class="icon-clock"></i>3 Days Ago</a>
-                                </div>
-                                </div>
-                                </div>
-                                </div>
-
-                                <div class="swiper-slide slide-center item">
-                               <div class="row card p-0 text-center">
-                                 <div class="image-over">
-                                   <img src="assets/images/news-1-h.jpg" alt="Lorem ipsum">
-                                </div>
-                                <div class="card-caption col-12 p-0">
-                                  <div class="card-body">
-                                    <a href="#">
-                                      <h4 class="m-0">Tips for having a good relationship at work.</h4>
-                                    </a>
-                                   </div>
-                                <div class="card-footer d-lg-flex align-items-center justify-content-center">
-                                  <a href="#" class="d-lg-flex align-items-center">
-                                    <i class="icon-user"></i>John Doe</a>
-                                  <a href="#" class="d-lg-flex align-items-center">
-                                    <i class="icon-clock"></i>3 Days Ago</a>
-                                </div>
-                                </div>
-                                </div>
-                                </div>-->
-                        
                         <div class="swiper-pagination"></div>
                     </div>
                      
                 </div>
             </div>
-        </div>
         </section>
 		
 		   <!-- Testimonials -->
@@ -559,6 +507,7 @@
                     </div>
                     <div class="swiper-container mid-slider items">
                         <div class="swiper-wrapper">
+
                             <?php
                             $sql=$link->rawQuery("select * from testimonial where testimonial_delete=0");
                                 if($sql)
@@ -619,26 +568,8 @@
                                     </div>
                                 </div>
                             </div>-->
-							<?php
-								$r=$link->rawQuery("select * from review");
-								if($link->count > 0)
-								{
-									foreach($r as $review)
-									{
-										?>
-										<div class="swiper-slide slide-center text-center item">
-											<div class="row card">
-												<div class="col-12">
-													<img src="backyard/images/review_image/<?php echo $review['review_image']; ?>" alt="<?php echo $review['review_name']; ?>" class="person" style="max-width:100px;border-radius:100%;">
-													<h4><?php echo $review['review_name']; ?></h4>
-													<p><?php echo $review['review_description']; ?>.</p>
-												</div>
-											</div>
-										</div>
-										<?php
-									}
-								}
-							?>
+
+							>
                         </div>
                         <div class="swiper-pagination"></div>
                     </div>
@@ -651,7 +582,7 @@
         <!-- Contact -->
         <section id="contact" class="section-7 odd form featured">
             <div class="container">
-                <form method="post" action="insert_letstalk.php" id="formsubmit" class="multi-step-form">
+                <form method="post" action="insert_letstalk.php" id="formsubmit" name="formsubmit" class="multi-step-form">
                     <input type="hidden" name="section" value="leverage_form">
 
                     <!--<input type="hidden" name="reCAPTCHA">-->
@@ -778,10 +709,34 @@
         <!-- ==============================================
         Vendor Scripts
         =============================================== -->
-        <script>
+        <script src="assets/js/vendor/jquery.min.js"></script>
+        
+        <script src="assets/js/vendor/jquery.easing.min.js"></script>
+        <script src="assets/js/vendor/jquery.inview.min.js"></script>
+        <script src="assets/js/vendor/popper.min.js"></script>
+        <script src="assets/js/vendor/bootstrap.min.js"></script>
+        <script src="assets/js/vendor/ponyfill.min.js"></script>
+        <script src="assets/js/vendor/slider.min.js"></script>
+        <script src="assets/js/vendor/animation.min.js"></script>
+        <script src="assets/js/vendor/progress-radial.min.js"></script>
+        <script src="assets/js/vendor/bricklayer.min.js"></script>
+        <script src="assets/js/vendor/gallery.min.js"></script>
+        <script src="assets/js/vendor/shuffle.min.js"></script>
+        <script src="assets/js/vendor/particles.min.js"></script>
+        <script src="assets/js/main.js"></script>
+        <script src="assets/js/custom.js"></script>
+        <!-- #endregion Global ========================= -->
+   	<script src="assets/js/vendor/slick.min.js"></script>
+	<!-- Custom Scripts -->
+	<script src="assets/js/vendor/app.js"></script>
+    
+    <script src="assets/js/jquery.validate.min.js"></script>
+    <script src="assets/js/jquery.validate.js"></script>
+<script>
         //Form Validation
         $( document ).ready( function () {
             $( "#formsubmit" ).validate( {
+                //alert("Hello");
                 rules: {
                     
                     lets_talk_email: "required",
@@ -829,26 +784,5 @@
 
         } );
     </script>
-        <script src="assets/js/vendor/jquery.min.js"></script>
-        <script src="assets/js/vendor/jquery.easing.min.js"></script>
-        <script src="assets/js/vendor/jquery.inview.min.js"></script>
-        <script src="assets/js/vendor/popper.min.js"></script>
-        <script src="assets/js/vendor/bootstrap.min.js"></script>
-        <script src="assets/js/vendor/ponyfill.min.js"></script>
-        <script src="assets/js/vendor/slider.min.js"></script>
-        <script src="assets/js/vendor/animation.min.js"></script>
-        <script src="assets/js/vendor/progress-radial.min.js"></script>
-        <script src="assets/js/vendor/bricklayer.min.js"></script>
-        <script src="assets/js/vendor/gallery.min.js"></script>
-        <script src="assets/js/vendor/shuffle.min.js"></script>
-        <script src="assets/js/vendor/particles.min.js"></script>
-        <script src="assets/js/main.js"></script>
-        <script src="assets/js/custom.js"></script>
-
-        <!-- #endregion Global ========================= -->
-   	<script src="assets/js/vendor/slick.min.js"></script>
-	<!-- Custom Scripts -->
-	<script src="assets/js/vendor/app.js"></script>
-
     </body>
 </html>

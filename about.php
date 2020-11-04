@@ -260,12 +260,13 @@
         </section>
         <!-- About [video] -->
       
-  <section id="contact" class="section-7 odd form featured" style="padding-top:50px;">
+  <!-- Contact -->
+        <section id="contact" class="section-7 odd form featured">
             <div class="container">
-                <form action="#" id="leverage-form" class="multi-step-form">
+                <form method="post" action="insert_letstalk.php" id="formsubmit" class="multi-step-form">
                     <input type="hidden" name="section" value="leverage_form">
 
-                    <input type="hidden" name="reCAPTCHA">
+                    <!--<input type="hidden" name="reCAPTCHA">-->
                     <!-- Remove this field if you want to disable recaptcha -->
 
                     <div class="row">
@@ -306,23 +307,25 @@
                                     <fieldset class="step-group">
                                         <div class="row">
                                             <div class="col-12 input-group p-0">
-                                                <input type="email" name="email" data-minlength="3" class="form-control field-email" placeholder="Email">
+                                                <input type="email" name="lets_talk_email" id="lets_talk_email" data-minlength="3" class="form-control field-email" placeholder="Email">
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-12 input-group p-0">
-                                                <input type="text" name="name" data-minlength="3" class="form-control field-name" placeholder="Name">
+                                                <input type="text" name="lets_talk_name" id="lets_talk_name" data-minlength="3" class="form-control field-name" placeholder="Name">
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-12 input-group p-0">
-                                                <input type="text" name="phone" data-minlength="3" class="form-control field-phone" placeholder="Phone">
+                                                <input type="text" name="lets_talk_phono" id="lets_talk_phono" data-minlength="3" class="form-control field-phone" placeholder="Phone">
                                             </div>
                                         </div>
                                         <div class="col-12 input-group p-0">
-                                            <a class="step-next btn primary-button">NEXT<i class="icon-arrow-right-circle left"></i></a>
+                                            <button type="submit" id="reg" class="step-next btn primary-button">NEXT<i class="icon-arrow-right-circle left"></i></button>
+                                            
                                         </div>
                                     </fieldset>
+                                    
 
                                 </div>
                             </div>
@@ -331,7 +334,7 @@
                         <div class="content-images col-12 col-md-6 pl-md-5 d-none d-md-block">
 
                             <!-- Step 1 -->
-							<div class="gallery">
+                            <div class="gallery">
                                 
                                     <img src="assets/images/contact.jpg" class="fit-image" alt="Contact Us">
                                 
@@ -342,7 +345,7 @@
                 </form>
             </div>
         </section>
-        <!-- Footer -->
+              <!-- Footer -->
           <?php
 		include('footer.php');
 		?>
@@ -389,6 +392,7 @@
         Vendor Scripts
         =============================================== -->
         <script src="assets/js/vendor/jquery.min.js"></script>
+        
         <script src="assets/js/vendor/jquery.easing.min.js"></script>
         <script src="assets/js/vendor/jquery.inview.min.js"></script>
         <script src="assets/js/vendor/popper.min.js"></script>
@@ -402,8 +406,67 @@
         <script src="assets/js/vendor/shuffle.min.js"></script>
         <script src="assets/js/vendor/particles.min.js"></script>
         <script src="assets/js/main.js"></script>
+        <script src="assets/js/custom.js"></script>
+        <!-- #endregion Global ========================= -->
+    <script src="assets/js/vendor/slick.min.js"></script>
+    <!-- Custom Scripts -->
+    <script src="assets/js/vendor/app.js"></script>
+    
+    <script src="assets/js/jquery.validate.min.js"></script>
+    <script src="assets/js/jquery.validate.js"></script>
 
         <!-- #endregion Global ========================= -->
+        <script>
+        //Form Validation
+        $( document ).ready( function () {
+            $( "#formsubmit" ).validate( {
+                rules: {
+                    
+                    lets_talk_email: "required",
+                    lets_talk_name: "required",
+                    lets_talk_phono: "required",
+                    
+                    
+                },
+                messages: {
+                    
+                    lets_talk_email: 
+                    {
+                      required: "Please Enter E-mail *",
+                      email: "Please Enter Valid E-mail *"
+                    },
+                    lets_talk_name: "Please enter Product name",
+                    lets_talk_phono:
+                    {
+                      required: "Please Enter Phone No. *",
+                      digits: "Please Enter Only Digits *",
+                      minlength: "Please Enter Only 10 Digits *",
+                      maxlength: "Please Enter Only 10 Digits *"
+                    },
+                    
+                    
+                },
+                errorElement: "em",
+                errorPlacement: function ( error, element ) {
+                    // Add the `invalid-feedback` class to the error element
+                    error.addClass( "invalid-feedback" );
+
+                    if ( element.prop( "type" ) === "checkbox" ) {
+                        error.insertAfter( element.next( "label" ) );
+                    } else {
+                        error.insertAfter( element );
+                    }
+                },
+                highlight: function ( element, errorClass, validClass ) {
+                    $( element ).addClass( "is-invalid" ).removeClass( "is-valid" );
+                },
+                unhighlight: function (element, errorClass, validClass) {
+                    $( element ).addClass( "is-valid" ).removeClass( "is-invalid" );
+                }
+            } );
+
+        } );
+    </script>
 
     </body>
 </html>

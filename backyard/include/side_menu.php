@@ -29,8 +29,7 @@
 								<h6 style="text-align:center;">Management</h6>
                             </li>
                            
-							 <li class="active"><a href="../change_password/Change-Password"><i class="zmdi zmdi-key"></i> <span>Change Password</span></a></li>
-
+							 
                              <li class="treeview">
                                 <a href="javascript:void(0)"><i class="zmdi zmdi-account-box-phone"></i> <span>Picks</span> <i class="fa fa-angle-right"></i></a>
                                 <ul class="treeview-menu">
@@ -56,10 +55,12 @@
                             <li class="treeview">
                                 <a href="javascript:void(0)"><i class="zmdi zmdi-account-box-phone"></i> <span>Testimonial</span> <i class="fa fa-angle-right"></i></a>
                                 <ul class="treeview-menu">
-                                    <li><a href="../Testimonial/Add-Testimonial">- Add Testimonial</a></li>
-                                    <li><a href="../Testimonial/View-Testimonial">- View Testimonial</a></li>
+                                    <li><a href="../testimonial/Add-Testimonial">- Add Testimonial</a></li>
+                                    <li><a href="../testimonial/View-Testimonial">- View Testimonial</a></li>
                                 </ul>
                             </li>
+                            <li class="active"><a href="../change_password/Change-Password"><i class="zmdi zmdi-key"></i> <span>Change Password</span></a></li>
+
                            
                         </ul>
                     </nav>
