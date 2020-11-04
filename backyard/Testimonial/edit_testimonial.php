@@ -104,7 +104,7 @@ function myfunn1()
 												
 										}
 									?>
-                                    <form action="Update-Testimonial"  name="f1" id="formsubmit" method="post" enctype="multipart/form-data">
+                                    <form action="Update-Testimonial"  name="formsubmit" id="formsubmit" method="post" enctype="multipart/form-data">
                                          <div class="form-group">
 											<input type="hidden" id="testimonial_id" name="testimonial_id" class="form-control" value="<?php echo $testimonial_id;?>">
 										</div>

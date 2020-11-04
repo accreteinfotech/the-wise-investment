@@ -582,7 +582,7 @@
         <!-- Contact -->
         <section id="contact" class="section-7 odd form featured">
             <div class="container">
-                <form method="post" action="insert_letstalk.php" id="formsubmit" class="multi-step-form">
+                <form method="post" action="insert_letstalk.php" id="formsubmit" name="formsubmit" class="multi-step-form">
                     <input type="hidden" name="section" value="leverage_form">
 
                     <!--<input type="hidden" name="reCAPTCHA">-->
@@ -775,6 +775,9 @@
         <script src="assets/js/vendor/particles.min.js"></script>
         <script src="assets/js/main.js"></script>
         <script src="assets/js/custom.js"></script>
+    <script src="assets/js/jquery.validate.min.js"></script>
+    <script src="assets/js/jquery.validate.js"></script>
+    
 
         <!-- #endregion Global ========================= -->
    	<script src="assets/js/vendor/slick.min.js"></script>

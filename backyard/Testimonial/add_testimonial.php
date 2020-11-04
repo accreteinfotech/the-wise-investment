@@ -116,7 +116,7 @@
     ======================================= -->
 
     <!-- Must needed plugins to the run this Template -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor/4.3.2/ckeditor.js" ></script>
+    
     <script>
     
 /*CKEDITOR.replace( 'ckeExample', {
@@ -185,13 +185,14 @@
 					
 					client_name: "required",
 					testimonial_msg: "required",
+                    client_image: "required",
                     
 				},
 				messages: {
 					
 					client_name: "Please enter client name",
 					testimonial_msg: "Please enter testimonial Message",
-                    //client_image: "Please select client image ";
+                    client_image: "Please select client image ",
                     
 					
 				},
@@ -239,6 +240,7 @@
     <script src="../js/jquery.min.js"></script>
     <script src="../js/jquery.validate.min.js"></script>
     <script src="../js/jquery.validate.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor/4.3.2/ckeditor.js" ></script>
 </body>
 
 </html>
