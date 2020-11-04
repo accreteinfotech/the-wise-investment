@@ -96,6 +96,7 @@ function myfunn1()
 												$testimonial_id=$ad['testimonial_id'];
 												$client_name=$ad['client_name'];
 												$testimonial_msg=$ad['testimonial_msg'];
+												$client_image=$ad['client_image'];
 												
 										}
 									?>
@@ -108,6 +109,10 @@ function myfunn1()
                                             <input type="text" class="form-control" id="client_name" name="client_name" placeholder="Client Name" value="<?php echo $client_name;?>" >
 											<div><span id="s1" style="color:red;"></span></div>
 										</div>
+										<div class="form-group">
+                                            <label>Client Image</label>
+                                            <input type="file" class="form-control" name="client_image" id="client_image" onchange="readURL2(this);" value="<?php echo $client_image; ?>"  >
+                                        </div>
 										<div class="form-group">
                                             <label for="exampleInputName1">Message</label>
                                             <input type="text" class="form-control" id="testimonial_msg" name="testimonial_msg" value="<?php echo $testimonial_msg;?>" placeholder="testimonial Message">

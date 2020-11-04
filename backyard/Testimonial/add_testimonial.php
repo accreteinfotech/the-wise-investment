@@ -77,6 +77,11 @@
                                             <input type="text" class="form-control" id="client_name" name="client_name" placeholder="Client Name">
 											<div><span id="s1" style="color:red;"></span></div>
 									    </div>
+									    <div class="form-group">
+                                            <label>Client Image</label>
+                                            <input type="file" class="form-control" name="client_image" id="client_image" >
+											<div><span id="s3" style="color:red;"></span></div>
+                                        </div>
 										 <div class="form-group">
                                             <label for="exampleInputName1">Message</label>
                                             <input type="text" onkeyup="aliascheck(this.value);" class="form-control" id="testimonial_msg" name="testimonial_msg" placeholder="Message">
