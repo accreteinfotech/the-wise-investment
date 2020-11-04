@@ -188,12 +188,17 @@
 					
 					client_name: "required",
 					testimonial_msg: "required",
+                    client_image: "required";
+                    testimonial_img: "required";
+
 					
 				},
 				messages: {
 					
 					client_name: "Please enter client name",
 					testimonial_msg: "Please enter testimonial Message",
+                    client_image: "Please select client image ";
+                    testimonial_img: "Please select testimonial image";
 					
 				},
 				errorElement: "em",
