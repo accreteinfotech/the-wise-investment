@@ -1,3 +1,15 @@
+<?php
+    if(isset($_SESSION['user_id']) && $_SESSION['user_id']!=null)
+    {
+        $uid=$_SESSION['user_id'];
+        $sflag=1;
+    }
+    else
+    {
+        $uid=session_id();  
+        $sflag=0;
+    }
+?>
 <header id="header">
 
             <!-- Navbar -->
@@ -117,7 +129,40 @@
 						<li class="nav-item">
                             <a href="Contact-us" class="nav-link">Contact Us</a>
                         </li>
-                       
+                        <!--<?php
+                                        //if($sflag==1)
+                                        {
+                                            ?>
+                                            <span><i style="color:#4cda4c;padding-right: 5px;" class="fa fa-circle" aria-hidden="true"></i><?php //echo $_SESSION['user_full_name']; ?></span>
+                                            <?php
+                                        }
+                                        //else
+                                        {
+                                            ?>
+                                            <a class="block-link">
+                                                <span class="pe-7s-user"></span>
+                                            </a>
+                                            <?php
+                                        }
+                                        ?>-->
+                                        <?php
+                                    if($sflag == 1)
+                                    {
+                                        ?>
+                        <li class="nav-item">
+                            <a href="logout.php" class="nav-link">Logout</a>
+                        </li>
+                        <?php
+                                    }
+                                    else if($sflag == 0)
+                                    {
+                                        ?>
+						<li class="nav-item">
+                            <a href="Login-Register" class="nav-link">Login / Register</a>
+                        </li>
+                       <?php
+                                    }
+                                ?>
                     </ul>
 
                     <!-- Navbar Icons -->

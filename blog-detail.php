@@ -1,24 +1,11 @@
 <?php
-    ob_start();
-?>  
+	ob_start();
+?>	
 <?php
-    include 'backyard/include/connect.php';
-    session_start();
-    $seo=$link->rawQueryone("select * from page_seo where page_seo_url=?",array($page_name));
-    if($link->count > 0)
-    {
-        $page_seo_title=$seo['page_seo_title'];
-        $page_seo_description=$seo['page_seo_description'];
-        $page_seo_keywords=$seo['page_seo_keywords'];
-        $page_seo_author=$seo['page_seo_author'];
-        
-        $page_seo_og_title=$seo['page_seo_og_title'];
-        $page_seo_og_description=$seo['page_seo_og_description'];
-        $page_seo_og_url=$seo['page_seo_og_url'];
-    }
-     $bid = $_GET['bid'];
-    $blog=$link->rawQueryOne("select * from blog where blog_alias=?",array($bid));
-    
+	include 'backyard/include/connect.php';
+	session_start();
+	$blog_id=$_GET['bid'];
+	$sqlb=$link->rawQueryOne("select * from blog where blog_alias LIKE ?",array($blog_id));
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,20 +14,17 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title><?php echo $project_name; ?> | <?php echo $page_seo_title; ?></title>
-    <meta name="description" content="<?php echo $page_seo_description; ?>">
-    <meta name="keywords" content="<?php echo $page_seo_keywords; ?>" >
-    <meta content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, target-densitydpi=device-dpi" name="viewport">
-    <meta property="og:title" content="<?php echo $project_name; ?> | <?php echo $page_seo_og_title; ?>" />
-    <meta property="og:url" content="<?php echo $page_seo_og_url; ?>" />
-    <meta property="og:description" content="<?php echo $page_seo_og_description; ?>">
-    <base href="<?php echo $site_url; ?>">
-	<meta name="twitter:card" content="" />
-	<meta name="twitter:site" content="" />
-	<meta name="twitter:domain" content="" />
-	<meta name="twitter:title" content="" />
-	<meta name="twitter:description" content="" />
-	<meta name="twitter:image" content="" />
+	<base href="<?php echo $site_url; ?>">
+	<title><?php echo $sqlb['blog_title']; ?></title>
+	<meta name="title" content="<?php echo $sqlb['meta_title']; ?>">
+	<meta name="description" content="<?php echo $sqlb['meta_description']; ?>">
+	<meta name="keywords" content="<?php echo $sqlb['meta_keyword']; ?>">
+	<meta property="og:url"           content="<?php echo $site_url;?>/Blog/<?php echo $blog_alias;?>" />
+  <meta property="og:title"         content="<?php echo $sqlb['blog_title']; ?>" />
+  <meta property="og:description"   content="<?php echo $sqlb['blog_short_desc']; ?>" />
+  <meta property="og:image"         content="<?php echo $site_url;?>backyard/images/blog_big_image/<?php echo $sqlb['blog_big_image']; ?>" />
+  <meta property="og:image:url"     content="<?php echo $site_url;?>backyard/images/blog_big_image/<?php echo $sqlb['blog_big_image']; ?>" />
+  <meta property="og:image:type"    content="image/jpg" />
 
 	<!-- Mobile Specific Metas
 	================================================== -->
@@ -130,7 +114,7 @@
                                 <nav data-aos="zoom-out-up" data-aos-delay="800" aria-label="breadcrumb">
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="Home">Home</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">Blog Details</li>
+                                        <li class="breadcrumb-item active" aria-current="page"><?php echo $sqlb['blog_name']; ?></li>
                                     </ol>
                                 </nav>
                             </div>
@@ -150,31 +134,20 @@
                         <div class="row">
                             <div class="col-12 align-self-center">
                                 <h2 class="featured mt-0 ml-0">Content</h2>
-                                <!--<p><?php //echo $blog['blog_name']; ?></p>-->
                                 <p>
-                                    <blockquote><?php echo $blog['blog_name']; ?></blockquote>
+                                    <blockquote><?php echo $sqlb['blog_name']; ?></blockquote>
                                 </p>
-                                <!--<p><?php //echo $blog['blog_short_desc']; ?></p>-->
-
+                               
                                 <!-- Image -->
                                 <div>
                                   
-                                  <img src="backyard/images/blog_big_image/<?php echo $blog['blog_big_image']; ?>" class="w-100">
+                                  <img src="backyard/images/blog_big_image/<?php echo $sqlb['blog_big_image']; ?>" class="w-100">
                                         
                                     
                                 </div>
 
-                                <!--<p><?php //echo $blog['blog_short_desc']; ?></p>-->
-                                <h4><?php echo $blog['blog_writer']; ?></h4>
-                                <!--<ul>
-                                    <li>Lorem ipsum dolor sit amet.</li>
-                                    <li>Consectetur adipiscing elit.</li>
-                                    <li>Integer molestie lorem at massa.</li>
-                                </ul>-->
-                                <p><?php echo $blog['blog_description']; ?></p>
-                                <!--<p><?php //echo $blog['blog_short_desc']; ?></p>-->
-
-                                <!-- Post Holder -->
+                                <h4><?php echo $sqlb['blog_writer']; ?></h4>
+                                <p><?php echo $sqlb['blog_description']; ?></p>
                                 <ul class="mb-5 post-holder">
                                     <li class="post-meta-item">
                                         <time class="date"><span class="posted-on">Posted on <a rel="bookmark"><time class="entry-date published updated" datetime="2018-11-01T06:18:46+00:00"><?php echo $blog['blog_date']; ?></time></a></span></time>

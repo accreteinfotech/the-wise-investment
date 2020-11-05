@@ -182,7 +182,7 @@
                 </div>
 
                 <!-- Pagination -->
-                <div class="row">
+                <!--<div class="row">
                     <div class="col-12">
                         <nav>
                             <ul class="pagination justify-content-center">
@@ -203,7 +203,7 @@
                             </ul>
                         </nav>
                     </div>
-                </div>
+                </div>-->
             </div>
         </section>
 

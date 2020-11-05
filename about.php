@@ -263,7 +263,7 @@
   <!-- Contact -->
         <section id="contact" class="section-7 odd form featured">
             <div class="container">
-                <form method="post" action="insert_letstalk.php" id="formsubmit" class="multi-step-form">
+                <form method="post" action="insert_letstalk.php?lt=About" id="formsubmit" class="multi-step-form">
                     <input type="hidden" name="section" value="leverage_form">
 
                     <!--<input type="hidden" name="reCAPTCHA">-->

@@ -19,17 +19,17 @@
                                     <p>Authentic and innovative.<br>Built to the smallest detail<br>with a focus on usability<br>and performance.</p>
                                     <ul class="navbar-nav social share-list mt-0 ml-auto">
                                         <li class="nav-item">
-                                            <a href="#" class="nav-link"><i class="icon-social-instagram ml-0"></i></a>
+                                            <a href="https://www.instagram.com/thewiseinvesting/" class="nav-link"><i class="icon-social-instagram ml-0"></i></a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="#" class="nav-link"><i class="icon-social-facebook"></i></a>
+                                            <a href="https://www.facebook.com/thewiseinvesting" class="nav-link"><i class="icon-social-facebook"></i></a>
                                         </li>
-                                        <li class="nav-item">
+                                        <!--<li class="nav-item">
                                             <a href="#" class="nav-link"><i class="icon-social-linkedin"></i></a>
                                         </li>
                                         <li class="nav-item">
                                             <a href="#" class="nav-link"><i class="icon-social-twitter"></i></a>
-                                        </li>
+                                        </li>-->
                                     </ul>
                                 </div>
                             </div>
@@ -64,35 +64,27 @@
                                     <h4 class="title">Quick Links</h4>
                                     <ul class="navbar-nav">
                                         <li class="nav-item">
-                                            <a href="about.php" class="nav-link">About Us</a>
+                                            <a href="About" class="nav-link">About Us</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="why-invest.php" class="nav-link">Why Invest</a>
+                                            <a href="Why-Invest" class="nav-link">Why Invest</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="subscription.php" class="nav-link">Subscription</a>
+                                            <a href="Subscription" class="nav-link">Subscription</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="blog.php" class="nav-link">Blogs</a>
+                                            <a href="Blog" class="nav-link">Blogs</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="faq.php" class="nav-link">FAQs</a>
+                                            <a href="Faq" class="nav-link">FAQs</a>
                                         </li>
 										<li class="nav-item">
-                                            <a href="contact.php" class="nav-link">Contact Us</a>
+                                            <a href="Contact-us" class="nav-link">Contact Us</a>
                                         </li>
                                     </ul>
                                 </div>
                                 <div class="col-12 col-lg-4 p-3 text-center text-lg-left item">
-                                    <h4 class="title">Popular Tags</h4>
-                                    <a href="#" class="badge tag">Mobile</a>
-                                    <a href="#" class="badge tag">Development</a>
-                                    <a href="#" class="badge tag">Technology</a>
-                                    <a href="#" class="badge tag">App</a>
-                                    <a href="#" class="badge tag">Education</a>
-                                    <a href="#" class="badge tag">Business</a>
-                                    <a href="#" class="badge tag">Health</a>
-                                    <a href="#" class="badge tag">Industry</a>
+                                    <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fthewiseinvesting&tabs=timeline&width=340&height=300px&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=4289446831130029" width="340" height="300px" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
                                 </div>
                             </div>
                         </div>

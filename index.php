@@ -111,8 +111,21 @@
 .card:not(.no-hover):hover h3, .card:not(.no-hover):hover h4, .card:not(.no-hover):hover span {
     color: #f5f5f5;
 }
+
         </style>
-        
+        <script>
+   if (typeof(stockdio_events) == "undefined") {
+      stockdio_events = true;
+      var stockdio_eventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
+      var stockdio_eventer = window[stockdio_eventMethod];
+      var stockdio_messageEvent = stockdio_eventMethod == "attachEvent" ? "onmessage" : "message";
+      stockdio_eventer(stockdio_messageEvent, function (e) {
+         if (typeof(e.data) != "undefined" && typeof(e.data.method) != "undefined") {
+            eval(e.data.method);
+         }
+      },false);
+   }
+</script>
     </head>
 
     <body class="theme-mode-dark">
@@ -173,19 +186,7 @@
             </div>
         </section>
 
-<script>
-   if (typeof(stockdio_events) == "undefined") {
-      stockdio_events = true;
-      var stockdio_eventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
-      var stockdio_eventer = window[stockdio_eventMethod];
-      var stockdio_messageEvent = stockdio_eventMethod == "attachEvent" ? "onmessage" : "message";
-      stockdio_eventer(stockdio_messageEvent, function (e) {
-         if (typeof(e.data) != "undefined" && typeof(e.data.method) != "undefined") {
-            eval(e.data.method);
-         }
-      },false);
-   }
-</script>
+
 <iframe id='st_9d2b767a48974ee5af3300a820c59f13' frameBorder='0' scrolling='no' width='100%' height='100%' src='https://api.stockdio.com/visualization/financial/charts/v1/Ticker?app-key=22984F059760436B8FD319EA584C7302&symbols=AAPL;MSFT;GOOG;FB;ORCL&palette=Financial-Light&onload=st_9d2b767a48974ee5af3300a820c59f13'></iframe>
   
         <!-- About [image] -->
@@ -203,7 +204,7 @@
  <h2 class="featured alt" style="margin-top:60px;">Why Us</h2>
      <p style="text-align:justify;">We don’t just offer you safe investments, we do it the optimal way.</p>
 								<p style="text-align:justify;">Looking for the right investment opportunity by yourself can be a tiresome process, leave it to us for wise return and investments. We as an expert ,research the assets and pick out the best investment opportunity with our machine learning tools.  The Wise Investing holds an edge towards competitors in terms of return, on an average our hand picked stocks offer 10-15% ROI. What’s in it for us? We just want to level the playing field by making investing easy for both rookies and professionals.
-                            
+								<a href="About" style="color:#fff" id="step-next-1" class="step-next btn primary-button">Learn More<i class="icon-arrow-right-circle left"></i></a>
                             </div>
                         </div>
                         <div class="row items">
@@ -323,7 +324,7 @@
             </div>
         </section>
 		
-<section><div class="page-content">
+	<section><div class="page-content">
 	<!--section single service -->
 		<div class="section" style="margin-top:0px;">
 			<div class="container">
@@ -333,13 +334,16 @@
 				</div>
                 
 				<div class="single-service-carousel js-single-service-carousel">
+
                     <?php
-                               $picks=$link->rawQuery("select * from picks");
-                            if($picks)
-                                                {
-                                                    foreach($picks as $pick)
-                                                    {
-                            ?>
+					$i=0;
+					$picks=$link->rawQuery("select * from picks");
+					if($picks)
+					{
+						foreach($picks as $pick)
+						{
+							if($i%2==0){
+					?>
 					<div class="single-service">
 						<div class="row">
                             
@@ -347,7 +351,7 @@
 								<div class="text-right pl-0 pl-md-3 pl-lg-6">
 									<h3><?php echo $pick['picks_name']; ?></h3>
 									<p><?php echo $pick['picks_description']; ?></p>
-									<div class="btn-wrap"><a href="<?php $pick['picks_website']; ?>" class="btn btn-hover-fill"><span>Read more</span></i></a>
+									<div class="btn-wrap"><a href="<?php echo $pick['picks_website']; ?>" class="btn btn-hover-fill"><span>Read more</span></i></a>
                                     </div>
 								</div>
 							</div>
@@ -358,58 +362,37 @@
 					</div>
                     <?php
                         }
+                        else{
+                    ?>
+					<div class="single-service">
+						<div class="row">
+							<div class="col-md col-img text-right">
+								<img src="assets/images/1.png" alt="" class="img-fluid">
+							</div>
+							<div class="col-md">
+								<div class="text-left pr-0 pr-md-3 pr-lg-6">
+									<h3><?php echo $pick['picks_name']; ?></h3>
+									<p><?php echo $pick['picks_description']; ?></p>
+									<div class="btn-wrap"><a href="<?php echo $pick['picks_website']; ?>" class="btn btn-hover-fill"></i><span>Read more</span></a></div>
+								</div>
+							</div>
+						</div>
+					</div>
+                    <?php
+                        }
+                        $i++;
+                    }
                     }
                     ?>
-					<!--<div class="single-service">
-						<div class="row">
-							<div class="col-md col-img text-right">
-								<img src="assets/images/1.png" alt="" class="img-fluid">
-							</div>
-							<div class="col-md">
-								<div class="text-left pr-0 pr-md-3 pr-lg-6">
-									<h3>PRPO</h3>
-									<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book</p>
-									<div class="btn-wrap"><a href="#" class="btn btn-hover-fill"></i><span>Read more</span></a></div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="single-service">
-						<div class="row">
-							<div class="col-md">
-								<div class="text-right pl-0 pl-md-3 pl-lg-6">
-									<h3>PRPO</h3>
-									<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book</p>
-									<div class="btn-wrap"><a href="#" class="btn btn-hover-fill"><span>Read more</span></a></div>
-								</div>
-							</div>
-							<div class="col-md col-img">
-								<img src="assets/images/1.png" alt="" class="img-fluid">
-							</div>
-						</div>
-					</div>
-					<div class="single-service">
-						<div class="row">
-							<div class="col-md col-img text-right">
-								<img src="assets/images/1.png" alt="" class="img-fluid">
-							</div>
-							<div class="col-md">
-								<div class="text-left pr-0 pr-md-3 pr-lg-6">
-									<h3>PRPO</h3>
-									<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book</p>
-									<div class="btn-wrap"><a href="#" class="btn btn-hover-fill"><span>Read more</span></a></div>
-								</div>
-							</div>
-						</div>-->
 					</div>
 				</div>
 			</div>
 		</div>
 		<!--//section single service -->
 	</div>
-        </section>
+    </section>
 		
-<section id="partner" class="section-4 odd logos" style="padding:75px;">
+	<section id="partner" class="section-4 odd logos" style="padding:75px;">
             <div class="overflow-holder">
                 <div class="container">
                     <div class="row text-center intro">
@@ -451,11 +434,14 @@
                             <p>Every week we publish exclusive content on various topics.</p>
                         </div>
                         <div class="col-12 col-md-3 align-self-end">
-                            <a href="#" class="btn mx-auto mr-md-0 ml-md-auto primary-button"><i class="icon-grid"></i>VIEW ALL</a>
+                            <a href="Blog" class="btn mx-auto mr-md-0 ml-md-auto primary-button"><i class="icon-grid"></i>VIEW ALL</a>
                         </div>
                     </div>
+
+
                      
-                    <div class="swiper-container mid-slider items">
+                   <div class="swiper-container mid-slider items">
+                       <div class="swiper-wrapper">
                         <?php
                             $sql=$link->rawQuery("select * from blog where is_active=1");
                                 if($sql)
@@ -463,9 +449,7 @@
                                         foreach($sql as $cat)
                                         {
                             ?>
-                        <div class="swiper-wrapper">
-                           
-                            <div class="swiper-slide slide-center item">
+                             <div class="swiper-slide slide-center item">
                                 <div class="row card p-0 text-center">
                                     <div class="image-over">
                                         <img src="backyard/images/blog_thumb_image/<?php echo $cat['blog_thumb_image']; ?>" alt="<?php echo $cat['blog_name']; ?>">
@@ -483,16 +467,58 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <?php
+                            <?php
                         }
                         }
                     ?>
+                                <!--<div class="swiper-slide slide-center item">
+                               <div class="row card p-0 text-center">
+                                 <div class="image-over">
+                                   <img src="assets/images/news-1-h.jpg" alt="Lorem ipsum">
+                                </div>
+                                <div class="card-caption col-12 p-0">
+                                  <div class="card-body">
+                                    <a href="#">
+                                      <h4 class="m-0">Tips for having a good relationship at work.</h4>
+                                    </a>
+                                   </div>
+                                <div class="card-footer d-lg-flex align-items-center justify-content-center">
+                                  <a href="#" class="d-lg-flex align-items-center">
+                                    <i class="icon-user"></i>John Doe</a>
+                                  <a href="#" class="d-lg-flex align-items-center">
+                                    <i class="icon-clock"></i>3 Days Ago</a>
+                                </div>
+                                </div>
+                                </div>
+                                </div>
+
+                                <div class="swiper-slide slide-center item">
+                               <div class="row card p-0 text-center">
+                                 <div class="image-over">
+                                   <img src="assets/images/news-1-h.jpg" alt="Lorem ipsum">
+                                </div>
+                                <div class="card-caption col-12 p-0">
+                                  <div class="card-body">
+                                    <a href="#">
+                                      <h4 class="m-0">Tips for having a good relationship at work.</h4>
+                                    </a>
+                                   </div>
+                                <div class="card-footer d-lg-flex align-items-center justify-content-center">
+                                  <a href="#" class="d-lg-flex align-items-center">
+                                    <i class="icon-user"></i>John Doe</a>
+                                  <a href="#" class="d-lg-flex align-items-center">
+                                    <i class="icon-clock"></i>3 Days Ago</a>
+                                </div>
+                                </div>
+                                </div>
+                                </div>-->
+                        
                         <div class="swiper-pagination"></div>
                     </div>
                      
                 </div>
             </div>
+        </div>
         </section>
 		
 		   <!-- Testimonials -->
@@ -507,7 +533,6 @@
                     </div>
                     <div class="swiper-container mid-slider items">
                         <div class="swiper-wrapper">
-
                             <?php
                             $sql=$link->rawQuery("select * from testimonial where testimonial_delete=0");
                                 if($sql)
@@ -568,8 +593,26 @@
                                     </div>
                                 </div>
                             </div>-->
-
-							>
+							<?php
+								$r=$link->rawQuery("select * from review");
+								if($link->count > 0)
+								{
+									foreach($r as $review)
+									{
+										?>
+										<div class="swiper-slide slide-center text-center item">
+											<div class="row card">
+												<div class="col-12">
+													<img src="backyard/images/review_image/<?php echo $review['review_image']; ?>" alt="<?php echo $review['review_name']; ?>" class="person" style="max-width:100px;border-radius:100%;">
+													<h4><?php echo $review['review_name']; ?></h4>
+													<p><?php echo $review['review_description']; ?>.</p>
+												</div>
+											</div>
+										</div>
+										<?php
+									}
+								}
+							?>
                         </div>
                         <div class="swiper-pagination"></div>
                     </div>
@@ -582,7 +625,7 @@
         <!-- Contact -->
         <section id="contact" class="section-7 odd form featured">
             <div class="container">
-                <form method="post" action="insert_letstalk.php" id="formsubmit" name="formsubmit" class="multi-step-form">
+                <form method="post" action="insert_letstalk.php?lt=Home" id="formsubmit" class="multi-step-form">
                     <input type="hidden" name="section" value="leverage_form">
 
                     <!--<input type="hidden" name="reCAPTCHA">-->
@@ -644,9 +687,9 @@
                                             
                                         </div>
                                     </fieldset>
-                                    
 
                                 </div>
+                                 </form>
                             </div>
                         </div>
 
@@ -661,7 +704,6 @@
 
                         </div>
                     </div>
-                </form>
             </div>
         </section>
 
@@ -709,8 +751,10 @@
         <!-- ==============================================
         Vendor Scripts
         =============================================== -->
-        <script src="assets/js/vendor/jquery.min.js"></script>
         
+        
+    </script>
+        <script src="assets/js/vendor/jquery.min.js"></script>
         <script src="assets/js/vendor/jquery.easing.min.js"></script>
         <script src="assets/js/vendor/jquery.inview.min.js"></script>
         <script src="assets/js/vendor/popper.min.js"></script>
@@ -725,18 +769,18 @@
         <script src="assets/js/vendor/particles.min.js"></script>
         <script src="assets/js/main.js"></script>
         <script src="assets/js/custom.js"></script>
+
         <!-- #endregion Global ========================= -->
    	<script src="assets/js/vendor/slick.min.js"></script>
 	<!-- Custom Scripts -->
 	<script src="assets/js/vendor/app.js"></script>
-    
-    <script src="assets/js/jquery.validate.min.js"></script>
-    <script src="assets/js/jquery.validate.js"></script>
-<script>
+<script src="assets/js/jquery.validate.js"></script>
+<script src="assets/js/jquery.validate.min.js"></script>
+
+    <script>
         //Form Validation
         $( document ).ready( function () {
             $( "#formsubmit" ).validate( {
-                //alert("Hello");
                 rules: {
                     
                     lets_talk_email: "required",
@@ -784,5 +828,6 @@
 
         } );
     </script>
+
     </body>
 </html>

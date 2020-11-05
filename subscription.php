@@ -144,7 +144,9 @@
                     </div>
                 </div>
                 <div class="row justify-content-center text-center items">
+                    
                     <div class="col-12 col-md-6 col-lg-6 align-self-center text-center item">
+
                         <div class="card">
                             <i class="icon icon-handbag"></i>
                             <h4>Monthly</h4>
@@ -172,9 +174,24 @@
                                 </li>
 								
                             </ul>
+                            <?php
+                                    if($sflag == 1)
+                                    {
+                          ?>
                             <a href="#" id="checkout-button" class="smooth-anchor btn mx-auto primary-button"><i class="icon-arrow-right-circle"></i>CHOSE PLAN</a>
+                            <?php
+                        }
+                        else                                                       
+                            {
+                        ?>
+                        <a href="Login-Register" id="checkout-button" class="btn mx-auto primary-button"><i class="icon-arrow-right-circle"></i>CHOSE PLAN</a>
+                        <?php
+                            }
+                        ?>
                         </div>
                     </div>
+                    
+
                     <div class="col-12 col-md-6 col-lg-6 align-self-center text-center item">
                         <div class="card">
                             <i class="icon icon-fire"></i>
@@ -203,7 +220,20 @@
                                 </li>
 								
                             </ul>
+                            <?php
+                                    if($sflag == 1)
+                                    {
+                          ?>
                             <a href="#" id="checkout-button2" class="smooth-anchor btn mx-auto primary-button"><i class="icon-arrow-right-circle"></i>CHOSE PLAN</a>
+                            <?php
+                        }
+                        else if($sflag==0)                                                       
+                            {
+                        ?>
+                        <a href="Login-Register" id="checkout-button" class="btn mx-auto primary-button"><i class="icon-arrow-right-circle"></i>CHOSE PLAN</a>
+                        <?php
+                            }
+                        ?>
                         </div>
                     </div>
                 </div>
