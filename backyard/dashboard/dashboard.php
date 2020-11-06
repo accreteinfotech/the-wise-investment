@@ -79,21 +79,19 @@
                     <div class="row">
 					
 
-                        <div class="col-12 col-sm-6 col-md-6 col-xl-4">
-						<a href="../product/View-Product">
+                        <div class="col-12 col-sm-12 col-md-12 col-xl-12">
+						<a target="_blank" href="https://dashboard.stripe.com/subscriptions">
                             <div class="card">
                                 <div class="card-body">
                                     <div class="chartjs-size-monitor">
                                         <div class="chartjs-size-monitor-expand">
-                                            <div class=""></div>
-                                        </div>
-                                        <div class="chartjs-size-monitor-shrink">
-                                            <div class=""></div>
+                                           
                                         </div>
                                     </div>
 									<h4 class="card-title"></h4>
                                     <div class="d-flex justify-content-between align-items-center">
-                                        <h2 class="text-dark font-18 mb-0"></h2> 
+										<img src="../img/stripe.png" style="width:70px;height:70px;">
+                                        <h2 class="text-dark font-18 mb-0" style="float:left;padding:0px 10px;width:100%">Stripe Subscriptions</h2> 
                                     </div>
 								</div>
                             </div>
