@@ -1,26 +1,37 @@
+<?php
+    ob_start();
+?>  
+<?php
+    include 'backyard/include/connect.php';
+    session_start();
+    $seo=$link->rawQueryone("select * from page_seo where page_seo_url=?",array($page_name));
+    if($link->count > 0)
+    {
+        $page_seo_title=$seo['page_seo_title'];
+        $page_seo_description=$seo['page_seo_description'];
+        $page_seo_keywords=$seo['page_seo_keywords'];
+        $page_seo_author=$seo['page_seo_author'];
+        
+        $page_seo_og_title=$seo['page_seo_og_title'];
+        $page_seo_og_description=$seo['page_seo_og_description'];
+        $page_seo_og_url=$seo['page_seo_og_url'];
+    }
+    
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 
     <meta charset="utf-8">
-	<title>The Wise Investing | Login</title>
-	<meta name="description"  content="" />
-	<meta name="author" content="">
-	<meta name="keywords"  content="" />
-	<meta property="og:title" content="" />
-	<meta property="og:type" content="" />
-	<meta property="og:url" content="" />
-	<meta property="og:image" content="" />
-	<meta property="og:image:width" content="470" />
-	<meta property="og:image:height" content="246" />
-	<meta property="og:site_name" content="" />
-	<meta property="og:description" content="" />
-	<meta name="twitter:card" content="" />
-	<meta name="twitter:site" content="" />
-	<meta name="twitter:domain" content="" />
-	<meta name="twitter:title" content="" />
-	<meta name="twitter:description" content="" />
-	<meta name="twitter:image" content="" />
+	<base href="<?php echo $site_url; ?>">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title><?php echo $project_name; ?> | <?php echo $page_seo_title; ?></title>
+    <meta name="description" content="<?php echo $page_seo_description; ?>">
+    <meta name="keywords" content="<?php echo $page_seo_keywords; ?>" >
+    <meta property="og:title" content="<?php echo $project_name; ?> | <?php echo $page_seo_og_title; ?>" />
+    <meta property="og:url" content="<?php echo $page_seo_og_url; ?>" />
+    <meta property="og:description" content="<?php echo $page_seo_og_description; ?>">
 
 	<!-- Mobile Specific Metas
 	================================================== -->
@@ -134,26 +145,14 @@
                 <div class="row">
                     <div class="col-6 p-0">
                         <form id="loginform" method="post" class="row m-auto items">
-                             <!--<?php
-                                            //if(isset($_GET['pid']) && $_GET['pid']!=null)
+										<?php
+                                            if(isset($_GET['pid']) && $_GET['pid']!=null)
                                             {
                                                 ?>
-                                                 <input type="hidden" name="pid" id="pid" value="<?php //echo $_GET['pid'];?>">
+                                                 <input type="hidden" name="pid" id="pid" value="<?php echo $_GET['pid'];?>">
                                                 <?php
                                             }
-                                            //if(isset($_GET['pgid']) && $_GET['pgid']!=null)
-                                            {
-                                                ?>
-                                                 <input type="hidden" name="pgid" id="pgid" value="<?php //echo $_GET['pgid'];?>">
-                                                <?php
-                                            }
-                                            //else if(isset($_GET['cid']) && $_GET['cid']!=null)
-                                            {
-                                                ?>
-                                                <input type="hidden" name="cart_id" id="cart_id" value="<?php //echo $_GET['cid'];?>">
-                                                <?php
-                                            }
-                                        ?>-->
+                                        ?>
 
                             <div class="col-12 col-lg-12 m-lg-0 input-group align-self-center item">
                                 <input type="text" name="username" id="username" value="" class="form-control field-name" placeholder="Email">
@@ -176,7 +175,11 @@
                             </div>
                             <div class="col-12 col-lg-12 m-lg-0 input-group align-self-center item">
                                 <input type="email" onkeyup="mailcheck(this.value);" onchange="mailcheck(this.value);" name="user_email" id="user_email" class="form-control field-name" placeholder="Email" style="margin-top:20px;">
-                            </div>
+								<span id="ererror" style="width: 100%;
+								margin-top: .25rem;
+								font-size: 80%;
+								color: #dc3545;"></span>
+							</div>
                             <div class="col-12 col-lg-12 m-lg-0 input-group align-self-center item">
                                 <input type="password" name="user_password" id="user_password" value="" class="form-control field-email" placeholder="Password" style="margin-top:20px;">
                             </div>
@@ -186,7 +189,7 @@
                             </div>
                             
                             <div class="col-12 col-lg-12 m-lg-0 input-group align-self-center item">
-                                <input type="submit" name="register" value="Register" class="btn primary-button w-100 effect-motion-bg" style="margin-top:20px;;color:#fff"></input>
+                                <input id="reg" type="submit" name="register" value="Register" class="btn primary-button w-100 effect-motion-bg" style="margin-top:20px;;color:#fff"></input>
                             </div>
                             
                         </form>
@@ -371,8 +374,8 @@
         } );
 
 $("#loginform").submit(function(e) {
-        /*var ppid = $("#pid").val();
-        var pgid = $("#pgid").val();
+        var ppid = $("#pid").val();
+       /* var pgid = $("#pgid").val();
         var cid = $("#cid").val();*/
         $.ajax({
              type: "POST",
@@ -389,12 +392,12 @@ $("#loginform").submit(function(e) {
                 }
                 else if(data == 'success1' || data == '1')
                 {
-                    window.location.href=pgid+"/"+ppid;
+                    window.location.href=ppid;
                 }
-                else if(data == 'checkout' || data == 'checkoutcheckout')
+                /*else if(data == 'checkout' || data == 'checkoutcheckout')
                 {
                     window.location.href='Checkout';
-                }
+                }*/
                 else if(data == '')
                 {
                     window.location.href='Home';

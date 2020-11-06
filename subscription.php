@@ -95,14 +95,79 @@
             
                 --footer-bg-color: #191919;
             }
-		
+		.loader{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%; 
+  height: 100%;
+  z-index: 99999;
+  transition: 1s;
+}
+.span{
+  position: absolute;
+  transform: translate(-50%, 50%);
+  width: 120px; 
+  height: 120px;
+  top: 35%;
+  border: 5px solid #dd1e4b;
+  z-index: 1;
+  animation: animar 2.5s linear infinite;
+}
+.span:before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #dd1e4b;
+  animation: animarbg 2.5s linear infinite;
+}
+
+@keyframes animar {
+    0% {
+        transform: translate(-50%, 50%) rotate(0deg);
+    }
+    25% {
+        transform: translate(-50%, 50%) rotate(180deg);
+    }
+    50% {
+        transform: translate(-50%, 50%) rotate(180deg);
+    }
+    75% {
+        transform: translate(-50%, 50%) rotate(360deg);
+    }
+    100% {
+        transform: translate(-50%, 50%) rotate(360deg);
+    }
+}
+@keyframes animarbg {
+    0% {
+        height: 0;
+    }
+    25% {
+        height: 0;
+    }
+    50% {
+        height: 100%;
+    }
+    75% {
+        height: 100%;
+    }
+    100% {
+        height: 0;
+    }
+}
         </style>
         <script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
 		<script src="https://js.stripe.com/v3/"></script>
     </head>
 
     <body>
-
+		<div style="display:none;" class="loader text-center">
+			<span class="span"></span>
+		</div>
         <!-- Header -->
           <?php 
 		include('header.php');
@@ -184,7 +249,7 @@
                         else                                                       
                             {
                         ?>
-                        <a href="Login-Register" id="checkout-button" class="btn mx-auto primary-button"><i class="icon-arrow-right-circle"></i>CHOSE PLAN</a>
+                        <a href="Login-Register/Subscription" id="checkout-button" class="btn mx-auto primary-button"><i class="icon-arrow-right-circle"></i>CHOSE PLAN</a>
                         <?php
                             }
                         ?>
@@ -230,7 +295,7 @@
                         else if($sflag==0)                                                       
                             {
                         ?>
-                        <a href="Login-Register" id="checkout-button" class="btn mx-auto primary-button"><i class="icon-arrow-right-circle"></i>CHOSE PLAN</a>
+                        <a href="Login-Register/Subscription" id="checkout-button" class="btn mx-auto primary-button"><i class="icon-arrow-right-circle"></i>CHOSE PLAN</a>
                         <?php
                             }
                         ?>
@@ -311,10 +376,15 @@
         =============================================== -->
         <script src="assets/js/vendor/jquery.min.js"></script>
 		 <script type="text/javascript">
+		 $("document").ready(function(){
+			$(".loader").css("display","none"); 
+		 });
 		// Create an instance of the Stripe object with your publishable API key
 		var stripe = Stripe("pk_live_51HKUuPBJHkDxSTq4xGWohVwBOTDtiNGfIP5hls0dKxUPftxkVVPYYb3CPwWNggQ89ajrKUiyv7rMxVCu7VnlCamG00eJAtqVmj");
 		var checkoutButton = document.getElementById("checkout-button");
 		checkoutButton.addEventListener("click", function () {
+			$(".loader").css("display","block");
+			//$("body").css("opacity","0");
 		  fetch("<?php echo $site_url; ?>/create-session.php", {
 			method: "POST",
 		  })
@@ -342,6 +412,7 @@
 		var stripe = Stripe("pk_live_51HKUuPBJHkDxSTq4xGWohVwBOTDtiNGfIP5hls0dKxUPftxkVVPYYb3CPwWNggQ89ajrKUiyv7rMxVCu7VnlCamG00eJAtqVmj");
 		var checkoutButton = document.getElementById("checkout-button2");
 		checkoutButton.addEventListener("click", function () {
+			$(".loader").css("display","block");
 		  fetch("<?php echo $site_url; ?>/create-session2.php", {
 			method: "POST",
 		  })

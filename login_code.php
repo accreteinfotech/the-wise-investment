@@ -53,12 +53,12 @@ $password = md5($_POST['password']);
 			{
 			    echo "success";
 			}
-		//header('location:dashboard/index.php');
+		//header('location:dashboard/index.php');*/
 		if(isset($_POST['pid']) && $_POST['pid']!=null)
 		{
 				echo "1";
 			
-		}*/
+		}
 	
 	}
 	elseif($password==null || $username==null)

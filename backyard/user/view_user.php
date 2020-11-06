@@ -75,9 +75,7 @@ function confirmationDelete(anchor)
                                         <thead>
                                             <tr>
                                                 <th>Full Name</th>
-                                                <th>Contact No.</th>
                                                 <th>Customer E-Mail</th>
-                                                <th>Customer address</th>
                                             </tr>
                                         </thead>
 
@@ -92,11 +90,8 @@ function confirmationDelete(anchor)
 													?>
 													<tr>
 														<td><?php echo $cat['user_full_name']; ?></td>
-														<td><?php echo $cat['user_phone']; ?></td>
 														<td><?php echo $cat['user_email']; ?></td>
-														<td><?php echo $cat['user_address']; ?></td>
 														<!--<td><a onClick='javascript:confirmationDelete($(this));return false;' href="Delete-User/"><img style="height: 30px;width: 30px;"  src="../img/delete.png"></a></td>-->
-														
 													</tr>
 													<?php
 												}

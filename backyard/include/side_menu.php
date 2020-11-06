@@ -59,6 +59,14 @@
                                     <li><a href="../testimonial/View-Testimonial">- View Testimonial</a></li>
                                 </ul>
                             </li>
+							
+							<li class="treeview">
+                                <a href="javascript:void(0)"><i class="zmdi zmdi-account-box-phone"></i> <span>Customers</span> <i class="fa fa-angle-right"></i></a>
+                                <ul class="treeview-menu">
+									<li><a href="../user/Users">- View Customers</a></li>
+                                </ul>
+                            </li>
+							
                             <li class="active"><a href="../change_password/Change-Password"><i class="zmdi zmdi-key"></i> <span>Change Password</span></a></li>
 
                            

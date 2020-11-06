@@ -21,6 +21,7 @@ RewriteRule ^Return-Policy/?$ return-policy.php
 RewriteRule ^Order-Tracking/?$ order-tracking.php
 RewriteRule ^Register/?$ register.php
 RewriteRule ^Login-Register/?$ login.php
+RewriteRule ^Login-Register/([a-zA-Z0-9]+)?$ login.php?pid=$1
 RewriteRule ^Logout/?$ logout.php
 RewriteRule ^Insert-Cart/?$ insert_cart.php
 RewriteRule ^Login-Code/?$ login_code.php
