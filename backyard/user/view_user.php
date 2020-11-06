@@ -76,6 +76,7 @@ function confirmationDelete(anchor)
                                             <tr>
                                                 <th>Full Name</th>
                                                 <th>Customer E-Mail</th>
+                                                <th>Status</th>
                                             </tr>
                                         </thead>
 
@@ -91,6 +92,30 @@ function confirmationDelete(anchor)
 													<tr>
 														<td><?php echo $cat['user_full_name']; ?></td>
 														<td><?php echo $cat['user_email']; ?></td>
+                                                        <?php
+                                                            if($cat['is_active']==1)
+                                                            {
+                                                                $flag=1;
+                                                                ?>
+                                                                    <td><a href="inactive.php?pid=<?php echo $cat['user_id'];?>" class="btn btn-neutral" style="background-color:#00b200;color:#ffffff;"><?php echo "Active";?></a></td>
+                                                                    
+                                                            <?php
+                                                            }
+                                                            elseif($cat['is_active']==0)
+                                                            {
+                                                                $flag=0;
+                                                                ?>
+                                                                
+                                                                    <td><a href="active.php?pid=<?php echo $cat['user_id'];?>" class="btn btn-neutral" style="background-color:#FF0000;color:#ffffff;"><?php echo "Inactive";?></a></td>
+                                                                <?php
+                                                            }
+                                                            else{
+                                                                ?>
+                                                                    <td><span class="label label-danger">Error</span></td>
+                                                                <?php
+                                                                
+                                                            }
+                                                            ?>
 														<!--<td><a onClick='javascript:confirmationDelete($(this));return false;' href="Delete-User/"><img style="height: 30px;width: 30px;"  src="../img/delete.png"></a></td>-->
 													</tr>
 													<?php

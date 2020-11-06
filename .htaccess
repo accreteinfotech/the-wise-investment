@@ -218,4 +218,6 @@ RewriteRule ^backyard/Testimonial/Delete-Testimonial/([a-zA-Z0-9]+)?$ backyard/T
 
 #Custommers
 RewriteRule ^backyard/user/Users/?$ backyard/user/view_user.php
+RewriteRule ^backyard/user/Active/([a-zA-Z0-9]+)?$ backyard/user/active.php?pid=$1
+RewriteRule ^backyard/user/Inactive/([a-zA-Z0-9]+)?$ backyard/user/inactive.php?pid=$1
 RewriteRule ^backyard/user/Delete-Users/([a-zA-Z0-9]+)$ backyard/user/delete_user.php?cid=$1
