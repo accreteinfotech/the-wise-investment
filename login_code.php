@@ -10,7 +10,7 @@ $password = md5($_POST['password']);
 
 
 
-	$sql = $link->rawQueryOne("select * from user where user_email = ? and user_password = ?",Array($username,$password));
+	$sql = $link->rawQueryOne("select * from user where user_email = ? and user_password = ? and is_active=1",Array($username,$password));
 	if($link->count > 0)
 	{
 		$_SESSION['user_id'] = $sql['user_id'];
