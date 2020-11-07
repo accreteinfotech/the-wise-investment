@@ -126,6 +126,12 @@
       },false);
    }
 </script>
+<style>
+    
+ /*   ul {
+  list-style-image: url('backyard/img/ulbull.png');
+}*/
+</style>
     </head>
 
     <body class="theme-mode-dark">
@@ -196,14 +202,13 @@
                     <div class="col-12 col-md-6 align-self-center text-center text-md-left">
                         <div class="row intro">
                             <div class="col-12 p-0">
-                                <h2 class="featured alt">About Us</h2>
-                                <p style="text-align:justify;">Wise Investing is a well diversified financial service company that alerts you to pick on the best assets for portfolio creation, based on exhaustive research and extensive market driven data. </p>
-<p style="text-align:justify;">The Wise Investing is a result of two young and ingenious minds who hold 14 years of professional experience in picking precise and propitious assets that ensure steady growth of your portfolio.</p>
-<p style="text-align:justify;">We believe in growing together, choose  Wise Investing for a secured future!
-</p>
- <h2 class="featured alt" style="margin-top:60px;">Why Us</h2>
-     <p style="text-align:justify;">We don’t just offer you safe investments, we do it the optimal way.</p>
-								<p style="text-align:justify;">Looking for the right investment opportunity by yourself can be a tiresome process, leave it to us for wise return and investments. We as an expert ,research the assets and pick out the best investment opportunity with our machine learning tools.  The Wise Investing holds an edge towards competitors in terms of return, on an average our hand picked stocks offer 10-15% ROI. What’s in it for us? We just want to level the playing field by making investing easy for both rookies and professionals.
+                                <h2 class="featured alt">Who We Are</h2>
+                                <ul><li><p style="text-align:justify;">The Wise Investing is a well diversified financial service company that alerts you to bat on the best assets for portfolio creation, based on research and extensive market driven data.
+                                </p></li>
+                               <li> <p>The Wise Investing is a brain child of two young and ingenious minds who hold 14 years of professional experience in picking precise and propitious assets, with core data analysis and machine learning tools our hand picked stocks offer 10- 15 % ROI giving us an edge towards our competitor.
+                                </p></li>
+                            <li><p>We believe in growing together, choose The  Wise Investing for a secured future and want to level the playing field by making investing easy for both rookies and professionals.
+                            </p></li></ul>
 								<a href="About" style="color:#fff" id="step-next-1" class="step-next btn primary-button">Learn More<i class="icon-arrow-right-circle left"></i></a>
                             </div>
                         </div>
@@ -243,8 +248,9 @@
             <div class="container">
                 <div class="row intro">
                     <div class="col-12 col-md-12 align-self-center text-center text-md-left">
-                        <h2 class="featured" style="color:#fff;">Our Portfolio</h2>
-                        <p>We have already built amazing things for our customers.</p>
+                        <h2 class="featured" style="color:#fff;">Wealth Creation</h2>
+                        <p>Your attitude defines whether you are a Saving or an Investing person?
+Be Wise with Your Investments and Rise Your  Savings!</p>
                     </div>
                     
                 </div>
@@ -280,8 +286,8 @@
             <div class="container">
                 <div class="row intro">
                     <div class="col-12 col-md-12 align-self-center text-center text-md-left">
-                        <h2 class="featured">Our Strategies</h2>
-                        <p>Focused on results we seek to raise the level of our customers.</p>
+                        <h2 class="featured">Spotlight Strategies</h2>
+                        <p>Invest with us for longer periods at nominal rates with the access to complete market analysis and reap wealthy fruits! </p>
                     </div>
                    
                 </div>

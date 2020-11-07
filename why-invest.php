@@ -441,8 +441,8 @@ input::-moz-focus-outer {
                 <div class="row text-center intro">
                     <div class="col-12">
                         <h2 style="color:#fff;">What are you waiting for?</h2>
-                        <p>No research required – Our alerts are based on market research and data-driven information. Seamlessly get alerts and start your investing journey today.</p>
-						<p>Nominal charge but higher returns – Not only our data is accurate but the fee we charge for it is minimal compared to our competitors. Our return rate is also considerably higher than the market rate.</p>
+                        <p>Research can be a tiresome process! Leave it for the experts. Our strategies are based on focus driven research and data analysis to serve the investing platter with higher returns with nominal fee!</p>
+						<p>Earn more , Pay less!  Choose the Wise Investing for great returns, blue chip assets and ordinary pricing.</p>
 						<p style="font-size:24px;color:#fff;">Start early, save steadily, and invest intelligently, to grow your money in amazing ways over time.</p>
 					</div>
                 </div>
