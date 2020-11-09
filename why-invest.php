@@ -99,144 +99,27 @@
 			
 		
 		</style>
-        <style>
-		// Base Colors
-$shade-10:#2c3e50 !default;
-$shade-1:#d7dcdf !default;
-$shade-0:#fff !default;
-$teal:#1abc9c !default;
-
-
-// Reset
-* {
-  &,
-  &:before,
-  &:after {
-    box-sizing: border-box;
-  }
-}
-
-.range-slider {
-  margin: 60px 0 0 0%;
-}
-
-
-// Range Slider
-$range-width: 100% !default;
-
-$range-handle-color: $shade-10 !default;
-$range-handle-color-hover: $teal !default;
-$range-handle-size: 20px !default;
-
-$range-track-color: $shade-1 !default;
-$range-track-height: 10px !default;
-
-$range-label-color: $shade-10 !default;
-$range-label-width: 60px !default;
-
-.range-slider {
-  width: $range-width;
-}
-
-.range-slider__range {
-      width: calc(100% - (73px));
-    height: 10px;
-    border-radius: 5px;
-    background: #d7dcdf;
-    outline: none;
-    padding: 0;
-    margin: 0;
-}
-  &::-webkit-slider-thumb {
-    appearance: none;
-    width: $range-handle-size;
-    height: $range-handle-size;
-    border-radius: 50%;
-    background: $range-handle-color;
-    cursor: pointer;
-    transition: background .15s ease-in-out;
-
-    &:hover {
-      background: $range-handle-color-hover;
-    }
-  }
-
-  &:active::-webkit-slider-thumb {
-    background: $range-handle-color-hover;
-  }
-
-  &::-moz-range-thumb {
-    width: $range-handle-size;
-    height: $range-handle-size;
-    border: 0;
-    border-radius: 50%;
-    background: $range-handle-color;
-    cursor: pointer;
-    transition: background .15s ease-in-out;
-
-    &:hover {
-      background: $range-handle-color-hover;
-    }
-  }
-
-  &:active::-moz-range-thumb {
-    background: $range-handle-color-hover;
-  }
-  
-  // Focus state
-  &:focus {
-    
-    &::-webkit-slider-thumb {
-      box-shadow: 0 0 0 3px $shade-0,
-                  0 0 0 6px $teal;
-    }
-  }
-
-
-
-// Range Label
-.range-slider__value {
-  display: inline-block;
-  position: relative;
-  width: $range-label-width;
-  color: $shade-0;
-  line-height: 20px;
-  text-align: center;
-  border-radius: 3px;
-  background: $range-label-color;
-  padding: 5px 10px;
-  margin-left: 8px;
-
-  &:after {
-    position: absolute;
-    top: 8px;
-    left: -7px;
-    width: 0;
-    height: 0;
-    border-top: 7px solid transparent;
-    border-right: 7px solid $range-label-color;
-    border-bottom: 7px solid transparent;
-    content: '';
-  }
-}
-
-
-// Firefox Overrides
-::-moz-range-track {
-    background: $range-track-color;
-    border: 0;
-}
-
-input::-moz-focus-inner,
-input::-moz-focus-outer { 
-  border: 0; 
-}
+		<style>
+body { background-color: #30303d; color: #fff; }
 #chartdiv {
   width: 100%;
-  height: 400px;
+  height: 450px;
 }
-		</style>
-		<!-- Resources -->
+input, select {
+    width: 80%;
+    height: 44px;
+    background: no-repeat;
+    box-shadow: none;
+    padding: 0.7rem 1rem;
+    border-style: solid;
+    border-color: var(--primary-l-color);
+    border-width: 1px;
+    border-radius: 2px;
+}
+</style>
+<!-- Chart code -->
+
+	<!-- Resources -->
 <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
 <script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
 <script src="https://cdn.amcharts.com/lib/4/themes/dark.js"></script>
@@ -389,52 +272,49 @@ input::-moz-focus-outer {
                     </div>
                     
                 </div>
-                <div class="row justify-content-center text-center items">
-                    <div class="col-12 col-md-12 col-lg-12 item">
-                        <h5 style="text-align:left;padding-left: 22px;">Initial Value</h5>
-							<div class="range-slider" id="range-slider1"  style="margin-top:30px;">
+                <div class="row">
+                    <div class="col-6 col-md-6 col-lg-6 item" style="padding:30px;">
+                        <span style="text-align:left;padding-top:10px">Initial Value</span>
+							<div class="range-slider" id="range-slider1">
 							  <input class="range-slider__range" type="range" value="100" min="1" max="5000">
 							  <span class="range-slider__value" id="initial_value">0</span>
 							</div>
-						<h5 style="text-align:left;padding-left: 22px;">How many years ?</h5>
-							<div class="range-slider" id="range-slider2" style="margin-top:30px;">
+						<span style="text-align:left;padding-top:10px">How many years ?</span>
+							<div class="range-slider" id="range-slider2">
 							  <input class="range-slider__range" type="range" value="1" min="1" max="20" step="1">
 							  <span class="range-slider__value" id="years">0</span>
 							</div>
-						<h5 style="text-align:left;padding-left: 22px;">Every Years Contribution ?</h5>
-							<div class="range-slider" id="range-slider3" style="margin-top:30px;">
+						<span style="text-align:left;padding-top:10px">Every Years Contribution ?</span>
+							<div class="range-slider" id="range-slider3">
 							  <input class="range-slider__range" type="range" value="250" min="1" max="5000" step="50">
 							  <span class="range-slider__value" id="month" >0</span>
 							</div>
-						<h5 style="text-align:left;padding-left: 22px;">Average Return ?</h5>
-							<div class="range-slider" id="range-slider4" style="margin-top:30px;">
+						<span style="text-align:left;padding-top:10px">Average Return ?</span>
+							<div class="range-slider" id="range-slider4">
 							  <input class="range-slider__range" type="range" value="18" min="5" max="25" step="1">
 							  <span class="range-slider__value" id="return">0</span>
 							</div>
- 
+						  <input type="hidden" name="amt" id="amt">
+                      <p style="font-size:26px;" id="total">Your Estimated Portfolio Value: $1411855</p>
                     </div>
-                </div>
-				 <div class="row intro">
-                    <div class="col-12 col-md-12 align-self-center text-center text-md-left">
-                      <p style="font-size:32px;" id="total">Your Estimated Portfolio Value: $1411855</p>
+					<div class="col-6 col-md-6 col-lg-6 item">
+						<div id="chartdiv"></div>
                     </div>
-                    
                 </div>
 				
             </div>
         </section>
         <!-- About [video] -->
-       <section id="pricing" class="section-3 odd plans featured" style="padding-top:70px;">
+       <!--<section id="pricing" class="section-3 odd plans featured" style="padding-top:70px;">
             <div class="container">
                 <div class="row justify-content-center text-center items">
                     <div class="col-12 col-md-12 col-lg-12 align-self-center text-center item">
 					<p style="font-size:22px;">Here’s a chart comparing Investing and Saving, to help you make your choice better.</p>
-                       <!-- HTML -->
-					<div id="chartdiv"></div>
+                     
                     </div>
                 </div>
             </div>
-        </section>
+        </section>-->
 	  
 	  <section id="contact" class="section-6 form" style="padding-bottom:75px;">
             <div class="container smaller">
@@ -510,6 +390,129 @@ input::-moz-focus-outer {
         <script src="assets/js/vendor/particles.min.js"></script>
         <script src="assets/js/main.js"></script>
 		<script>
+am4core.ready(function() {
+
+// Themes begin
+am4core.useTheme(am4themes_dark);
+am4core.useTheme(am4themes_animated);
+// Themes end
+
+// Create chart instance
+var chart = am4core.create("chartdiv", am4charts.XYChart);
+chart.scrollbarX = new am4core.Scrollbar();
+
+// Add data
+chart.data = [{
+  "Years": 1,
+  "visits": 3025
+}, {
+  "Years": 2,
+  "visits": 1882
+}, {
+  "Years": 4,
+  "visits": 1809
+}, {
+  "Years": 6,
+  "visits": 1322
+}, {
+  "Years": 8,
+  "visits": 1122
+}, {
+  "Years": 10,
+  "visits": 1114
+}, {
+  "Years": 12,
+  "visits": 984
+}, {
+  "Years": 14,
+  "visits": 711
+}, {
+  "Years": 16,
+  "visits": 10000
+}];
+
+prepareParetoData();
+
+function prepareParetoData(){
+    var total = 0;
+
+    for(var i = 0; i < chart.data.length; i++){
+        var value = chart.data[i].visits;
+        total += value;
+    }
+
+    var sum = 0;
+    for(var i = 0; i < chart.data.length; i++){
+        var value = chart.data[i].visits;
+        sum += value;   
+        //chart.data[i].pareto = sum / total * 100;
+    }    
+}
+
+// Create axes
+var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+categoryAxis.dataFields.category = "Years";
+categoryAxis.renderer.grid.template.location = 0;
+categoryAxis.renderer.minGridDistance = 60;
+categoryAxis.tooltip.disabled = true;
+
+var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+valueAxis.renderer.minWidth = 50;
+valueAxis.min = 0;
+valueAxis.cursorTooltipEnabled = false;
+
+// Create series
+var series = chart.series.push(new am4charts.ColumnSeries());
+series.sequencedInterpolation = true;
+series.dataFields.valueY = "visits";
+series.dataFields.categoryX = "Years";
+series.tooltipText = "[{categoryX}: bold]{valueY}[/]";
+series.columns.template.strokeWidth = 0;
+
+series.tooltip.pointerOrientation = "vertical";
+
+series.columns.template.column.cornerRadiusTopLeft = 10;
+series.columns.template.column.cornerRadiusTopRight = 10;
+series.columns.template.column.fillOpacity = 0.8;
+
+// on hover, make corner radiuses bigger
+var hoverState = series.columns.template.column.states.create("hover");
+hoverState.properties.cornerRadiusTopLeft = 0;
+hoverState.properties.cornerRadiusTopRight = 0;
+hoverState.properties.fillOpacity = 1;
+
+series.columns.template.adapter.add("fill", function(fill, target) {
+  return chart.colors.getIndex(target.dataItem.index);
+})
+
+
+/*var paretoValueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+paretoValueAxis.renderer.opposite = true;
+paretoValueAxis.min = 0;
+paretoValueAxis.max = 100;
+paretoValueAxis.strictMinMax = true;
+paretoValueAxis.renderer.grid.template.disabled = true;
+paretoValueAxis.numberFormatter = new am4core.NumberFormatter();
+paretoValueAxis.numberFormatter.numberFormat = "#'%'"
+paretoValueAxis.cursorTooltipEnabled = false;*/
+
+var paretoSeries = chart.series.push(new am4charts.LineSeries())
+paretoSeries.dataFields.valueY = "pareto";
+paretoSeries.dataFields.categoryX = "Years";
+//paretoSeries.yAxis = paretoValueAxis;
+paretoSeries.tooltipText = "pareto: {valueY.formatNumber('#.0')}%[/]";
+paretoSeries.bullets.push(new am4charts.CircleBullet());
+paretoSeries.strokeWidth = 2;
+paretoSeries.stroke = new am4core.InterfaceColorSet().getFor("alternativeBackground");
+paretoSeries.strokeOpacity = 0.5;
+
+// Cursor
+chart.cursor = new am4charts.XYCursor();
+chart.cursor.behavior = "panX";
+
+}); // end am4core.ready()
+</script>
+		<script>
 		var rangeSlider = function(){
   var slider = $('.range-slider'),
       range = $('.range-slider__range'),
@@ -564,6 +567,9 @@ function calculation()
 	 //var amt=(ini*(1+ret)**years)+((month/ret)*((1+ret)**years-1));
 	//alert(amt);
 	$("#total").html("Your Estimated Portfolio Value: $"+amt);
+	$("#amt").val(amt);
+	
+	prepareParetoData();
 }
 </script>
 

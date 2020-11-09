@@ -169,61 +169,29 @@
 						<li class="nav-item">
                             <a href="Contact-us" class="nav-link">Contact Us</a>
                         </li>
-                        <!--<?php
-                                        //if($sflag==1)
-                                        {
-                                            ?>
-                                            <span><i style="color:#4cda4c;padding-right: 5px;" class="fa fa-circle" aria-hidden="true"></i><?php //echo $_SESSION['user_full_name']; ?></span>
-                                            <?php
-                                        }
-                                        //else
-                                        {
-                                            ?>
-                                            <a class="block-link">
-                                                <span class="pe-7s-user"></span>
-                                            </a>
-                                            <?php
-                                        }
-                                        ?>-->
-                                        <?php
+                            <?php
                                     if($sflag == 1)
                                     {
                                         ?>			
 										
-                        <!--<li class="nav-item"  style="width:10%;">
-									<a>
-									<span><i style="color:#4cda4c;" class="fa fa-circle" aria-hidden="true"></i> Welcome, <?php echo $_SESSION['user_full_name'];?></span>
-									</a>
-									<ul class="sub-menu" style="width: 220px;">
-										<li><a href="Change-Password.php" class="nav-link">Change Password</a></li>
-										<li><a href="My-Account.php" class="nav-link">My Account</a></li>
-										<li><a href="Logout.php" class="nav-link">Logout</a></li>
-										
-									</ul>
-                           <!-- <a href="logout.php" class="nav-link">Logout</a>
-                        </li>-->
-					
-															 
-		<a class="dropbtn" onclick="myFunction()"><span>Welcome, <?php echo $_SESSION['user_full_name'];?></span></a>
-  <div id="myDropdown" class="dropdown-content">
-    <a href="#home">Change Password</a>
-    <a href="#about">My Account</a>
-    <a href="#contact">Logout</a>
-  </div>
-
-
-						
-                        <?php
-                                    }
-                                    else if($sflag == 0)
-                                    {
-                                        ?>
-						<li class="nav-item">
-                            <a href="Login-Register" class="nav-link">Login / Register</a>
-                        </li>
-                       <?php
-                                    }
-                                ?>
+											<li class="nav-item dropdown"> 
+											<a href="#" class="nav-link"><?php echo $_SESSION['user_full_name']; ?> <i class="icon-arrow-down"></i></a> 
+											<ul class="dropdown-menu nav-link" style="width:100%"> 
+											<li class="nav-item"><a href="page-services-1" class="nav-link">My Account</a></li> 
+											<li class="nav-item"><a href="logout.php" class="nav-link">Logout</a></li>
+											</ul>  
+											</li>
+										<?php
+									}
+									else if($sflag == 0)
+									{
+										?>
+										<li class="nav-item">
+											<a href="Login-Register" class="nav-link">Login / Register</a>
+										</li>
+									  <?php
+									}
+							?>
                     </ul>
 
                     <!-- Navbar Icons -->
