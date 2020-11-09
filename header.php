@@ -12,7 +12,7 @@
 ?>
 <style>
 .dropbtn {
-  background-color: #3498DB;
+
   color: white;
   padding: 16px;
   font-size: 16px;
@@ -21,7 +21,7 @@
 }
 
 .dropbtn:hover, .dropbtn:focus {
-  background-color: #2980B9;
+  
 }
 
 .dropdown {
@@ -190,7 +190,7 @@
                                     {
                                         ?>			
 										
-                        <li class="nav-item"  style="width:10%;">
+                        <!--<li class="nav-item"  style="width:10%;">
 									<a>
 									<span><i style="color:#4cda4c;" class="fa fa-circle" aria-hidden="true"></i> Welcome, <?php echo $_SESSION['user_full_name'];?></span>
 									</a>
@@ -200,19 +200,17 @@
 										<li><a href="Logout.php" class="nav-link">Logout</a></li>
 										
 									</ul>
-                           <!-- <a href="logout.php" class="nav-link">Logout</a>-->
-                        </li>
-						<div class="dropdown">
-															<a>
-									<span><i style="color:#4cda4c;" class="fa fa-circle" aria-hidden="true"></i> Welcome, <?php echo $_SESSION['user_full_name'];?></span>
-									</a>
-		<a onclick="myFunction()" class="dropbtn"><span><i style="color:#4cda4c;" class="fa fa-circle" aria-hidden="true"></i> Welcome, <?php echo $_SESSION['user_full_name'];?></span><a/>
+                           <!-- <a href="logout.php" class="nav-link">Logout</a>
+                        </li>-->
+					
+															 
+		<a class="dropbtn" onclick="myFunction()"><span>Welcome, <?php echo $_SESSION['user_full_name'];?></span></a>
   <div id="myDropdown" class="dropdown-content">
     <a href="#home">Change Password</a>
     <a href="#about">My Account</a>
     <a href="#contact">Logout</a>
   </div>
-</div>
+
 
 						
                         <?php
@@ -247,24 +245,4 @@
 
         </header>
 		
-		<script>
-/* When the user clicks on the button, 
-toggle between hiding and showing the dropdown content */
-function myFunction() {
-  document.getElementById("myDropdown").classList.toggle("show");
-}
-
-// Close the dropdown if the user clicks outside of it
-window.onclick = function(event) {
-  if (!event.target.matches('.dropbtn')) {
-    var dropdowns = document.getElementsByClassName("dropdown-content");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-      }
-    }
-  }
-}
-</script>
+		

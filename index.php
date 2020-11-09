@@ -834,6 +834,30 @@ Be Wise with Your Investments and Rise Your  Savings!</p>
 
         } );
     </script>
+ <script>
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+    //alert("Hello");
+  document.getElementById("myDropdown").classList.toggle("show");
+}
 
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+    //alert("Hello");
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    //alert(dropdowns.length);
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        //alert("Hello");
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>
     </body>
 </html>
