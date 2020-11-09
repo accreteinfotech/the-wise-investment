@@ -145,16 +145,15 @@
                 <div class="row">
                     <div class="col-6 p-0">
                         <form id="loginform" method="post" class="row m-auto items">
-										<?php
-                                            if(isset($_GET['pid']) && $_GET['pid']!=null)
-                                            {
-                                                ?>
-                                                 <input type="hidden" name="pid" id="pid" value="<?php echo $_GET['pid'];?>">
-                                                <?php
-                                            }
-                                        ?>
-
-                            <div class="col-12 col-lg-12 m-lg-0 input-group align-self-center item">
+						<?php
+							if(isset($_GET['pid']) && $_GET['pid']!=null)
+							{
+								?>
+								 <input type="hidden" name="pid" id="pid" value="<?php echo $_GET['pid'];?>">
+								<?php
+							}
+						?>
+							<div class="col-12 col-lg-12 m-lg-0 input-group align-self-center item">
                                 <input type="text" name="username" id="username" value="" class="form-control field-name" placeholder="Email">
                             </div>
                             <div class="col-12 col-lg-12 m-lg-0 input-group align-self-center item">
@@ -170,6 +169,14 @@
                     
                      <div class="col-6 p-0">
                         <form action="register_code.php" method="post" id="formsubmit" class="row m-auto items">
+							<?php
+								if(isset($_GET['pid']) && $_GET['pid']!=null)
+								{
+									?>
+									 <input type="hidden" name="pid" id="pid" value="<?php echo $_GET['pid'];?>">
+									<?php
+								}
+							?>
                             <div class="col-12 col-lg-12 m-lg-0 input-group align-self-center item">
                                 <input type="text" name="user_full_name" id="user_full_name" class="form-control field-name" placeholder="Full Name">
                             </div>

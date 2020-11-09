@@ -91,6 +91,7 @@
             
                 --footer-bg-color: #191919;
             }
+			
         </style>
         
     </head>
@@ -135,11 +136,18 @@
                     <main class="col-12 p-0">
                         <div class="bricklayer items columns-3">
                             <?php
-                            $sql=$link->rawQuery("select * from blog where is_active=1");
-                                if($sql)
-                                    {
-                                        foreach($sql as $cat)
-                                        {
+							if($sflag==1)
+							{
+								 $sql=$link->rawQuery("select * from blog where is_active=1");
+							}
+							else
+							{
+								 $sql=$link->rawQuery("select * from blog where is_active=1 LIMIT 1");
+							}
+                           if($link->count > 0)
+							{
+								foreach($sql as $cat)
+								{
                             ?>
                             <div class="card p-0 text-center item">
                                 <div class="image-over">
@@ -161,23 +169,17 @@
                                 }
                             }
                             ?>
-                            <!--<div class="card p-0 text-center item">
-                                <div class="image-over">
-                                    <img src="assets/images/news-2-h.jpg" alt="Lorem ipsum">
-                                </div>
-                                <div class="card-caption col-12 p-0">
-                                    <div class="card-body">
-                                        <a href="blog-detail.php">
-                                            <h4>Data scientists are a booming profession.</h4>
-                                        </a>
-                                    </div>
-                                    <div class="card-footer d-lg-flex align-items-center justify-content-center">
-                                        <a href="blog-detail.php" class="d-lg-flex align-items-center"><i class="icon-user"></i>John Doe</a>
-                                        <a href="blog-detail.php" class="d-lg-flex align-items-center"><i class="icon-clock"></i>3 Days Ago</a>
-                                    </div>
-                                </div>
-                            </div>-->  
-                        </div>
+                         </div>
+						 <div>
+						 <?php
+							if($sflag==0)
+							{
+								?>
+								<a href="Login-Register/Blog" style="color:#fff" id="step-next-1" class="step-next btn primary-button">Learn More<i class="icon-arrow-right-circle left"></i></a>
+								<?php
+							}
+						 ?>
+						 </div>
                     </main>
                 </div>
 
